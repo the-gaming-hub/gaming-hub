@@ -1,0 +1,364 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#not-reading-the-manuals">Not Reading The Manuals</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#selecting-incompatible-parts">Selecting Incompatible Parts</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#forgetting-motherboard-standoff-screws">Forgetting Motherboard Standoffs</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-on-an-unsafe-surface">Building On An Unsafe Surface</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#forgetting-the-motherboard-io-shield">Forgetting The Motherboard IO Shield</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#installing-memory-improperly">Installing Memory Improperly</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#fans-pushing-air-in-wrong-direction">Fans Pushing Air In Wrong Direction</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#incorrect-cpu-installation">Incorrect CPU Installation</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#install-components-after-motherboard">Install Components After Motherboard</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#remove-cpu-plastic-cover">Not Removing Plastic Cover Of CPU</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#plugging-cables-into-the-wrong-ports">Plugging Cables Into The Wrong Ports</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#adding-too-much-thermal-paste">Adding Too Much Thermal Paste</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#buying-cheap-psus">Buying Cheap PSUs</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#forgetting-to-plug-everything-in">Not Updating The BIOS Before Booting</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#not-keeping-hold-of-your-warranty">Not Keeping Hold Of Your Warranty</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p style="font-size:30px;" class="fs-5 mb-4">
+                                There are numerous considerations when building a new PC system. Everything must be considered from start to end,
+                                including component selection, PC assembly, and software installation after the construction is complete.
+                                Whether this is your first time building a PC or you've done it before,
+                                this article will lead you through the top 15 mistakes that people make.
+                                Avoiding these blunders can make your PC building process much easier! Let's check them out.
+                            </p>      
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#not-reading-the-manuals">Not Reading The Manuals</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#selecting-incompatible-parts">Selecting Incompatible Parts</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#forgetting-motherboard-standoff-screws">Forgetting Motherboard Standoffs</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-on-an-unsafe-surface">Building On An Unsafe Surface</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#forgetting-the-motherboard-io-shield">Forgetting The Motherboard IO Shield</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#installing-memory-improperly">Installing Memory Improperly</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#fans-pushing-air-in-wrong-direction">Fans Pushing Air In Wrong Direction</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#incorrect-cpu-installation">Incorrect CPU Installation</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#install-components-after-motherboard">Install Components After Motherboard</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#remove-cpu-plastic-cover">Not Removing Plastic Cover Of CPU</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#plugging-cables-into-the-wrong-ports">Plugging Cables Into The Wrong Ports</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#adding-too-much-thermal-paste">Adding Too Much Thermal Paste</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#buying-cheap-psus">Buying Cheap PSUs</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#forgetting-to-plug-everything-in">Not Updating The BIOS Before Booting</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#not-keeping-hold-of-your-warranty">Not Keeping Hold Of Your Warranty</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="not-reading-the-manuals">
+                            <h2 class="fw-bolder mb-4 mt-5" >Not Reading The Manuals</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                This is a huge one: read the manuals. Every part's manual is crucial,
+                                but the most important ones would definitely be your motherboard manual, your case manual,
+                                your PSU manual and your CPU manual.
+                                <br><br>    
+                                Unless you're a PC building specialist,
+                                you should read all of your manuals to ensure that you don't overlook any important information while building your PC.
+                                Mistakes during the construction process can necessitate disassembling and starting over, or, in the worst-case scenario, hardware damage.
+                                If you want to learn more about PC building, see our <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">How To Build A PC</a> guide.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="selecting-incompatible-parts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Selecting Incompatible Parts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                If you're using one of our builds, don't worry: we've already checked. Otherwise, 
+                                One of the most common mistakes New PC builders make is selecting incompatible components.
+                                For example, they may use the incorrect CPU or RAM with their motherboard.
+                                <br><br>
+                                For example, an Intel Core i7-9700K CPU and an LGA 1150 motherboard will not function since they are incompatible.
+                                If you want to use an Intel Core i7-9700K processor, you should go with an LGA 1151 socket motherboard.
+                                <br><br>
+                                Furthermore, matching DDR3 RAM with a motherboard that only supports DDR4 is a rookie mistake that can be avoided by using a service like PCPartPicker
+                                to select your components or consulting a professional PC builder before placing your order.
+                                <br><br>
+                                Moreover, using a service like PCPartPicker is useful for identifying compatible parts,
+                                but there is another factor to consider when matching PC hardware: bottlenecking.
+                                Bottlenecking is defined as a component that limits processing power or graphical performance,
+                                and it often occurs when two components' maximum capabilities are not equal. Fortunately,
+                                there are various online PC bottleneck calculators available to guarantee you're purchasing appropriate hardware.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="forgetting-motherboard-standoff-screws">
+                            <h2 class="fw-bolder mb-4 mt-5" >Forgetting Motherboard Standoff Screws</h2>
+                            <br>
+                            <p class="fs-5 mb-4"> 
+                                When opening your PC case for the first time, take note of the holes designed for securing your motherboard.
+                                However, avoid directly screwing the motherboard into these holes on the metallic interior,
+                                as it can lead to shorts, potentially damaging your hardware. Instead,
+                                use standoffs provided in the bag of screws that comes with your motherboard.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/motherboard standoffs.jpg" %}" alt="..." />
+                                <br>
+                                These standoffs elevate the motherboard, preventing direct contact with the metal case and reducing the risk of shorts.
+                                Ensure to install the standoffs before placing the motherboard in the case.
+                                Adding standoffs and risers is a crucial safety measure, creating a slight elevation that shields the motherboard's solder
+                                points and circuit traces from contact with the metal case. Always prioritize safety during installation!
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-on-an-unsafe-surface">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building On An Unsafe Surface</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                When embarking on the process of building your PC, selecting an appropriate workspace is crucial for a smooth assembly experience.
+                                Begin by identifying a spacious, well-lit, and secure area - ideally, a large table or desk.
+                                While it's technically possible to build a computer in a smaller space, opting for a larger surface proves advantageous
+                                due to the multitude of cables, screws, and components that require organization and accessibility during assembly.
+                                <br><br>
+                                It is imperative to avoid surfaces with the potential for static electricity, such as carpets and rugs.
+                                The presence of static electricity poses a risk to sensitive components. If you have access to a table,
+                                you're in the clear; simply ensure all materials are placed directly on the table surface. However,
+                                if a large table is unavailable or you must work on a static conductive surface, consider utilizing an anti-static wristband as a precautionary measure.
+                                The <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">Rosewill Antistatic Wrist Band</a> is a budget-friendly option that effectively minimizes the risk of unintentional component damage by preventing the build-up of static charge.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/anti static wrist band.jpg" %}" alt="..." />
+                                <br>
+                                In summary, prioritize a spacious, organized workspace on a non-conductive surface, such as wood,
+                                and exercise caution regarding static electricity. An anti-static wrist strap is a valuable investment
+                                for grounding yourself, enhancing the safety of your components during the PC building process.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="forgetting-the-motherboard-io-shield">
+                            <h2 class="fw-bolder mb-4 mt-5" >Forgetting The Motherboard IO Shield</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Ensuring a smooth PC building process requires attention to detail,
+                                and one crucial step is the timely installation of the motherboard's I/O shield.
+                                This small yet essential component is provided with your motherboard and should be inserted into your case before mounting the motherboard.
+                                Failure to do so can lead to complications, making the process more challenging, if not impossible, once the motherboard is in place.
+                                <br><br>
+                                But what is the I/O Shield? if you dont know The I/O shield is a part what allows for optimum air flow
+                                and grounding for the motherboard ports. The I/O shield helps ensure the motherboard is
+                                installed correctly and properly aligned with the case.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/mother board io sheild.jpg" %}" alt="..." />
+                                <br>
+                                If you overlook installing the I/O shield initially, rectifying the mistake necessitates
+                                unscrewing and disassembling components or maneuvering around the already mounted motherboard and GPU.
+                                To avoid this inconvenience, remember to install the I/O shield before securing the motherboard to the case.
+                                This proactive approach simplifies the assembly process and prevents the need for extensive rework or adjustments later on.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="installing-memory-improperly">
+                            <h2 class="fw-bolder mb-4 mt-5" >Installing Memory Improperly</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                When working with an even number of memory modules, such as 2 or 4, it is crucial to ensure proper spacing between them.
+                                Refer to your motherboard's manual to identify the correct slots for your RAM modules.
+                                Proper dual-channel configuration necessitates spacing between RAM sticks. Additionally, when installing RAM,
+                                make sure to push it all the way down until you hear a click, indicating a secure attachment.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/improper intallation of ram.jpg" %}" alt="..." />
+                                <br>
+                                It's important to note that, with the introduction of DDR5, mixing different capacities in channels or banks is currently not supported.
+                                If you have a kit of, for example, 2x8GB, you cannot add another set of 2x16GB later. When planning a DDR5 build,
+                                choose the appropriate capacity for your needs. While some DDR5 motherboards may receive BIOS updates in the future to provide
+                                more flexibility in memory capacity combinations, it's advisable to check with the manufacturer for the latest information on compatibility and updates.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="fans-pushing-air-in-wrong-direction">
+                            <h2 class="fw-bolder mb-4 mt-5" >Fans Pushing Air In Wrong Direction</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Ensuring proper airflow within your PC case is vital for effective cooling, especially when installing additional fans.
+                                While the fans that come with your case generally push air in the correct direction, it's essential to pay attention when adding your own.
+                                To prevent overheating, all fans, whether pre-installed or added, should be configured to push air toward the back or top of your case.
+                                Incorrectly installing case fans can lead to system overheating, a frustrating experience for any PC builder.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/case fans direction.jpeg" %}" alt="..." />
+                                <br>
+                                When dealing with pre-installed fans, they typically draw air in from the front and expel it from the rear,
+                                promoting effective airflow. However, if you decide to incorporate additional case fans into your build,
+                                take the time to understand their directional airflow. Coordinating the movement of cool air from one direction
+                                to the expulsion of warm air in the opposite direction enhances overall cooling efficiency. Therefore, before adding more fans to your PC,
+                                ensure you are familiar with the airflow direction of each fan to optimize your system's cooling capabilities.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="incorrect-cpu-installation">
+                            <h2 class="fw-bolder mb-4 mt-5" >Incorrect CPU Installation</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                For novice PC builders unfamiliar with the process,
+                                the potential mistake of incorrectly installing the CPU can lead to damaging or breaking its pins,
+                                depending on the force applied. Fortunately, determining the correct orientation for CPU installation is straightforward.
+                                Processors are equipped with markings on their corners, guiding users on the proper alignment with the motherboard's CPU socket.
+                                Aligning the marked corners ensures a secure fit without the risk of damaging the pins.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/cpu installation.jpg" %}" alt="..." />
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="install-components-after-motherboard">
+                            <h2 class="fw-bolder mb-4 mt-5" >Installing CPU, RAM, And Cooler After Installing Motherboard</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Did you know that, in most cases, you may install your CPU, RAM, and even your (Air)
+                                cooler on your motherboard before putting it in your case?
+                                <br><br>
+                                You are not need to do these steps initially, but doing so will make the PC building process much easier in the long run,
+                                so I strongly advise you to do so.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="remove-cpu-plastic-cover">
+                            <h2 class="fw-bolder mb-4 mt-5" >Forgetting To Remove Plastic Cover Or Apply Thermal Paste On New CPU Cooler</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Thermal paste, often known as TIM (thermal interface material), is an essential aspect of any PC setup.
+                                <br><br>
+                                Essentially, it allows your CPU to more efficiently transport heat to your cooler, where it can be dispersed
+                                to keep temperatures low and performance consistent.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/how thermal paste work.png" %}" alt="..." />
+                                <br>
+                                Most CPU coolers, including AMD and Intel stock coolers, come with pre-applied TIM. However,
+                                it may be covered with plastic, which you need remove before installing the cooler.
+                                <br><br>
+                                Furthermore, for the rare CPU coolers that do not have their own TIM,
+                                you must provide and apply your own thermal paste.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="plugging-cables-into-the-wrong-ports">
+                            <h2 class="fw-bolder mb-4 mt-5" >Plugging Cables Into The Wrong Ports</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                This error can be easily avoided if you verify all of the cords before proceeding.
+                                All cords must be connected to the correct input or your system will not switch on,
+                                and you risk damage the components. Plug-in locations are always listed in the manual.
+                                <br><br>
+                                A typical error among first-time builders, but make sure you connect your HDMI/DVI/etc
+                                connections to your graphics card rather than your motherboard's inbuilt video ports.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="adding-too-much-thermal-paste">
+                            <h2 class="fw-bolder mb-4 mt-5" >Adding Too Much Thermal Paste</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Careful consideration during thermal paste installation is crucial to prevent potential mess and ensure optimal thermal performance for your PC.
+                                Applying thermal paste requires a level of precision and finesse, requiring a delicate balance. Excessive paste can lead to seepage,
+                                causing damage, especially when dealing with liquid metal compounds. Conversely,
+                                too little thermal paste may result in overheating issues, which may go unnoticed.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/thermal paste.jpeg" %}" alt="..." />
+                                <br>
+                                For an ideal application, experts recommend placing a rice grain-sized drop of thermal paste in the center of the CPU's back.
+                                When installing the heatsink, the paste should evenly spread out. Overdoing thermal paste can compromise thermal performance,
+                                so it's advised to apply it in small amounts approximately the size of a pea or slightly smaller. Ensure even distribution by
+                                placing the cooler down evenly. Some coolers come with pre-applied thermal paste, and if this is the case, refrain from adding more;
+                                simply mount the cooler as usual, and the paste will apply automatically. By adhering to these guidelines,
+                                you can avoid potential complications and achieve efficient thermal conductivity for your PC components.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="buying-cheap-psus">
+                            <h2 class="fw-bolder mb-4 mt-5" >Buying Cheap PSUs</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                There's a difference between buying an affordable power supply and buying a cheap and low-quality one.
+                                However, if you're on a tight budget and the rest of your PC components aren't particularly "power-hungry,"
+                                it's fine to spend a little less on your power supply.
+                                <br><br>
+                                One of the best ways to pick a power supply is to roughly
+                                calculate how much power your components will consume. For this, you can use a PSU calculator tool like the one that
+                                OuterVision offers, but there are several other online power supply calculator options. Also, if you're using PCPartPicker
+                                to build your PC, they give you a rough estimate of how much power your computer will consume and which power supply can
+                                accommodate all the components.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/psu.jpg" %}" alt="..." />
+                                <br>
+                                Another important thing is to check your power supply's +12v railing rating amperage.
+                                This is where your graphics card will draw its power, which is the most power-hungry component of your PC.
+                                Again, OuterVision's CPU calculator will tell you this amperage rating. 
+                                <br><br>
+                                Furthermore, before buying a new power supply,
+                                check if it's a high-quality PSU or not at HardwareSecrets. They test the most popular power supplies on the market and
+                                give you a review based on their thorough testing.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="forgetting-to-plug-everything-in">
+                            <h2 class="fw-bolder mb-4 mt-5" >Not Updating The BIOS Before Booting(on certain Motherboards)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                This is only an issue with motherboards and sockets that support various generations of CPUs.
+                                <br><br>
+                                Many older AM4 motherboards receive BIOS upgrades that enable compatibility with more recent models of AM4 socket Ryzen CPUs;
+                                however, these updates are not always implemented before you, the end user, receive your motherboard.
+                                <br><br>
+                                Nothing bad will happen if you boot a computer with a BIOS-incompatible but physically compatible CPU in the socket.
+                                <br><br>
+                                However, you will be unable to accomplish anything because the motherboard does not recognize the CPU you have installed.
+                                <br><br>
+                                You can either contact your motherboard manufacturer  to request a loaner CPU to do the BIOS update,
+                                or you can update the BIOS without using a CPU if your motherboard supports it.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="not-keeping-hold-of-your-warranty">
+                            <h2 class="fw-bolder mb-4 mt-5" >Not Keeping Hold Of Your Warranty</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                All warranty information, manuals, etc.? Save them and keep them in an easily accessible location.
+                                If your products can be registered online through the manufacturer's website, do so as well.
+                                This ensures that if anything happens to your components, you can obtain RMAs and repairs at a lower cost and with more ease.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/top_15_mistakes_new_pc_builders_make/warranty.jpg" %}" alt="..." />
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

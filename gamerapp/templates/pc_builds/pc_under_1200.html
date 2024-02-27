@@ -1,0 +1,609 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">
+                                Lately, i seems like everyone is trying to build a new computer, but they're facing the same problems: parts are hard to find and prices are high.
+                                We understand how frustrating it is to plan your ideal setup only to find out you can't get half of the components
+                                But stressing over something you can't control won't help. That's where this article comes in.
+                                We've created a guide to show you the best PC you can build for under $1200, using parts that are actually available right now.
+                                It might not be exactly what you had in mind, but it delivers great performance and quality.
+                                <br><br>
+                                So, if you want to see the top gaming PC for under $1200, take a look at the full guide below.
+                            </p>                            
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-overview">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Overview</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                So, looking at the table, what can you expect from a PC like this?
+                                <br><br>
+                                In simple terms, you can expect an outstanding gaming experience for $1200. To explain further, this PC stands out in four areas: 
+                                streaming & VR gaming, upgrade options and Performance.
+                            </p>
+                                <hr>
+                                <h3>VR and Streaming</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Certainly, a PC capable of handling 4K gaming can also handle streaming effortlessly.
+                                    Regarding VR, while our less expensive PC builds can provide a glimpse into the VR experience, it's important to highlight 
+                                    that you'll only be scratching the surface. Compared to what this powerful machine can achieve, it's like getting a taste 
+                                    of VR versus fully immersing yourself in it.
+                                </p>
+                                <hr>
+                                <h3>Upgradeability</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Lastly, let's talk about upgradeability, a crucial factor we always consider when building at any price point. In this case, 
+                                    let's just say the sky's the limit when it comes to upgrades.
+                                    <br><br>
+                                    If you need more storage, go ahead and upgrade. Want a better cooler? No problem! Need more RAM? You can do that too. 
+                                    This flexibility is thanks to the excellent power supply and motherboard we've selected for this build.
+                                    <br><br>
+                                    Speaking of the motherboard, you can even upgrade the CPU without any hassle, thanks to the inclusion of a B760M model within our budget. 
+                                    However, this applies only if you opt for another Intel processor, but it's a great option to have. Of course, 
+                                    if you decide to switch to AMD later, that's a different story altogether.
+                                </p>
+                                <hr>
+                                <h3>Performance</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Without a doubt, the most convincing aspect of this build is its capability for 4K gaming. Achieving 4K resolution is a 
+                                    dream for many gamers, and this PC can make it a reality.
+                                    <br><br>
+                                    Its gaming performance is impressive. This PC can easily maintain a smooth 60 frames per second (FPS) 
+                                    experience with just a few graphics settings adjusted slightly. Even at ultra presets, you can expect an 
+                                    average of around 50FPS in most games, and even the most demanding AAA titles won't drop below 30FPS.
+                                    <br><br>
+                                    Overall, if you want to elevate your gaming experience to the next level without breaking the bank, this PC is the way to go.
+                                </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-build">
+                            <div>
+                                <h2 class="fw-bolder mb-4 mt-5" >The PC Build</h2>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Click on the product images to go to Amazon,
+                                    where you can see additional high-resolution images and check the current price.
+                                    Prices may be greater than $1200 due to price changes.
+                                <p>
+                                <div class="pc-comp-row" >
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_cpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                     <div class="pc-comp-name">
+                                        CPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Intel Core i5-13600KF
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_gpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        GPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        XFX SPEEDSTER RX 6800
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_cooler.jpg ' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Cooler
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        DeepCool LS720 
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_motherboard.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Motherboard
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        ASRock B760M PG Sonic 
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img  class="card-img-top" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_ram.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        RAM
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        G.SKILL Trident Z5 RGB Series 32GB (2x16GB) 6400MHz
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_storage.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Storage
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        WD Black SN850X 2TB
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_psu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Power Supply
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Montech Century G5 750W
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_case.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Case
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Phanteks Eclipse G300A
+                                    </div>                           
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <a class="btn pc-build-button" type="button">ORDER THIS BUILD</a>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="components">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Components</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Now that we've given you an overview of the build and what you can expect from it,
+                                let's go further into each component, beginning with the build's brain.
+                            <p>
+                            <br>
+                            <h3>CPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_cpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Intel Core i5-13600KF</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>3.5GHz - 5.1GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>14 (24)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>LGA 1700</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>TDP</th>
+                                                    <td>125W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The Intel Core i5 13600K is currently our top pick for gaming <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">CPUs</a>. It's fantastic for multitasking and competes with 
+                                        the pricier Core i9 12900K in both single-threaded and multi-threaded performance tests. This version is the "F" 
+                                        variant, which doesn't include an integrated <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">GPU</a> but is essentially the same otherwise.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>GPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_gpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">XFX SPEEDSTER RX 6800</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>1700MHz - 2105MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stream Processors</th>
+                                                    <td>3840</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Video Memory Size</th>
+                                                    <td>16GB GDDR6</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>267mm x 120mm x 40mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PSU Required</th>
+                                                    <td>600W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The most exciting aspect of this build is definitely snagging a Radeon RX 6800 for significantly less than $400. 
+                                        During the peak of the pandemic and crypto frenzy, people were shelling out four or five times this amount for 
+                                        one of these cards. With 16GB of memory and a 256-bit interface, this graphics card outperforms both Nvidia's 
+                                        4060 Ti and AMD's RX 7700 XT.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Cooler</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_cooler.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">DeepCool LS720(360mm)</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>LGA1700</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Fan Size</th>
+                                                    <td>120mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Fan Thickness</th>
+                                                    <td>25mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Pump Speed</th>
+                                                    <td>3100rpm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Number of Fans</th>
+                                                    <td>3</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Fan Speed</th>
+                                                    <td>500rpm - 2250rpm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        An incredibly budget-friendly 360mm radiator bundled with three sleek fans from a trustworthy cooling company? That sums up the gist of it. 
+                                        Since the i5-13600K can demand a lot of power, a basic air cooler wouldn't suffice, but this all-in-one (AIO) cooler will keep things 
+                                        cool as ice during your gaming sessions.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Motherboard</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_motherboard.png' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">ASRock B760M PG Sonic</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Chipset</th>
+                                                    <td>Intel B760 Express</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>LGA 1700</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Form Factor</th>
+                                                    <td>mATX</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        Did I choose this <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">motherboard</a> solely because it features Sonic the Hedgehog? No, but I must admit, it does add a cool touch to the build. 
+                                        However, putting jokes aside, this motherboard is actually packed with features that make it a great choice for a budget build. 
+                                        It offers plenty of M.2 slots, supports Gen 5 PCIe, includes built-in Wi-Fi, and features a high-speed LAN adapter. We were already 
+                                        impressed with it at its full price, so getting it at a discount feels like a steal.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>RAM</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_ram.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">G.SKILL Trident Z5 RGB Series DDR5</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>6400MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>32GB (2x16GB)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Timings</th>
+                                                    <td>34-45-45-115</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CAS Latency</th>
+                                                    <td>32</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>121.9mm x 150.1mm x 14.9mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        This <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RAM</a> kit has received excellent reviews, striking a balance between overall speed and low latency. 
+                                        Considering its price, it's unlikely you'll find anything better.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Storage</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_storage.png' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">WD Black SN850X</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Read/Write</th>
+                                                    <td> 7,300MB/s - 6,300MB/s  </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>2TB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interface</th>
+                                                    <td>PCI-Express 4.0 x4</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        Our preferred <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">SSD</a> for gaming at the moment. While it frequently goes on sale, this deal isn't uncommon, yet it remains the top choice 
+                                        in terms of price and performance. The <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">SN850X</a> embodies the peak performance that PCIe 4.0 technology offers. 
+                                        This makes it an excellent choice for a boot drive with ample space for your game library.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Power Supply</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_psu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Montech Century G5</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Wattage</th>
+                                                    <td>750W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Efficiency</th>
+                                                    <td>80+ Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>ATX 3/ PCie5 support</th>
+                                                    <td>Yes</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Modularity</th>
+                                                    <td>Fully modular</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        I recall a year when <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">power supplies</a> were incredibly affordable, almost being handed out for free, and another year when issues in 
+                                        manufacturing led to significantly higher prices. This year seems to strike a good balance, with this model from the reputable 
+                                        Taiwanese peripheral manufacturer Montech receiving a notable discount.
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Case</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1200/pc_under_1200_usd_case.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Phanteks Eclipse G300A</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Mid-tower ATX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Motherboard Compatibility</th>
+                                                    <td>ATX, Micro ATX, Mini ITX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Included Fans</th>
+                                                    <td>1x 120mm fan</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Side Window</th>
+                                                    <td>Tempered Glass</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>400mm x 200mm x 465mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        Phanteks is known for consistently producing quality cases, and this one is a steal at just $35. It offers ample space for your micro-ATX <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">motherboard</a>, 
+                                        a large <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">GPU</a>, and even a front-mounted 360mm radiator. There's sufficient clearance for the DeepCool <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">fans</a>, and despite being a budget 
+                                        case, it comes with several nice features, including a front panel USB-C port and removable dust filters.
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-tips">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building Tips</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                While having an excellent $1200 rig is exciting, the actual assembly process is equally important as choosing the right components.
+                                <br><br>
+                                For novices, it's vital to be aware of <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}" style="color:#a00000;text-decoration: underline;">common mistakes that new PC builders often encounter</a>. Additionally, 
+                                it's perfectly normal to have <a href="{% url "common-asked-questions-about-pc-building" %}" style="color:#a00000;text-decoration: underline;">questions about PC building</a>, so don't hesitate to seek additional help if necessary. 
+                                There's no shame in needing assistance, everyone begins somewhere.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="closing-thoughts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Closing Thoughts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                And with that, we've completed this fantastic $1200 build. Now, all that remains is to assemble the components.
+                                <br><br>
+                                This step can feel daunting for first-time builders, often overshadowing the benefits of building a PC. However, there are few things as rewarding as powering up a PC you've assembled yourself for the first time and seeing it function flawlessly. Additionally, we can assure you that, regardless of budget, a custom-built PC will always outperform a prebuilt one at the same price point.
+                                <br><br>
+                                So, if you're aiming for the best gaming performance $1200 can offer, rest assured that no prebuilt solution can rival this setup, and if you wanna learn more take a look at out article about <a href="{% url "prebuilt-vs-custom-pc" %}" style="color:#a00000;text-decoration: underline;">prebuilt vs custom build PC</a>,
+                                <br><br>
+                                Now, as mentioned earlier, the $1200 budget was allocated for the main build only. If your budget includes peripherals, consider exploring our cheaper builds like the $1000 or $800 options. While they may not match the sheer power of this $1200 build, they still offer impressive performance at a lower cost.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

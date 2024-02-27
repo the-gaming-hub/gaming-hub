@@ -1,0 +1,620 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">
+                                Nowadays, you can build a decent gaming PC without breaking the bank! Despite the ongoing shortage of GPUs, we've put in our
+                                best effort to provide you with a great option, so keep reading!
+                                In this guide, we present the top gaming PC you can assemble for $600!
+                                <br><br>
+                                Let's dive into the specifics of this $600 gaming PC build.
+                            </p>                            
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-overview">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Overview</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                In this guide, we'll suggest the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">top gaming PC</a> setup for less than $600 and explain everything needed to turn a set of hardware pieces into
+                                a fully functional gaming setup. We regularly update our recommendations to include the latest and best hardware options within the budget.
+                                Although $600 is still considered entry-level, there's room to upgrade to a better <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">graphics card</a>.
+                                <br><br>
+                                But before we delve into the hardware details, let's quickly discuss the performance and features you can expect from this PC.
+                                Additionally, we'll touch on what makes our build unique and the compromises we made to maximize performance within the budget.
+                            </p>
+                                <hr>
+                                <h3>PC hardware deals</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    When building your next gaming PC, snagging deals on certain components is a smart way to get more bang for your buck.
+                                    You can scout for discounts on GPUs, CPUs, coolers, motherboards, power supplies, and cases. Even outside of big sales events,
+                                    there are often savings to be had, allowing you to shave off a few bucks here and there.
+                                </p>
+                                <hr>
+                                <h3>PC Budget</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    As with all our builds, the main priority is to recommend a PC parts list that falls within the specified budget, which in this case is $600.
+                                    While that might seem like a decent budget, it's actually quite challenging to put together a capable rig at this price point.
+                                    <br><br>
+                                    This means we had to make some compromises with this build to stay within the $600 limit. We opted for an older CPU and GPU combination and
+                                    included a smaller SSD to keep costs down. However, despite these compromises, the build we've outlined below is currently the best option
+                                    under $600 and offers easy upgradeability in the future.
+                                </p>
+                                <hr>
+                                <h3>Performance</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    For many people, the most crucial aspect of a custom PC build is its performance. After considering the price, the next thing to think about is how powerful
+                                    the build is and whether it justifies the cost. With a relatively strong GPU for 1080p gaming and a capable multicore processor,
+                                    this build offers everything you need to play most games smoothly. However, if you plan on gaming at higher resolutions like 1440p or above,
+                                    you might need a more powerful setup. 
+                                    <br><br>
+                                    Our build comes with a reasonably fast SSD storage solution, so you won't experience long boot times or slow game loading.
+                                    However, you might want to expand its storage capacity in the future. Overall, given the current limitations and constraints,
+                                    we're quite pleased with the performance of our $600 custom PC.
+                                </p>
+                                <hr>
+                                <h3>AMD vs Intel</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    You might be curious why we've suggested an Intel CPU for this build. The CPU we've chosen is budget-friendly and, although
+                                    it's from a previous generation, it still delivers solid performance. Naturally, opting for this CPU allows us to prioritize
+                                    fitting a better GPU into the build.
+                                    <br><br>
+                                    Regarding the ongoing debate between AMD and Intel, it's essential to consider upgrade options. Currently, the motherboard
+                                    we've selected offers the potential to upgrade to a superior CPU in the future, along with faster RAM if needed.
+                                    This provides some flexibility for enhancing the build down the line. 
+                                </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-build">
+                            <div>
+                                <h2 class="fw-bolder mb-4 mt-5" >The PC Build</h2>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Click on the product images to go to Amazon,
+                                    where you can see additional high-resolution images and check the current price.
+                                    Prices may be greater than $600 due to price changes.
+                                <p>
+                                <div class="pc-comp-row" >
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_cpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                     <div class="pc-comp-name">
+                                        CPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Intel Core i3-12100F
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_gpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        GPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        AMD Radeon RX 6650 XT
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_motherboard.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Motherboard
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        MSI PRO H610M-G
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_ram.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        RAM
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Patriot Viper Steel Series DDR4 16GB (2 x 8GB) 3200MHz
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_storage.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Storage
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        WD Blue SN580 500GB 
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_psu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Power Supply
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Thermaltake Toughpower GX2 80+ Gold 600W
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_case.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Case
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Cooler Master MasterBox Q300L
+                                    </div>                           
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <a class="btn pc-build-button" type="button">ORDER THIS BUILD</a>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="components">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Components</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Now that we've given you an overview of the build and what you can expect from it,
+                                let's go further into each component, beginning with the build's brain.
+                            <p>
+                            <br>
+                            <h3>CPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_cpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Intel Core i3-12100F</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>3.3GHz - 4.3GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>4 (8)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>Lga 1700</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The Intel Core i3-12100F is an older-generation budget CPU from the brand.
+                                        <br><br>
+                                        The 12100F boasts 4 cores and 8 threads, with a base clock speed of 3.3GHz that can be boosted up to 4.3GHz.
+                                        This level of performance should be more than sufficient for running most games at 1080p and handling medium
+                                        to high-demanding tasks smoothly. Additionally, you shouldn't encounter any bottleneck issues anytime soon with
+                                        this processor, as it pairs well with the RAM and is perfect for those aiming to build a budget gaming PC.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>GPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_gpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">AMD Radeon RX 6650 XT</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>2055MHz - 2635MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stream Processors</th>
+                                                    <td>2048</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SockMemory Size</th>
+                                                    <td>8GB GDDR6</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>190mm x 110mm x 40mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PSU Required</th>
+                                                    <td>500W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        With ample room in the budget for an entry-level graphics card, we've chosen the affordable AMD Radeon RX 6650 XT.
+                                        This card delivers decent performance in 1080p gaming. While you should manage your expectations for modern titles,
+                                        it excels in esports games.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Motherboard</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_motherboard.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">MSI PRO H610M-G</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Chipset</th>
+                                                    <td>H610</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>LGA 1700</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Form Factor</th>
+                                                    <td>mATX</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        This motherboard is not only a great value for its price but also compatible with Intel's latest generation of processors.
+                                        <br><br>
+                                        While the motherboard doesn't significantly impact gaming performance, having a reliable and stable board that can support
+                                        your components is crucial. And that's precisely what this board provides. While it may not be the
+                                        absolute <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">best motherboard</a> on the market, considering its price, it's challenging to find a more suitable option.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>RAM</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_ram.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Patriot Viper Steel Series DDR4</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>3200MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>16GB (2x8GB)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Timings</th>
+                                                    <td>16-18-18-36</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CAS Latency</th>
+                                                    <td>16</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>44.4mm x 135.7mm x 7mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The Patriot Viper Steel 16GB RAM kit delivers outstanding price-to-performance ratio.
+                                        In our $600 gaming PC build, we've chosen 16GB of DDR4 3200MHz RAM to ensure it has ample power
+                                        to handle even the most demanding game titles.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Storage</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_storage.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">WD Blue SN580</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Read/Write</th>
+                                                    <td>4,000MB/s - 3,600MB/s  </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>500GB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interface</th>
+                                                    <td>NVMe</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        A <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">solid-state drive</a>(SSD) is a crucial hardware component, and we strongly suggest installing your operating system on it.
+                                        Alternatively, you can use your SSD as a cache. SSDs provide significant performance improvements for desktop usage, faster boot times,
+                                        and much quicker loading times in games. With a 500GB capacity, this SSD offers plenty of space for your media files and games.
+                                        However, you may need to consider upgrading or adding more storage in the future.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Power Supply</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_600/pc_under_600_usd_psu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Thermaltake Toughpower GX2 80+ Gold</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Wattage</th>
+                                                    <td>600W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Efficiency</th>
+                                                    <td>Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Modularity</th>
+                                                    <td>Non-modular</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        At this budget, we have to make compromises to meet our performance goals. In the $600 build, we've included a 600W non-modular power supply unit (PSU).
+                                        Thanks to the case chosen for this build, cable management should be quite manageable. Below is a detailed list of our <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">top gaming power supplies</a>.
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Case</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_500/pc_under_500_usd_case.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Cooler Master MasterBox Q300L</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Mini-Tower</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Motherboard Compatibility</th>
+                                                    <td>Micro-ATX and Mini-ITX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Included Fans</th>
+                                                    <td>1 x 120mm rear fan</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>391.1 mm x 230.1 mm x 381 mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        The Cooler Master Q300L PC case is designed to keep your system cool right from the start,
+                                        featuring one pre-installed 120mm fan. While it may not be revolutionary, considering its price, it's a solid deal.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="points-to-consider">
+                            <h2 class="fw-bolder mb-4 mt-5" >Points To Consider</h2>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                Now that you've got a good grasp of how this build performs and what parts it includes, you're probably starting to figure out if
+                                it's right for you. But before you make up your mind, there are some important things to think about.
+                                <br><br>
+                                Let's break down the key points you need to consider before deciding whether this build is the right choice for you.
+                                By looking at these factors closely, you can make sure it matches your gaming needs perfectly.
+                                <br><br>
+                                So, let's jump in and talk about what you need to know before you buy this build.
+                            </p>
+                            <br><br>
+                            <h3>$600 Budget</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                We've previously mentioned the budget constraints at the beginning of this article, but one thing we didn't delve into was the relationship between a PC's
+                                price and the performance it delivers. Each build offers varying levels of performance, so selecting the right PC should begin with considering its price.
+                                We aimed for a budget under $600 and believe we've achieved the highest level of performance possible within this price range. Our build is capable of delivering
+                                an immersive gaming experience at 1080p across popular AAA titles, often achieving over 60FPS. However, if you're seeking a PC for high-end tasks like
+                                4k gaming, VR, and heavy multitasking simultaneously, you may want to explore one of our <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">premium builds</a>.
+                            </p>
+                            <hr>
+                            <h3>Ease Of Building</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                For first-time builders, it's essential to consider how easy a custom build is to assemble. Some projects can be more complex than others.
+                                Our build utilizes builder-friendly cases, making the assembly process easier. With features like a PSU shroud, life is automatically made a bit simpler,
+                                and <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">cable management</a> is fairly straightforward as well.
+                                <br><br>
+                                While many people may not think static charges are an issue, for those who do, we've put together a helpful article on <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">anti-static equipment</a> 
+                                to demonstrate how to use it effectively. Additionally, each build includes its own stock cooler with pre-applied thermal paste. However,
+                                if you're interested in <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">premium thermal paste</a>, we've got you covered as well.
+                            </p>
+                            <hr>
+                            <h3>Upgradability And Future-Proofing</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Before purchasing a custom build, one of the crucial factors to consider is its upgradability and future-proofing. You don't want to end up in a
+                                situation where upgrading your build becomes overly complicated. Fortunately, we've already taken this into account for you. The components we've chosen
+                                for our build are open to expansion, allowing for additional storage, faster RAM, larger GPUs, and even better CPUs in the future.
+                            </p>
+                            <hr>
+                            <h3>Overclocking</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Overclocking can provide a significant performance boost to your build without any extra cost, which is undoubtedly appealing.
+                                However, it's essential to understand that overclocking comes with risks, especially if you're not familiar with it.
+                                Using incompatible hardware or improper settings can lead to serious consequences.
+                                <br><br>
+                                If you're considering overclocking your build, there are a few key factors to keep in mind. Cooling is crucial.
+                                While both of our builds come with a stock cooler that can handle a small amount of overclocking, if you plan to push your CPU further,
+                                investing in a more <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">powerful cooling solution</a> is highly recommended.
+                            </p>
+                            <hr>
+                            <h3>Non-Gaming Performance</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                We've confirmed that our build excels in gaming, but how does it perform in other areas like multitasking and handling heavy workloads?
+                                The answer is quite promising. The AMD chip in our build is better suited for multitasking and handling heavy workloads,
+                                thanks to its multi-threaded nature. This aspect is worth considering before purchasing because many <a href="{% url "budget-pc-builds" %}" style="color:#a00000;text-decoration: underline;">entry-level builds</a> struggle with heavy workloads.
+                            </p>
+                            <hr>
+                            <h3>Aesthetics</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Lastly, let's talk about aesthetics. Typically, aesthetics receive less attention when building an entry-level PC because visually appealing hardware
+                                often comes with a higher price tag. However, we've still managed to include an attractive case with <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">tempered glass</a> in this build.
+                                If you're interested in enhancing the aesthetic appeal of your build, adding <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RGB fans</a> and lighting strips can really <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">elevate the look of your PC</a>.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-tips">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building Tips</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                If you're a first-time PC builder or feeling a bit rusty because it's been a while, it's crucial to take advantage of the wealth
+                                of information available to ensure both you and your PC stay safe.
+                                <br><br>
+                                In fact, we've put together a list of <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}" style="color:#a00000;text-decoration: underline;">common mistakes that newbie PC builders should avoid</a>, as well as answers to <a href="{% url "common-asked-questions-about-pc-building" %}" style="color:#a00000;text-decoration: underline;">common
+                                questions you might have during the building process</a>. This resource can help address any gaps in your knowledge and ensure a smooth building experience.
+                            </p>
+                            
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="closing-thoughts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Closing Thoughts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                There you have it, our comprehensive guide to the best custom PC for under $600. This build includes everything a
+                                budding gamer needs to jump into the action at 1080p and should last for a few years to come.
+                                Our build offers outstanding value for money and delivers excellent performance. Additionally,
+                                we've provided a prebuilt option for those who may not feel comfortable tackling this project themselves.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

@@ -1,0 +1,326 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Gaming Hub</title>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/stars_background.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/light-theme.css' %}">
+        {% comment %} ----nav bar---- {% endcomment %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        
+
+    </head>
+    <nav id = "navbar">
+      <div class="wrapper">
+        <div class="logo"><a href="{% url "home" %}"><img src="{% static 'images/logo.png' %}" width="150" height="43" alt="Logo"></a></div>
+        <input type="radio" name="slider" id="menu-btn">
+        <input type="radio" name="slider" id="close-btn">
+        <ul class="nav-links">
+          <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+          <li>
+            <a href="{% url "buying-guide" %}" class="desktop-item">Buying Guide  <span style="font-size: 9px;position: relative; top: -3px;left:3px;">▼</span></a>
+            <input type="checkbox" id="showMega-buying-guide">
+            <label for="showMega-buying-guide" class="mobile-item">Buying Guide  <span style="font-size: 15px;position: relative; top: -3px;left:3px;">▼</span></label>
+            <div class="mega-box">
+              <div class="content">
+                {% comment %} <div class="row">
+                  <img src="{% static 'images/logo.png' %}" alt="">
+                </div> {% endcomment %}
+                <div class="row">
+                  <a href="{% url "coming-soon" %}"><header class="menu-header">Best PC components</header></a>
+                  <ul class="mega-links" style="margin-bottom:20px;">
+                    <li><a href="{% url "coming-soon" %}">CPUs</a></li>
+                    <li><a href="{% url "coming-soon" %}">CPU Coolers</a></li>
+                    <li><a href="{% url "coming-soon" %}">GPUs</a></li>
+                    <li><a href="{% url "coming-soon" %}">Motherboards</a></li>
+                    <li><a href="{% url "coming-soon" %}">Ram</a></li>
+                    <li><a href="{% url "coming-soon" %}">SSDs</a></li>
+                    <li><a href="{% url "coming-soon" %}">PSUs</a></li>
+                    <li><a href="{% url "coming-soon" %}">Cases</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "coming-soon" %}"><header class="menu-header">Best Gaming Peripherals</header></a>
+                  <ul class="mega-links  margin-top-100">
+                    <li><a href="{% url "coming-soon" %}">Keyboards</a></li>
+                    <li><a href="{% url "coming-soon" %}">Mouse</a></li>
+                    <li><a href="{% url "coming-soon" %}">Monitors</a></li>
+                    <li><a href="{% url "coming-soon" %}">Headsets</a></li>
+                    <li><a href="{% url "coming-soon" %}">Mouse Pads</a></li>
+                    <li><a href="{% url "coming-soon" %}">Gaming Chairs</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "coming-soon" %}"><header class="menu-header">Best Gaming Laptops</header></a>
+                  <ul class="mega-links"  style="margin-top:-180px;">
+                    <li><a href="{% url "coming-soon" %}"></a></li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="{% url "knowledge-base" %}" class="desktop-item">Knowledge Base  <span style="font-size: 9px;position: relative; top: -3px;left:3px;">▼</span></a>
+            <input type="checkbox" id="showMega-knowledge-base">
+            <label for="showMega-knowledge-base" class="mobile-item">Knowledge Base  <span style="font-size: 15px;position: relative; top: -3px;left:3px;">▼</span></label>
+            <div class="mega-box">
+              <div class="content">
+                {% comment %} <div class="row">
+                  <img src="{% static 'images/logo.png' %}" alt="">
+                </div> {% endcomment %}
+                <div class="row">
+                  <a href="{% url "pc-knowledge" %}"><header class="menu-header">PC Knowledge</header></a>
+                  <ul class="mega-links">
+                    <li><a href="{% url "prebuilt-vs-custom-pc" %}">Prebuilt vs Custom PC</a></li>
+                    <li><a href="{% url "coming-soon" %}">#######</a></li>
+                    <li><a href="{% url "coming-soon" %}">#######</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "pc-building-tips" %}"><header class="menu-header">PC Building Tips</header></a>
+                  <ul class="mega-links" style="min-width: 350px;">
+                    <li><a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}">Top Mistakes New PC Builders Make</a></li>
+                    <li><a href="{% url "common-asked-questions-about-pc-building" %}">Common PC Building Questions</a></li>
+                    <li><a href="{% url "the-12-best-custom-pc-builder-websites" %}">Custom PC Builder Websites</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "gaming-knowledge" %}"><header class="menu-header">Gaming Knowledge</header></a>
+                  <ul class="mega-links">
+                    <li><a href="{% url "coming-soon" %}"></a></li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="{% url "reviews" %}" class="desktop-item">Reviews  <span style="font-size: 9px;position: relative; top: -3px;left:3px;">▼</span></a>
+            <input type="checkbox" id="showMega-reviews">
+            <label for="showMega-reviews" class="mobile-item">Reviews  <span style="font-size: 15px;position: relative; top: -3px;left:3px;">▼</span></label>
+            <div class="mega-box">
+              <div class="content">
+                {% comment %} <div class="row">
+                  <img src="{% static 'images/logo.png' %}" alt="">
+                </div> {% endcomment %}
+                <div class="row">
+                  <a href="{% url "coming-soon" %}"><header class="menu-header">PC components</header></a>
+                  <ul class="mega-links" style="margin-bottom:20px;">
+                    <li><a href="{% url "coming-soon" %}">CPUs</a></li>
+                    <li><a href="{% url "coming-soon" %}">CPU Coolers</a></li>
+                    <li><a href="{% url "coming-soon" %}">GPUs</a></li>
+                    <li><a href="{% url "coming-soon" %}">Motherboards</a></li>
+                    <li><a href="{% url "coming-soon" %}">Ram</a></li>
+                    <li><a href="{% url "coming-soon" %}">SSDs</a></li>
+                    <li><a href="{% url "coming-soon" %}">PSUs</a></li>
+                    <li><a href="{% url "coming-soon" %}">Cases</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "gaming-peripherals-reviews" %}"><header class="menu-header">Gaming Peripherals</header></a>
+                  <ul class="mega-links margin-top-100">
+                    <li><a href="{% url "keyboards-reviews" %}">Keyboards</a></li>
+                    <li><a href="{% url "mouses-reviews" %}">Mouse</a></li>
+                    <li><a href="{% url "monitors-reviews" %}">Monitors</a></li>
+                    <li><a href="{% url "headsets-reviews" %}">Headsets</a></li>
+                    <li><a href="{% url "mouse-pads-reviews" %}">Mouse Pads</a></li>
+                    <li><a href="{% url "gaming-chairs-reviews" %}">Gaming Chairs</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "coming-soon" %}"><header class="menu-header">Games</header></a>
+                  <ul class="mega-links margin-top-180">
+                    <li><a href="{% url "coming-soon" %}">Fortnite</a></li>
+                    <li><a href="{% url "coming-soon" %}">Valorant</a></li>
+                    <li><a href="{% url "coming-soon" %}">League Of Legends</a></li>
+                    <li><a href="{% url "coming-soon" %}">Rocket League</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="{% url "pc-builds" %}" class="desktop-item">PC Builds  <span style="font-size: 9px;position: relative; top: -3px;left:3px;">▼</span></a>
+            <input type="checkbox" id="showMega-pcbuilds">
+            <label for="showMega-pcbuilds" class="mobile-item">PC Builds  <span style="font-size: 15px;position: relative; top: -3px;left:3px;">▼</span></label>
+            <div class="mega-box">
+              <div class="content">
+                {% comment %} <div class="row">
+                  <img src="{% static 'images/logo.png' %}" alt="">
+                </div> {% endcomment %}
+                <div class="row">
+                  <a href="{% url "budget-pc-builds" %}" style="margin-left:25px;"><header class="menu-header">Budget PC Builds</header></a>
+                  <ul class="mega-links margin-top-50" style="margin-left:-15px;">
+                    <li><a href="{% url "best-gaming-pc-under-300-usd-in-2024" %}">$300</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-400-usd-in-2024" %}">$400</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-500-usd-in-2024" %}">$500</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-600-usd-in-2024" %}">$600</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "mid-range-pc-builds" %}"><header class="menu-header">Mid-Range PC Builds</header></a>
+                  <ul class="mega-links margin-top-50">
+                    <li><a href="{% url "best-gaming-pc-under-700-usd-in-2024" %}">$700</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-800-usd-in-2024" %}">$800</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-1000-usd-in-2024" %}">$1000</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-1200-usd-in-2024" %}">$1200</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "high-end-pc-builds" %}"><header class="menu-header">High-End PC Builds</header></a>
+                  <ul class="mega-links" style="margin-bottom:10px;">
+                    <li><a href="{% url "best-gaming-pc-under-1500-usd-in-2024" %}">$1500</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-2000-usd-in-2024" %}">$2000</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-3000-usd-in-2024" %}">$3000</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-4000-usd-in-2024" %}">$4000</a></li>
+                    <li><a href="{% url "best-gaming-pc-under-5000-usd-in-2024" %}">$5000</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <a href="{% url "pc-building-tips" %}"><header class="menu-header">PC Building Tips</header></a>
+                  <ul class="mega-links" style="margin-bottom:10px;">
+                    <li><a href="{% url "prebuilt-vs-custom-pc" %}">Prebuilt vs Custom PC</a></li>
+                    <li><a href="{% url "the-12-best-custom-pc-builder-websites" %}">Custom PC Builder Websites</a></li>
+                    <li><a href="{% url "coming-soon" %}">CPU Hierarchy</a></li>
+                    <li><a href="{% url "coming-soon" %}">GPU Hierarchy</a></li>
+                    <li><a href="{% url "coming-soon" %}">PSU Hierarchy</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="{% url "coming-soon" %}">Prebuilts</a></li>
+          <li><a href="{% url "coming-soon" %}">News</a></li>
+          <li>  
+            <div class="input-group" style="margin-top:18px;margin-left:30px;">
+                <form id="searchForm">
+                  <input id="searchInput" class="form-control" type="text" placeholder="What are you looking for ?" aria-label="What are you looking for..." aria-describedby="button-search" />
+                </form>
+            </div>
+          </li>
+        </ul>
+        <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+      </div>
+    </nav>
+    {% if request.path != '/' %}
+      {% if request.path|slice:"0:8" == '/search/' or request.path == '/coming-soon/' %}
+        {% else %}
+        <div class="path">
+            <a href="{% url "home" %}">Home</a> » {% if review %}<a href="{% url review.main_category.slug %}">{{review.main_category.name}}</a> » <a href="{% url review.sub_category.slug %}">{{review.sub_category.name}}</a> {% if review.sub_subcategory %}» <a href="{% url review.sub_subcategory.slug %}">{{review.sub_subcategory.name}}</a>{% endif %} » <a style="color:#a00000;">{{review.topic}}</a>{% else %}<a style="color:#a00000;">{{current_page}}</a>{% endif %}
+        </div>
+        {% endif %}
+    {% endif %}
+    <body id="content">
+        <!-- Responsive navbar-->
+        {% if request.path == '/' or request.path == '/pc-builds/' or request.path == '/reviews/' or request.path == '/buying-guide/' or request.path == '/knowledge-base/' or request.path == '/coming-soon/' %}
+            {% block homebody %}
+            {% endblock homebody %}
+        {% elif request.path|slice:"0:8" == '/search/' %}
+        <div class="container mt-5">
+            <div class="row">
+              
+                {% block searchbody %}
+                {% endblock searchbody %}
+                {% include "partials/right_side_widget.html" %}
+            </div>
+        <div>
+        {% else %}
+            <div class="container mt-5">
+                <div class="row">
+                  
+                    {% block body %}
+                    {% endblock body %}
+                    {% include "partials/right_side_widget.html" %}
+                </div>
+            <div>
+        {% endif %}
+        {% comment %} <button id="mode-toggle">Toggle Dark Mode</button> {% endcomment %}
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark custom-footer" style="position: relative;">
+          <div class="footer-logo text-center">
+              <img src="{% static 'images/logo.png' %}" width="200" height="55" alt="Logo">
+          </div>
+          <div class="social-icons">
+            <a href="#"  title="facebook"> 
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+            <a href="#" title="twitter"> 
+              <i class="fab fa-twitter-square" aria-hidden="true"></i>
+            </a>
+            <a href="#" title="instagram">  
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="#" title="youtube">
+              <i class="fab fa-youtube-square" aria-hidden="true"></i>
+            </a>
+            <a href="#" title="linkedin">
+              <i class="fab fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+            {% comment %} <a href="#" title="pinterest">
+              <i class="fab fa-pinterest-p" aria-hidden="true"></i>
+            </a>
+            <a href="#" title="camera">
+              <i class="fab fa-camera-retro" aria-hidden="true"></i>
+            </a> {% endcomment %}
+          </div>
+          <p style="font-size: 12px; position: absolute; bottom: 10px; left: 0; right: 0;" class="m-0 text-center text-white">Copyright &copy; GamingHub 2023</p>
+      </footer>
+    </body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var searchInput = document.getElementById('searchInput');
+        var searchForm = document.getElementById('searchForm');
+
+        searchInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission
+                var query = searchInput.value.trim();
+                if (query !== '') {
+                    window.location.href = '/search/' + encodeURIComponent(query);
+                }
+            }
+        });
+    });
+</script>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const toc = document.getElementById("toc");
+        const tocMobile = document.getElementById("toc-mobile-sec");
+        const isMobileView = window.innerWidth <= 767;
+
+        if (isMobileView) {
+            tocMobile.style.display = 'block';
+            toc.style.display = 'none';
+        } else {
+            tocMobile.style.display = 'none';
+            toc.style.display = 'block';
+        }
+    });
+</script>
+<script>
+  document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('mouseover', () => {
+      dropdown.querySelector('.dropdown-content').style.display = 'block';
+    });
+    dropdown.addEventListener('mouseout', () => {
+      dropdown.querySelector('.dropdown-content').style.display = 'none';
+    });
+  });
+</script>

@@ -1,0 +1,640 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">
+                                Attention, video game enthusiasts! After nearly two years of struggling to find computer parts and dealing with high prices, things are finally getting better.
+                                No more waiting or dealing with delays, it's time to build a new PC!
+                                <br><br>
+                                With this guide, you can easily assemble a fantastic new gaming setup without needing to do extensive research or understand all the technical details and compatibility issues involved.
+                                <br><br>
+                                In this article, we'll discuss the best $1500 PC build currently available.
+                                We've put a lot of effort into researching the top components for this build, ensuring you get the most bang for your buck. So, we hope you'll discover something you love in our recommendations.
+                                <br><br>
+                                Without further delay, let's jump right into the build process.
+                            </p>                            
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-overview">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Overview</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                For less than $1500, you can get yourself a gaming PC that's capable of tackling just about anything. With this budget, you'll have the power 
+                                to play any game you want, regardless of the settings, and even enjoy some impressive 4K performance. However, this PC build truly shines when 
+                                it comes to 1440p gaming, where it can deliver high frame rates in most games and fully utilize the capabilities of a high refresh rate monitor.
+                            </p>
+                                <hr>
+                                <h3>What you get for your $1500 budget</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Investing around $1500 ensures you're treating yourself to a high-end PC loaded with premium features. With this budget, 
+                                    you can anticipate a swift CPU that not only elevates your gaming adventures but also handles multitasking with ease. 
+                                    Additionally, you'll enjoy the perks of a top-of-the-line graphics card, delivering stellar frame rates with stunning detail.
+                                    <br><br>
+                                    Overall, a PC build under $1500 combines some of the finest components available, placing you in the upper mid-tier category. 
+                                    This setup is perfect for indulging in 1440p gaming on a high refresh rate monitor, providing an immersive and smooth gaming experience.
+                                </p>
+                                <hr>
+                                <h3>Performance</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    This gaming PC build priced at $1500 boasts cutting-edge components from the latest generation, ensuring top-notch performance that will remain 
+                                    relevant for years to come. Equipped with an RTX 40-series GPU, you can expect high frame rates in most games at 1440p resolution and below, 
+                                    with the possibility of achieving some 4K performance by adjusting certain settings.
+                                    <br><br>
+                                    Backing up the CPU and GPU, this $1500 setup includes a speedy 1TB NVMe SSD to handle your operating system and games efficiently. 
+                                    This storage solution not only delivers quicker boot times compared to a traditional HDD but also enhances your in-game FPS. Additionally, 
+                                    the inclusion of 32GB of fast DDR5 RAM ensures that this PC feels responsive and snappy for the foreseeable future.
+                                </p>
+                                <hr>
+                                <h3>PC hardware deals</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    If you're gearing up to build your next gaming PC, snagging deals on components is a savvy way to get superior hardware for less. 
+                                    Whether it's GPUs, CPUs, coolers, motherboards, power supplies, or cases, keeping an eye out for discounts can help you save some cash, 
+                                    even outside of special sales events. With a bit of luck and diligence, you can score some sweet deals and shave off a few bucks here and 
+                                    there while assembling your dream setup.
+                                </p>
+                                <hr>
+                                <h3>AMD or Intel for your $1500 PC build?</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Both <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">AMD</a> and <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">Intel</a> have been delivering impressive performance with their latest processor lineups. Currently, we lean towards recommending Intel 
+                                    processors, but keep in mind that you have the flexibility to opt for an AMD equivalent if you prefer. This PC build is equipped with one of the top 
+                                    gaming CPUs available, boasting excellent multithreading capabilities that ensure longevity and solid performance for years to come. Whether you choose 
+                                    Intel or AMD, you can rest assured that you're getting a processor that will power through your gaming sessions with ease.
+                                </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-build">
+                            <div>
+                                <h2 class="fw-bolder mb-4 mt-5" >The PC Build</h2>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Click on the product images to go to Amazon,
+                                    where you can see additional high-resolution images and check the current price.
+                                    Prices may be greater than $1500 due to price changes.
+                                <p>
+                                <div class="pc-comp-row" >
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_cpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                     <div class="pc-comp-name">
+                                        CPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Intel Core i5-12600KF
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_gpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        GPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        ZOTAC Gaming GeForce RTX 4070 Ti Trinity OC
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_cooler.jpg ' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Cooler
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        DeepCool AK620 
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_motherboard.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Motherboard
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        MSI PRO Z790-P Wifi DDR5 
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_ram.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        RAM
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        TEAMGROUP T-Force Delta RGB DDR5 32GB (2x16GB) 5600MHz
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_storage.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Storage
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        WD BLACK SN770 1TB
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_psu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Power Supply
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Thermaltake Toughpower GF A3 850Ws
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_case.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Case
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Corsair 4000D Airflow White
+                                    </div>                           
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <a class="btn pc-build-button" type="button">ORDER THIS BUILD</a>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="components">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Components</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Now that we've given you an overview of the build and what you can expect from it,
+                                let's go further into each component, beginning with the build's brain.
+                            <p>
+                            <br>
+                            <h3>CPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_cpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Intel Core i5-12600KF</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>3.7GHz - 4.9GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>10 (16)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>LGA 1700</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>TDP</th>
+                                                    <td>125W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Overclockable</th>
+                                                    <td>Yes</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The Intel i5-12600KF stands out as one of Intel's most successful 12th-gen processors, mainly due to its excellent price-to-performance ratio. 
+                                        While it would be ideal to incorporate a 13600K or 14600K into this build, we've opted to prioritize a better GPU instead. The good news is that 
+                                        all three CPU generations are compatible with the same LGA 1700 socket, allowing for future upgrades without needing to change the motherboard.
+                                        <br><br>
+                                        The i5-12600KF boasts an impressive 10 core/16 thread configuration, surpassing its predecessor by a significant margin. With a potential boost 
+                                        clock of 4.9GHz, it remains a solid choice for gamers, especially given its current price point. The rest of the build features cutting-edge components, 
+                                        ensuring that you'll be well-equipped for future upgrades, including the transition to a 13th-gen CPU with the compatible motherboard included in this setup.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>GPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_gpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">ZOTAC Gaming GeForce RTX 4070 Ti Trinity OC</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>2310MHz - 2610MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stream Processors</th>
+                                                    <td>7680</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Video Memory Size</th>
+                                                    <td>12GB GDDR6X</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>306.8mm x 119.4mm x 58.5mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PSU Required</th>
+                                                    <td>750W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        To handle your graphical demands, we've opted for one of the newest <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">GPUs</a> from Nvidia's RTX 40-series - the RTX 4070 Ti. 
+                                        This powerhouse card not only delivers exceptional frame rates in esports titles at high settings but also excels in handling 
+                                        your favorite AAA games and more, especially when played in 1440p resolution. Additionally, the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RTX 4070 Ti</a> offers decent 4K performance with minor 
+                                        adjustments to settings, ensuring a smooth and immersive gaming experience across various resolutions.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Cooler</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_cooler.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">DeepCool AK620</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Fan Dimensions</th>
+                                                    <td>120mm x 120mm x 25 mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Air</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>1850rpm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>TDP</th>
+                                                    <td>260W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Fan Airflow</th>
+                                                    <td>68.99CFM</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        While you may have expected a liquid cooling solution for the i5 processor, the DeepCool AK620 offers a more budget-friendly alternative that is more than capable of 
+                                        handling the i5-12600K. We understand the priority of saving funds for a better GPU, and the DeepCool AK620 provides adequate cooling for both the i5-12600K and 
+                                        potential future upgrades to the latest-gen SKUs like the i5-13600K.
+                                        <br><br>
+                                        Affordable, robust, and efficient, the DeepCool AK620 is an ideal choice to ensure effective cooling for your processor without breaking the bank.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Motherboard</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_motherboard.png' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">MSI PRO Z790-P Wifi DDR5</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Chipset</th>
+                                                    <td>Intel B760 Express</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>LGA 1700</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Form Factor</th>
+                                                    <td>ATX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Connectivity</th>
+                                                    <td>APCIe 5.0, M.2, 2.5Gbps LAN, USB 3.2 Gen2</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Power stages</th>
+                                                    <td>14+1+1 DRPS with 55A DrMOS</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>wifi</th>
+                                                    <td>Wi-Fi 6E</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        To complement the capabilities of your CPU, selecting a dependable motherboard is essential. The MSI PROI Z790-P is a DDR5 option that strikes a great 
+                                        balance between affordability and quality. Packed with features for its price point, this <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">motherboard</a> supports overclocking, fast RAM speeds, Wi-Fi 6E, 
+                                        PCIe 5.0, and more.
+                                        <br><br>
+                                        With its robust feature set, the MSI PROI Z790-P ensures optimal performance and versatility for your gaming PC build. Whether you're pushing your system to 
+                                        its limits with overclocking or taking advantage of the latest connectivity options, this motherboard provides a reliable foundation for your setup.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>RAM</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_ram.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">TEAMGROUP T-Force Delta RGB DDR5</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>5600MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>32GB (2x16GB)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CAS Latency</th>
+                                                    <td>CL40</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>46.1mm x 144.2mm x 7mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The 32GB <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RAM kit</a> from TEAMGROUP is a stellar choice for this next-gen build under $1500, offering ample speed and quality to meet your needs whether you're gaming, 
+                                        <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">streaming</a>, or working. With this generous RAM capacity and blazing-fast <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">speed</a>, you'll have the resources to tackle tasks effectively and efficiently.
+                                        <br><br>
+                                        Opting for a RAM kit with a speed of 5600MHz ensures <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">optimal performance for gaming</a> and helps future-proof your system. With such high speeds, you can rest 
+                                        assured that your system won't be bottlenecked by RAM limitations, providing a seamless and responsive experience across various applications and tasks.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Storage</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_storage.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">WD BLACK SN770</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Read/Write</th>
+                                                    <td> 5,150MB/s - 4,900MB/s  </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>1TB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interface</th>
+                                                    <td>PCIe Gen4 16 GT/s, up to 4 lanes</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The build quality of the WD Black SN770 NVMe 1TB M.2 SSD is undeniably top-notch, making it an obvious choice for this $1500 gaming PC. 
+                                        Although benchmark results during testing revealed minimal differences between <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">SATA SSDs</a> and <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">M.2</a>, the WD Black SN770 NVMe 1TB M.2 stands 
+                                        out for its exceptional quality and competitive pricing.
+                                        <br><br>
+                                        Featuring a 1TB capacity and crafted by a reputable manufacturer, this SSD is guaranteed to elevate your gaming experience and deliver lightning-fast boot 
+                                        times. With its reliability and performance, it's an essential component that ensures smooth gameplay and efficient system operations for your gaming PC.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Power Supply</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_psu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Thermaltake Toughpower GF A3</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Wattage</th>
+                                                    <td>850W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Efficiency</th>
+                                                    <td>Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>ATX 3.0/PCI-E 5.0 compatibility</th>
+                                                    <td>Yes</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Modularity</th>
+                                                    <td>Fully modular</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        When constructing a PC of this caliber, having a stable and <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">dependable power supply</a> is crucial to ensure smooth operation of your new components. 
+                                        That's where the Thermaltake Toughpower GF A3 850W PSU shines, boasting a gold <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">efficiency rating</a>.
+                                        <br><br>
+                                        With its ample wattage capacity, the Thermaltake Toughpower GF A3 850W PSU provides more than enough power to support your build, allowing for potential 
+                                        future upgrades. Additionally, it features compatibility with ATX 3 and PCIe 5 standards, ensuring versatility and seamless integration with your system components. 
+                                        This PSU is a reliable choice to provide consistent power delivery, safeguarding the performance and longevity of your gaming PC.
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Case</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_1500/pc_under_1500_usd_case.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Corsair 4000D Airflow White</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Mid-Tower</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Motherboard Compatibility</th>
+                                                    <td>ATX, mATX, Mini-ITX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Included Fans</th>
+                                                    <td>2 x 120mm AirGuide fans</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>453mm x 230mm x 466mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        Finally, we have our case selection, the Corsair 4000D Airflow, which offers style and quality at an attractive price point. 
+                                        Crafted from premium materials, this <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">case</a> is built to withstand the test of time. It features a tempered glass side panel, allowing you to showcase 
+                                        your build with pride.
+                                        <br><br>
+                                        Equipped with two 120mm fans and designed for optimal airflow, the 4000D ensures excellent cooling performance straight out of the box. Moreover, 
+                                        its open-airflow design promotes efficient cooling for your components. Beyond its cooling prowess and sleek aesthetics, the 4000D is also highly 
+                                        user-friendly for builders. It offers ample options for cable management, drive mounting, additional fan installation, and even accommodates liquid 
+                                        cooling setups. In essence, the Corsair 4000D Airflow is far from just a budget case once you experience its quality and functionality firsthand, 
+                                        you'll understand why it's a standout choice.
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-tips">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building Tips</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                When investing a significant amount like $1,500 in the best gaming desktop, it's crucial to ensure you're making the right choices. 
+                                To avoid <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}" style="color:#a00000;text-decoration: underline;">common pitfalls encountered by new PC builders</a>, it's essential to familiarize yourself with <a href="{% url "common-asked-questions-about-pc-building" %}" style="color:#a00000;text-decoration: underline;">common concerns related to PC building</a>. 
+                                This knowledge will empower you to make informed decisions and ensure a smooth building process, ultimately leading to a high-performance gaming 
+                                setup that meets your expectations.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="closing-thoughts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Closing Thoughts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Achieving top-notch results from a $1500 gaming PC is a breeze; this setup offers excellent value for money and is primed to handle your favorite games effortlessly. 
+                                Beyond just gaming prowess, the $1500 PC build also excels in multitasking and streaming tasks.
+                                <br><br>
+                                While we strongly recommend the AMD route for this build, it's worth mentioning that the Intel option doesn't fall far behind. 
+                                Despite being based on an older generation and a discontinued platform, it still delivers impressive performance and significant 
+                                cost savings compared to the DDR5-based AM5 platform. Ultimately, both options offer fantastic performance and are sure to provide an enjoyable gaming experience.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

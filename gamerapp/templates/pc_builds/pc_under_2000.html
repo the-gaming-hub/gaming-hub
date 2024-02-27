@@ -1,0 +1,692 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5 review">
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">
+                                If you want to know what kind of computer you can get for $2000, you're in luck. We've done a lot of research to find the best PC you can build for that price, and we're really pleased with the result.
+                                <br><br>
+                                The great thing is, you don't have to spend hours figuring out all the technical stuff and making sure everything works together. We've got all the information you need right here, so just keep reading!
+                            </p>                            
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-overview">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Overview</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Looking for a killer gaming PC under $2,000? One that can handle 4K gaming effortlessly and breeze through any task you throw at it? Well, 
+                                you've hit the jackpot because we're here to guide you through the best components available to build your own ultimate gaming rig.
+                                <br><br>
+                                This $2,000 setup is hands down one of the finest gaming PCs you can get for the money right now. It's equipped with an amazing CPU and 
+                                GPU combo that delivers smooth 60fps performance at 4K, with plenty of power to spare. Worried about future-proofing? Don't be - we'll cover that shortly.
+                                <br><br>
+                                At this price point, there's very little compromise involved. You'll end up with a top-tier gaming PC that offers an exceptional gaming experience. 
+                                Want <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">ray tracing</a> and <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">DLSS</a>? You got it! Need enough processing power to become the next big Twitch or YouTube star? This rig has got you covered and then some.
+                            </p>
+                                <hr>
+                                <h3>What you get for your $2000 budget</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    For $2,000, you're stepping into the world of top-notch PC gaming. This setup is loaded with premium features, including a powerful processor, 
+                                    a superb Nvidia GPU, and cutting-edge PCIe 4.0 storage from respected brands like Western Digital, known for their <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">top-of-the-line SSDs</a>.
+                                     With all this firepower, you'll be more than ready to tackle any AAA game in stunning 4K resolution.
+                                    <br><br>
+                                    We've also ensured that this build includes a standout motherboard at this price point. Not only does it tie the system together seamlessly, 
+                                    but it also sets you up for potential future upgrades. Plus, it offers plenty of rear I/O ports and supports the latest peripherals, ensuring 
+                                    you're ready for anything the gaming world throws your way.
+                                </p>
+                                <hr>
+                                <h3>Performance</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    We mentioned earlier that this build is powered by a formidable graphics card, the RTX 4080. Despite some initial concerns in the news, 
+                                    especially regarding the power cable, if you take your time with installation and use a direct PSU to 12VHPWR cable, you should be fine. 
+                                    That's why we've specifically paired it with CORSAIR's latest RM850e 2023 PSU, which comes with a direct 12VHPWR cable included.
+                                    <br><br>
+                                    Setting aside those technical details, the RTX 4080 is still an absolute powerhouse. In our testing, it consistently delivered frame rates 
+                                    exceeding 100 fps in various 4K games, with lows rarely dropping below 70 fps, well above the desired 60 fps mark. Although affordable high-refresh 
+                                    <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">4K gaming monitors</a> aren't widely available yet, it's reassuring to know that the RTX 4080 is ready for them when they do hit the market.
+                                    <br><br>
+                                    Beyond the GPU, the AMD Ryzen CPU also plays a crucial role in making this gaming PC shine, providing 
+                                    exceptional performance in processor-intensive games and tasks.
+                                </p>
+                                <hr>
+                                <h3>PC hardware deals</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    If you're thinking about building your next gaming PC, hunting for deals on components is a smart way to get more bang for your buck. 
+                                    Whether it's GPUs, CPUs, coolers, motherboards, power supplies, or cases, there are often discounts available, even outside of special sales events. 
+                                    By keeping an eye out for deals, you can save some money here and there while still getting high-quality parts for your build.
+                                </p>
+                                <hr>
+                                <h3>Team Red(AMD) or Blue(Intel)</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    In conclusion, we highly recommend our AMD build as the top choice for anyone aiming to construct a robust gaming PC within this price range. 
+                                    Both the AMD and Intel builds exhibit superb CPU performance for gaming and multitasking purposes. However, the AMD processor outshines the Intel 
+                                    CPU in workstation tasks, and with AMD's advancements in single-core performance, it's the superior chip for this particular build.
+                                </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-build">
+                            <div>
+                                <h2 class="fw-bolder mb-4 mt-5" >The PC Build</h2>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Click on the product images to go to Amazon,
+                                    where you can see additional high-resolution images and check the current price.
+                                    Prices may be greater than $2000 due to price changes.
+                                <p>
+                                <div class="pc-comp-row" >
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_cpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                     <div class="pc-comp-name">
+                                        CPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        AMD Ryzen 7 7700X
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_gpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        GPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        MSI Gaming GeForce RTX 4080 Ventus 3X OC
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_cooler.jpg ' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Cooler
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Noctua NH-D15 Chromax Dual Tower
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_motherboard.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Motherboard
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        MSI PRO X670-P WiFi ProSeries 
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_ram.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        RAM
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Kingston Fury Beast DDR5 32GB (2x16GB) 5600MHz
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_storage.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Storage
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Western Digital Black SN850X 1TB
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_psu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Power Supply
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Corsair RM850x
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_case.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Case
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        NZXT H5 Flow Black
+                                    </div>                           
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <a class="btn pc-build-button" type="button">ORDER THIS BUILD</a>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="components">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Components</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Now that we've given you an overview of the build and what you can expect from it,
+                                let's go further into each component, beginning with the build's brain.
+                            <p>
+                            <br>
+                            <h3>CPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_cpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">AMD Ryzen 7 7700X</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>4.5GHz - 5.4GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>8 (16)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>AM5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>TDP</th>
+                                                    <td>105W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The AMD Ryzen 7 7700X boasts impressive single-core performance and outstanding multithreading capabilities, 
+                                        making it one of the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">top CPUs available on the market</a>. With its formidable 8 cores and 16 threads, 
+                                        this CPU is well-equipped to handle a wide range of tasks.
+                                        <br><br>
+                                        Operating at a base clock of 4.5GHz and reaching a maximum boost speed of 5.4GHz, this powerful Ryzen 7000 
+                                        chip offers exceptional speed and responsiveness.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>GPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_gpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">MSI Gaming GeForce RTX 4080 Ventus 3X OC</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>2205MHz - 2535MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stream Processors</th>
+                                                    <td>9728</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Video Memory Size</th>
+                                                    <td>16GB GDDR6X</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>322mm x 136mm x 63mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PSU Required</th>
+                                                    <td>700W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The RTX 4080 stands as one of the premier graphics cards currently available. In simple terms, it ranks among the top-performing GPUs 
+                                        in benchmark tests and is capable of effortlessly handling any game you throw at it, delivering remarkable performance across the board.
+                                        <br><br>
+                                        When gaming at 4K resolution, you can anticipate consistently stable frame rates at maximum settings. Even resolutions below 4K 
+                                        are a breeze for this powerhouse GPU.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Cooler</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_cooler.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Noctua NH-D15 Chromax Dual Tower</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Fan Dimensions</th>
+                                                    <td>165mm x 150mm x 161mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Air</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>1200rpm-1500rpm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>TDP</th>
+                                                    <td>183W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Fan Airflow</th>
+                                                    <td>82.56CFM</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        Noctua's reputation for top-notch cooling solutions is widely acknowledged, and its NH-D15 series of coolers, in particular, 
+                                        have become a go-to option for those who prefer air cooling over AIOs and liquid-cooling systems but still demand high performance.
+                                        <br><br>
+                                        Initially known for their distinctive beige and brown color scheme, Noctua's Chromax Black line offers a sleek alternative, as the name suggests, 
+                                        by replacing the iconic colors with a more understated black design.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Motherboard</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_motherboard.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">MSI PRO X670-P WiFi ProSeries</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Chipset</th>
+                                                    <td>AMD X670</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>AM5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Form Factor</th>
+                                                    <td>ATX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Power stages</th>
+                                                    <td>14+2+1</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>wifi</th>
+                                                    <td>Wi-Fi 6E</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        With great overclocking capabilities and room for expansion, the MSI PRO X670-P WiFi ProSeries is the perfect motherboard to accompany 
+                                        the AMD Ryzen 7 7700X. The board comes with PCIe 5 support, fast RAM support, and Wi-Fi 6E. With this product from MSI, you are 
+                                        getting a reliable and sturdy board that oozes quality.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>RAM</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_ram.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title"> Kingston Fury Beast DDR5</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>5600MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>32GB (2x16GB)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CAS Latency</th>
+                                                    <td>CL36</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>133.35mm x 34.9mm x 6.62mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        This 32GB memory kit from Kingston provides ample capacity and speed for gaming enthusiasts. With this kit, multitasking is a breeze without any compromise. 
+                                        Not only does it offer a large capacity, but it also boasts <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">fast clock speeds</a> of 5600MHz.
+                                        <br><br>
+                                        With this level of speed, you can rest assured that your <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RAM</a> won't be a bottleneck, even when running resource-intensive applications.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Storage</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_storage.png' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Western Digital Black SN850X</h4>    
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Read/Write</th>
+                                                    <td>7,300MB/s - 6,300MB/s</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>1TB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interface</th>
+                                                    <td>PCI-Express 4.0 x4</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        We've opted for WD's 1TB NVMe SSD for this build because it delivers lightning-fast load times at an exceptionally affordable price.
+                                        <br><br>
+                                        With speeds reaching up to 7,400 MB/s, this M.2 drive stands out as one of the fastest options available. Boasting a substantial 1TB storage capacity, 
+                                        it perfectly complements this already impressive build.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Power Supply</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_psu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Corsair RM850x</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Wattage</th>
+                                                    <td>850W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Efficiency</th>
+                                                    <td>80+ Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Modularity</th>
+                                                    <td>Fully modular</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        A dependable <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">power supply</a> is crucial for every high-end build to ensure smooth operation. While some may believe that more watts are better, 
+                                        850W provides ample power to supply this gaming rig with all the necessary juice. While you may not require the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">utmost efficiency PSU</a>, the gold 
+                                        level of efficiency for this power supply indicates good quality.
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Case</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_2000/pc_under_2000_usd_case.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">NZXT H5 Flow Black</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Mid-Tower</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Motherboard Compatibility</th>
+                                                    <td>ATX, Micro-ATX, Mini-ITX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Included Fans</th>
+                                                    <td>2 x 120mm fans</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>464mm x 227mm x 446mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        When selecting a PC case for your build, three key factors should be considered: airflow, product compatibility, and style, all while keeping an eye on the price.
+                                        <br><br>
+                                        For our $2000 build, we've selected the NZXT H5 FLOW ATX chassis. With excellent internal airflow, user-friendly internal design features, and compatibility 
+                                        with a wide range of components, the H5 Flow Black is an ideal choice.
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="points-to-consider">
+                            <h2 class="fw-bolder mb-4 mt-5" >Points To Consider</h2>
+                            <br><br>
+                            <h3>$2000 Budget</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                While all the builds at WePC are already categorized into different budget ranges, it's still crucial to ensure that the 
+                                chosen budget aligns with your gaming needs. For hardcore gamers who can't get enough of AAA titles, this $2000 build will 
+                                provide top-notch performance that will last a long time. It's capable of handling any game you throw at it with ease. However, 
+                                for casual gamers who play less demanding games and aren't focused on <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">4K gaming</a>, it might be worth considering one of our <a href="{% url "pc-builds" %}" style="color:#a00000;text-decoration: underline;">other options</a>.
+                                <br><br>
+                                It's important to note that prices on Amazon can fluctuate, potentially pushing the build slightly over or under budget. 
+                                As for why we haven't included the components in our upgrade path, it's simply because we've made certain compromises to keep 
+                                this build as close to the budget as possible.
+                            </p>
+                            <hr>
+                            <h3>Ease Of Building</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Building this gaming PC was a breeze, thanks to the straightforward components and thoughtful design from the case manufacturers featured in our high-end builds. 
+                                Compatibility was a non-issue, so there were no clearance problems during assembly. When it comes to building, having the right tools is essential. Investing in 
+                                <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">anti-static equipment</a> can help protect your valuable components, and a screwdriver is a must-have.
+                                <br><br>
+                                The case's <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">cable management</a> features made it easy to tidy away cables, improving airflow and the overall appearance of the build. If you're planning on managing 
+                                your PC's cables, consider investing in cable ties and tie bases to help conceal wires neatly. While AMD and Intel stock coolers come with pre-applied <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">thermal 
+                                paste</a>, using <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">fresh thermal paste</a> can often improve CPU temperatures, providing an easy performance boost. This build includes an aftermarket air cooler to handle 
+                                the high-powered CPUs, and like most aftermarket CPU coolers, it comes with a spare tube of thermal paste for future replacements.
+                            </p>
+                            <hr>
+                            <h3>Upgradability And Future-Proofing</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                As a high-end gaming PC, this powerful rig offers limited room for upgrades. However, there are still some areas where enhancements can be made 
+                                to future-proof your system. It's important to keep in mind that upgrades typically come with extra costs, which may exceed your budget. 
+                                If your budget allows for these upgrades, it's worth considering improvements to tailor your system to your specific needs.
+                            </p>
+                            <hr>
+                            <h3>Overclocking</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Since we understand that many of our customers may want to push their PC's performance to the limit with overclocking, 
+                                we've carefully chosen products with overclocking capabilities. Both the AMD and Intel build paths feature CPUs that can be overclocked, 
+                                along with motherboards designed to handle such adjustments. However, keep in mind that if you start <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">overclocking your processor</a>, it will 
+                                generate more heat, so upgrading your CPU cooler may be necessary.
+                                <br><br>
+                                We also recommend opting for fast RAM, as not all motherboards can handle it. Therefore, we've selected boards that can support <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">XMP overclocking</a> to speeds 
+                                of 3600MHz and beyond. It's important to note that your RAM may initially run at a lower speed out of the box, so be sure to enter your BIOS settings 
+                                and overclock it to unleash its full potential.
+                            </p>
+                            <hr>
+                            <h3>Non-Gaming Performance</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Both the AMD and Intel builds excel not only in gaming but also in other areas. They boast multithreading capabilities and offer excellent 
+                                performance when it comes to multitasking. While the AMD build outperforms the Intel build in this regard, both systems deliver solid 
+                                performance across the board.
+                                <br><br>
+                                Whether you're editing media, streaming content, or enjoying home entertainment, both build paths are more than capable of meeting your
+                                needs without any hiccups.
+                            </p>
+                            <hr>
+                            <h3>Aesthetics</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                With the chosen case and components, this build already exudes a premium gaming vibe, but if you're inclined, you can take it a step further and 
+                                add a touch of RGB flair. Adding RGB lighting is entirely up to personal preference, but it's a fun way to <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">customize your PC</a>. The build includes a 
+                                tempered glass case that elegantly displays the components inside. If you're thinking about adding additional <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">case fans</a>, you might want to opt 
+                                for ones with <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RGB lighting</a> to illuminate that stunning glass panel.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-tips">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building Tips</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                When assembling a PC, it's crucial to handle it delicately, especially if it's your first build. Be sure to consult various online resources for 
+                                <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}" style="color:#a00000;text-decoration: underline;">tips</a> and <a href="{% url "common-asked-questions-about-pc-building" %}" style="color:#a00000;text-decoration: underline;">guidance</a> to address any uncertainties you may have before diving in.
+                                <br><br>
+                                For a step-by-step walkthrough on building your gaming PC, our comprehensive guide on <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">how to build a gaming PC</a> covers everything from beginning to end, providing all the 
+                                information you need to successfully complete the process.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="closing-thoughts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Closing Thoughts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                So there you have it, the ultimate gaming PC for around $2000! Both build options are primed to tackle any game you throw their way, 
+                                boasting impressive gaming credentials. Not only are they great for gaming, but they also offer superb multitasking capabilities, 
+                                making them versatile machines that won't break the bank.
+                                <br><br>
+                                We highly recommend the AMD build path, as the new Ryzen CPU offers superior performance with more cores and threads compared to its Intel counterpart. 
+                                Opting for AMD also gives your build a slightly longer lifespan.
+                                <br><br>
+                                Now, you have a build that will make your friends green with envy and all the gaming power you could ever want! If you have any questions or want to 
+                                share your build experiences with our team and community, head over to the WePC community and join the conversation!
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}         

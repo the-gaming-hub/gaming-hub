@@ -1,0 +1,470 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#verdict">Verdict</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#mouse-variants">Mouse Variants</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#what's-in-the-box">What's In The Box</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#style">Style</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#shape">Shape</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#build-quality">Build Quality</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#weight">Weight</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#wireless-experience">Wireless Experience</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#cable-experience">Cable Experience</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#mouse-feet">Mouse Feet</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#additional-buttons">Additional Buttons</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#click-latency">Click Latency</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#sensor-info">Sensor Info</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#mouse-wheel">Mouse Wheel</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#software">Software</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}}</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p style="font-size:30px;" class="fs-5 mb-4">
+                                The UltralightX marks a significant leap forward in Finalmouse's product lineup, boasting a brand-new chassis material and internal upgrades. 
+                                Notably, Finalmouse is breaking away from their traditional limited drops with this release, aiming for consistent production. 
+                                Despite its premium price tag, the UltralightX begs the question: does it offer enough innovative features and technological advancements to justify its cost?
+                                <br><br>
+                                The Finalmouse UltralightX is a wireless gaming mouse renowned for its lightweight design and symmetrical body. Crafted from carbon fiber composite, 
+                                it features honeycomb-shaped cutouts to minimize weight while maintaining durability. Powered by PixArt's flagship 3395 sensor, 
+                                the mouse currently supports a maximum wireless polling rate of 4000Hz, with plans for a firmware update to push this to 8000Hz in the future. 
+                                Available in multiple sizes, including the medium-sized Lion variant, the UltralightX caters to various hand sizes and preferences.
+                            </p>      
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#verdict">Verdict</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#mouse-variants">Mouse Variants</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#what's-in-the-box">What's In The Box</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#style">Style</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#shape">Shape</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#build-quality">Build Quality</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#weight">Weight</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#wireless-experience">Wireless Experience</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#cable-experience">Cable Experience</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#mouse-feet">Mouse Feet</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#additional-buttons">Additional Buttons</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#click-latency">Click Latency</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#sensor-info">Sensor Info</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#mouse-wheel">Mouse Wheel</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#software">Software</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="verdict">
+                            <h2 class="fw-bolder mb-4 mt-5">Verdict</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The Finalmouse UltralightX is a fantastic FPS gaming mouse that outperforms many high-end competitors in terms of technology and performance. 
+                                This model is Finalmouse's peak achievement to yet, and it will appeal particularly to long-time enthusiasts. Finalmouse created a 
+                                robust yet lightweight gaming mouse by using lighter clicks and a novel substance for weight reduction.
+                                <br><br>
+                                However, even the UltralightX falls short of perfection, as Finalmouse has constant quality control (QC) concerns. These issues differ from mouse to mouse, 
+                                with early adopters perhaps facing more problems with the first batch. Despite this shortcoming, the UltralightX is a fantastic pick for individuals 
+                                looking for the lightest ambidextrous mouse with cutting-edge technology. If you can get beyond the high price and potential QC issues, 
+                                this is a mouse worth investing in.While the UltralightX excels in performance, with its carbon fiber composite body allowing for 
+                                quick and accurate motions, it does have some build quality issues. The left and right-click keys are mushy, and the scroll wheel lacks quality feel. 
+                                Furthermore, the body is strong but flexible, which could cause the top and bottom chassis sections to separate under strain. Despite these shortcomings, 
+                                they are unlikely to have a substantial impact on gameplay performance.
+                                <br><br>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Ultralight weight of 35g (Lion version) for swift movements</h5>
+                                            <h5><a class="pro">✔</a> Light clicks enhance gaming responsiveness</h5>
+                                            <h5><a class="pro">✔</a> Utilizes USB-C for convenient connectivity</h5>
+                                            <h5><a class="pro">✔</a> Software accessible via website for customization</h5>
+                                            <h5><a class="pro">✔</a> Dongle features battery life indicator for easy monitoring</h5>
+                                            <h5><a class="pro">✔</a> Maximum wireless polling rate of 8000Hz ensures low latency</h5>
+                                            <h5><a class="pro">✔</a> Exceptional sensor performance for accuracy in gaming</h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Quality control (QC) issues may arise</h5>
+                                            <h5><a class="con">✖</a> Main buttons exhibit side-to-side wobble, affecting stability</h5>
+                                            <h5><a class="con">✖</a> Side grips are downgraded, impacting handling</h5>
+                                            <h5><a class="con">✖</a> Battery life diminishes with 4K polling</h5>
+                                            <h5><a class="con">✖</a> Carbon fiber body's flexibility affects durability</h5>
+                                            <h5><a class="con">✖</a> Left-and right-click buttons feel slightly mushy, detracting from tactile feedback</h5>
+                                            <h5><a class="con">✖</a> Scroll wheel lacks premium feel and grip, with potential unintentional actuation by pushing it to the right</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on finalmouse.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        <div>
+                                    </div>
+                                </div>
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="mouse-variants">
+                            <h2 class="fw-bolder mb-4 mt-5">Mouse Variants</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-size-variants.jpg" %}" alt="..." />
+                            <p class="fs-5 mb-4">
+                                The Finalmouse UltralightX is available in two colors and three size options. There are two colorways available: Guardian, which is gold and black, 
+                                and Phantom, which is blue and black. There are three sizes available: small (cheetah), medium (lion), and giant (tiger).
+                            </p>
+                            <br>
+                            <table class="table table-hover" style="width: 100%;">
+                                <tr>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Name</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Color Options</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Weight</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Dimensions</a></center></td>
+                                </tr>
+                                <tr>
+                                    <td>UltralightX (Cheetah/Small)</td>
+                                    <td>Guardian, Phantom</td>
+                                    <td>31 g</td>
+                                    <td>115.6mm x 54.1mm x 35.2mm (LxWxH)</td>
+                                </tr>
+                                <tr>
+                                    <td>UltralightX (Lion/Medium)</td>
+                                    <td>Guardian, Phantom</td>
+                                    <td>35 g</td>
+                                    <td>121.3mm x 56.8mm x 37mm (LxWxH)</td>
+                                </tr>
+                                <tr>
+                                    <td>UltralightX (Tiger/Large)</td>
+                                    <td>Guardian, Phantom</td>
+                                    <td>37 g</td>
+                                    <td>126mm x 59mm x 38.4mm (LxWxH)</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="what's-in-the-box">
+                            <h2 class="fw-bolder mb-4 mt-5">What's In The Box</h2>
+                            <br>
+                            <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Whats-in-the-box.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4"> 
+                                At this price, extra skates would be wonderful, but this is what comes in the box with the UltralightX:
+                                <ul>
+                                    <li>UltraLightX Lion</li>
+                                    <li>Braided cable (USB-C to USB-A)</li>
+                                    <li>Side grips</li>
+                                    <li>Wireless receiver dongle (USB-C)</li>
+                                    <li>User documentation</li>
+                                </ul>
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="style">
+                            <h2 class="fw-bolder mb-4 mt-5">Style</h2>
+                            <br>
+                            <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Style.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Type:</strong> Standard</li>
+                                    <li><strong>Coating:</strong> Matte</li>
+                                    <li><strong>Lighting Color:</strong> No Lighting</li>
+                                </ul>
+                                This mouse's body is made of matte black carbon fiber composite and features honeycomb cutouts on the sides, top and bottom. 
+                                The left and right click buttons have debossed/engraved linework designs and little metallic-blue embellishments. 
+                                Additionally, there are no apparent logos and no RGB illumination.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="shape">
+                            <h2 class="fw-bolder mb-4 mt-5">Shape</h2>
+                            <br>
+                            <div class="two-images">
+                                <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block; max-width: 400px;padding:10px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Shape-1.jpg" %}" alt="..." />
+                                <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block; max-width: 400px;padding:10px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Shape-2.jpg" %}" alt="..." />
+                            </div>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Ambidextrous:</strong> Shape Only</li>
+                                    <li><strong>Left-Handed Friendly:</strong> Yes</li>
+                                    <li><strong>Finger Rest:</strong> No</li>
+                                </ul>
+                                The UltralightX has the same shape as previous generations, with an ambidextrous design and a little hump near the middle, 
+                                making it suitable for hybrid claw grippers. While it provides good ergonomics for fingertip and claw grips, 
+                                it may not be suitable for palm grip users. 
+                                <br><br>
+                                Surprisingly, its dimensions closely resemble those of the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">Viper Mini</a>, making it a viable alternative if procuring a 
+                                Finalmouse proves difficult. This mouse also shares its design with Finalmouse's Starlight-12 line and is dimensionally 
+                                identical to the Finalmouse Starlight-12 Medium.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="build-quality">
+                            <h2 class="fw-bolder mb-4 mt-5" >Build Quality</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;max-width:600px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Build-Quality.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The Finalmouse UltralightX, made of a carbon fiber composite, combines amazing lightweight design with reasonable construction quality. 
+                                Although this material has a higher strength-to-weight ratio than traditional materials such as ABS plastic or magnesium alloy used in prior 
+                                Finalmouse models, it does have some disadvantages. 
+                                <br><br>
+                                While the mouse feels solid overall, it shows flexibility under moderate strain, 
+                                with the bottom panel occasionally separating from the upper chassis. Furthermore, the left and right-click buttons, while lightweight, 
+                                may feel mushy, and there is a possibility of accidentally activating the scroll wheel button by moving it to the right within the housing. 
+                                Despite these minor issues, the UltralightX's build is commendable, especially given its very low weight of 35 grams.
+
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="weight">
+                            <h2 class="fw-bolder mb-4 mt-5" >Weight</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Weight.jpg" %}" alt="..." />
+                            <br>
+                            <a style="border-radius:10px;background-color:#c4c4c4;color:black;font-size:17px;text-align:center; display: block;padding:7px;">•&nbsp;(Cheetah/S): 31g &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; •&nbsp;(Lion/M): 35g &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; •&nbsp;(Tiger/L): 37g</a>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The Finalmouse UltralightX Lion, weighing only 35g and sporting a carbon fibre construction with the unique honeycomb cut-out design, 
+                                provides exceptional lightweight performance. While it is only 10g lighter than the Starlight TenZ, users will notice a significant 
+                                difference in mobility and precision.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="wireless-experience">
+                            <h2 class="fw-bolder mb-4 mt-5" >Wireless Experience</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;max-width:600px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Wireless.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Connectivity:</strong> 2.4 GHz</li>
+                                    <li><strong>Bluetooth:</strong> No</li>
+                                    <li><strong>Receiver Extender:</strong> Yes</li>
+                                    <li><strong>Battery Indicator:</strong> Yes</li>
+                                    <li><strong>Use When Charging:</strong> Yes</li>
+                                </ul>
+                                The Finalmouse UltralightX, which has a puck-like shape similar to its predecessors, now includes RGB indications that conveniently signify battery life, 
+                                a good addition for users like myself who don't continuously monitor battery levels. Notably, Finalmouse switched from micro-USB to USB-C for better 
+                                compatibility with the supplied puck.
+                                <br><br>
+                                The UltralightX has remarkable battery performance. Several hours of gameplay at a 2k Hz polling rate resulted in only a 15% battery loss. 
+                                However, when polling rates rise, battery depletion is likely to accelerate. The dongle's battery life indicator includes visual cues: green 
+                                for more than 50%, yellow for less than 50%, orange for less than 25%, and red for less than 10%.
+                                <br><br>
+                                Finalmouse offers an average battery life of two months on the UltralightX product page, although this estimate may be overly optimistic, 
+                                especially with higher daily usage or polling rates above 1000Hz. Users with frequent daily use, particularly at higher polling rates, 
+                                may need to recharge their mouse every few days.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="cable-experience">
+                            <h2 class="fw-bolder mb-4 mt-5" >Cable Experience</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;max-width:550px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Wired.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Cable Length:</strong> 1.8 m</li>
+                                    <li><strong>Cable Type:</strong> Braided</li>
+                                    <li><strong>Port Type: Mouse End:</strong> USB-C</li>
+                                    <li><strong>Port Type: PC End:</strong> USB</li>
+                                </ul>
+                                This mouse has a braided charging cable. It is extremely stiff and drags slightly on desks and mousepads. This cable is notably less flexible 
+                                and composed of a lower-quality material than the cables included in other recent Finalmouse offerings, such as the Finalmouse Starlight Pro - TenZ Medium.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="mouse-feet">
+                            <h2 class="fw-bolder mb-4 mt-5" >Mouse Feet</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;max-width:450px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Mouse-Feet.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Material:</strong> Virgin Grade PTFE</li>
+                                    <li><strong>Gliding Experience:</strong> Very Good</li>
+                                    <li><strong>Replacement Feet:</strong> Yes</li>
+                                </ul>
+                                The UltralightX mouse glides effortlessly across mousepads with minimal friction, retaining a lightweight sensation even on tougher surfaces. 
+                                Despite some sharp edges on the feet, they do not significantly reduce glide quality, especially given the mouse's overall lightness. 
+                                Additionally, users can replace the feet with third-party equivalents.
+                                <br><br>
+                                Notably, the UltralightX skates are similar to earlier Starlight models, with virgin grade PTFE pads providing a smooth and comfortable experience. 
+                                While they may require a small break-in period, they glide smoothly and without scratching across the pad. The arrangement of the pads in each corner 
+                                of the mouse guarantees constant performance across various mousepad surfaces.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="additional-buttons">
+                            <h2 class="fw-bolder mb-4 mt-5" >Additional Buttons</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;max-width:650px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Buttons.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Buttons :</strong> 5</li>
+                                    <li><strong>Side Buttons:</strong> 2</li>
+                                    <li><strong>Programmable Buttons:</strong> 0</li>
+                                    <li><strong>Switches:</strong> Omron</li>
+                                    <li><strong>Rating:</strong> 20M Clicks</li>
+                                    <li><strong>DPI Button:</strong> No</li>
+                                </ul>
+                                The UltralightX mouse uses Omron 20m switches, especially the Omron D2FC-F-7N-20m(OF), which differs from the preceding Kailh GM 8.0 switches. 
+                                Users say these switches seem lighter and more responsive, with a pleasant click that improves their whole gaming experience. 
+                                Despite some modest side-to-side wobble and post-travel in the primary buttons, this has little impact on gameplay 
+                                and is not considered a big disadvantage.
+                                <br><br>
+                                Users who want to reprogram their mouse buttons will need to use third-party software because the XPANEL web-based configuration 
+                                client does not enable button mapping. Additionally, the mouse includes a power switch on the bottom for easy power management.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="click-latency">
+                            <h2 class="fw-bolder mb-4 mt-5" >Click Latency</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Expected Connection:</strong> 1.1 ms</li>
+                                    <li><strong>Wired:</strong> 1.2 ms</li>
+                                    <li><strong>Receiver:</strong> 1.1 ms</li>
+                                </ul>
+                                The click latency performance of this mouse is remarkably low and reliable. It provides an incredibly responsive gaming 
+                                experience across all genres and competitive levels.
+                                <br><br>
+                                The largest polling rate that is currently available at the time of writing, 4000Hz, is the polling rate at which the click latency testing is conducted.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="sensor-info">
+                            <h2 class="fw-bolder mb-4 mt-5" >Sensor Info</h2>
+                            <p>The sensor is one of the components that translate the mouse movement into a cursor movement.</p>
+                            <h5 style="text-align:left">Sensor Latency</h5>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Delay To Start Of Movement:</strong> 11.3 ms</li>
+                                    <li><strong>Delay At Half Movement:</strong> 1.8 ms</li>
+                                    <li><strong>Delay To End Of Movement:</strong> 2.4 ms</li>
+                                </ul>
+                                This mouse has excellent sensor latency performance. When you move your mouse, the sensor responds 
+                                extremely quickly, and these movements almost exactly match the timing of the cursor movements you see on the screen.
+                                <br>
+                                The test was performed with the Motion Sync setting turned off, as it can add up to 1 ms of additional motion latency. 
+                                We also tested with the polling rate set to 4000Hz, the highest setting accessible at the time of writing.
+                            </p>
+                            <hr>
+                            <h5 style="text-align:left">Sensor specifications</h5>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Sensor Technology:</strong> Optical (LED)</li>
+                                    <li><strong>Sensor Model:</strong> PixArt PAW3395</li>
+                                    <li><strong>Works On Glass:</strong> No</li>
+                                    <li><strong>DPI Range:</strong> 400, 800, 1600, 3200, 6400</li>
+                                    <li><strong>Polling Rate:</strong> 125hz, 500hz, 1000hz, 2000, 4000, 8000 hz</li>
+                                </ul>
+                                At the time of writing, polling rate options included 500Hz, 1000Hz, 2000Hz, and 4000Hz. According to the Finalmouse website, 
+                                the Finalmouse UltralightX offers a maximum wireless polling rate of 8000Hz, although at the time of writing, 
+                                this function is still being tested. 
+                                Finalmouse has said that they will release a firmware upgrade to raise the polling rate to 8000Hz.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="mouse-wheel">
+                            <h2 class="fw-bolder mb-4 mt-5" >Mouse Wheel</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;max-width:450px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Mouse-Wheel.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Scroll Wheel Type:</strong> Notched Wheel</li>
+                                    <li><strong>Scroll Wheel Steps:</strong> 24 Steps</li>
+                                    <li><strong>Scroll Wheel Tilt:</strong> No</li>
+                                </ul>
+                                The Finalmouse UltralightX has a scroll wheel with a plastic exterior and small bumps meant to improve grip, yet the plastic material itself can feel 
+                                slippery when used. When compared to the TenZ mouse, the UltralightX's scroll wheel provides more resistance and more prominent steps, 
+                                resulting in a less desirable combination of strong feedback and slipperiness. Many users may prefer a rubberized texture for better grip.
+                                <br><br>
+                                Despite these shortcomings, the UltralightX's center mouse click feels lightweight but well-built, with quick responsiveness. Users often find 
+                                it easy to tap without accidently activating it. However, the scroll wheel's overall material quality may seem a little cheap, 
+                                and its surface finish lacks traction when compared to more textured or rubberized options seen on other gaming mice, such as the Finalmouse 
+                                Starlight Pro - TenZ Medium. Furthermore, there is a widespread issue in which the center mouse button can be activated by lightly pressing 
+                                the mouse wheel to the right, potentially resulting in inadvertent clicks depending on how the mouse is handled.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="software">
+                            <h2 class="fw-bolder mb-4 mt-5" >Software</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;max-width:600px;" class="card-img-top" src="{% static "images/reviews/mouse/Finalmouse_UltralightX/Finalmouse-UltralightX-Software.png" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <ul>
+                                    <li><strong>Software Name:</strong> XPANEL</li>
+                                    <li><strong>Software Windows Compatibility:</strong> Yes</li>
+                                    <li><strong>Software macOS Compatibility:</strong> Yes</li>
+                                    <li><strong>CPI (DPI) Adjustment :</strong> Yes</li>
+                                    <li><strong>Polling Rate Adjustment :</strong> Yes</li> 
+                                    <li><strong>RGB On/Off:</strong> No RGB</li>
+                                </ul>
+                                The Finalmouse UltralightX includes a new function called XPanel, which is a web-based software application available via your browser. 
+                                Like Wooting, XPanel allows users to easily alter settings and tailor their mouse experience.
+                                <br><br>
+                                Users are greeted in XPanel with an overview of their settings and battery life. They may then click through numerous sections to select features 
+                                such as DPI settings ranging from 400 to 6400, polling rates ranging from 500Hz to 8000Hz (8000Hz is presently being tested), lift-off distance options
+                                of 1mm or 2mm, and the ability to enable or disable motion sync. Users can also experiment with other LED effects and change the software 
+                                for both the UltralightX mouse and the dongle.
+                                <br><br>
+                                Meanwhile, the Finalmouse UltralightX uses XPANEL, a web-based configuration client available on the Finalmouse website. 
+                                This tool provides comparable customization options, such as polling rates, lift-off distance settings, CPI presets, 
+                                motion sync toggle, and LED adjustment for the wireless receiver dongle.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

@@ -1,0 +1,652 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#what-tools-are-used-while-building-pcs">What Tools Are Used While Building PCs</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#why-is-dual-channel-ram-better-than-single">Dual-Channel RAM Better Than Single</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#how-much-video-memory-is-enough-for-gaming">Enough Video Memory For Gaming</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#how-much-ram-is-enough-for-gaming">How Much RAM Is Enough For Gaming</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-aio-liquid-cooler-for-gaming-cpus">Best AIO Liquid Cooler Size For CPUs</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#optimal-amount-of-thermal-paste">Optimal Amount Of Thermal Paste</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#how-to-determine-the-optimal-case-size-for-a-gaming-pc">The Optimal Case Size For A Gaming PC</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-gaming-resolution-in-2024">Best Gaming Resolution In 2024</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#is-it-essential-having-a-mechanical-keyboard">Is It Essential Having A Mechanical KB</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#is-extra-case-fans-needed-for-gamers">Is Extra Case Fans Needed For Gamers</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#how-much-building-a-gaming-pc-costs">How Much Building A Gaming PC Costs</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#gaming-computer-parts-cost">How Much Do Gaming PC Parts Cost</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#cpu-price-range">CPU Price Range</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#gpu-price-range">GPU Price Range</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#ram-price-range">RAM Price Range</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#motherboard-price-range">Motherboard Price Range</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#ssd-price-range">SSD(Storage) Price Range</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#psu-price-range">PSU Price Range</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#case-price-range">Case Price Range</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p style="font-size:30px;" class="fs-5 mb-4">
+                                While constructing PCs, users often encounter numerous queries, surrounded by various misconceptions and uncertainties about the process.
+                                Online platforms offer diverse opinions, but some suggestions may prove counterproductive. Building a gaming PC may seem less daunting these days,
+                                yet certain gamers struggle to determine the best components for their systems. A single error in component selection can lead to suboptimal gaming performance.
+                                Given the substantial investment in gaming hardware, gamers aim for a satisfactory experience. Mistakes can range from ignorance about compatible hardware
+                                to oversight during assembly.
+                                <br><br>
+                                Conducting thorough research before purchasing computer hardware is crucial. Online guides and forums provide abundant information,
+                                enabling gamers to grasp the basics quickly. Building a PC can be challenging, especially for newcomers,
+                                with hidden costs and potential compatibility issues causing intimidation. Questions like the overall cost of a PC, the cost-effectiveness of building one,
+                                and whether a gaming PC exceeds the price of a standard work PC often arise. WePC addresses these concerns, offering insights into associated costs and
+                                addressing specific questions like the necessity of an additional fan. Given the considerable expenses associated with PC gaming,
+                                investing time in thorough research before making a purchase is essential.
+                            </p>      
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#what-tools-are-used-while-building-pcs">What Tools Are Used While Building PCs</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#why-is-dual-channel-ram-better-than-single">Dual-Channel RAM Better Than Single</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#how-much-video-memory-is-enough-for-gaming">Enough Video Memory For Gaming</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#how-much-ram-is-enough-for-gaming">How Much RAM Is Enough For Gaming</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-aio-liquid-cooler-for-gaming-cpus">Best AIO Liquid Cooler Size For CPUs</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#optimal-amount-of-thermal-paste">Optimal Amount Of Thermal Paste</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#how-to-determine-the-optimal-case-size-for-a-gaming-pc">The Optimal Case Size For A Gaming PC</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-gaming-resolution-in-2024">Best Gaming Resolution In 2024</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#is-it-essential-having-a-mechanical-keyboard">Is It Essential Having A Mechanical KB</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#is-extra-case-fans-needed-for-gamers">Is Extra Case Fans Needed For Gamers</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#how-much-building-a-gaming-pc-costs">How Much Building A Gaming PC Costs</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#gaming-computer-parts-cost">How Much Do Gaming PC Parts Cost</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#cpu-price-range">CPU Price Range</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#gpu-price-range">GPU Price Range</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#ram-price-range">RAM Price Range</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#motherboard-price-range">Motherboard Price Range</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#ssd-price-range">SSD(Storage) Price Range</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#psu-price-range">PSU Price Range</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#case-price-range">Case Price Range</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="what-tools-are-used-while-building-pcs">
+                            <h2 class="fw-bolder mb-4 mt-5">What Tools Are Used While Building PCs?</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                For the most part, users can build their PCs with just a screwdriver. Someone can purchase an anti-static mat and install
+                                the system on its surface if they are worried about the harm that static electricity can do, moreover if you are new to PC building
+                                check out our article on the <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}" style="color:#a00000;text-decoration: underline;">top 15 mistakes new PC builder makes</a>
+                                to avoid any problems with building your first process.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/pc_building_tools.jpg" %}" alt="..." />
+                                <br><br>
+                                However, users don't require anything more than screwdrivers and anti-static mats. As a result,
+                                spending money on other items that are touted as enhancing the PC building experience is unnecessary.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="why-is-dual-channel-ram-better-than-single">
+                            <h2 class="fw-bolder mb-4 mt-5">Why Is Dual-Channel RAM Better Than Single?</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                One frequently highlighted mistake in PC building involves the neglect of dual-channel memory utilization.
+                                Yet, the question often left unanswered is why employing more than one channel of communication between the
+                                CPU and RAM is crucial for optimal system performance.
+                                <br><br>
+                                Multi-channel memory architecture facilitates communication between the CPU and RAM through multiple channels. Specifically, with dual channels,
+                                there exist two communication paths. This configuration effectively doubles the transfer rate between the DRAM memory and the integrated memory
+                                controller (IMC) within the CPU. This enhancement significantly contributes to boosting overall system performance by ensuring faster data transmission
+                                and improved efficiency.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/Single-Channel-vs-Dual-Channel-RAM.jpeg" %}" alt="..." />
+                                <br><br>
+                                It's essential to recognize that optimizing memory channels, such as employing dual-channel memory,
+                                is pivotal for maximizing the capabilities of your system. This results in a notable increase in the transfer rate
+                                between the CPU and RAM, ultimately enhancing the overall responsiveness and efficiency of your PC.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="how-much-video-memory-is-enough-for-gaming">
+                            <h2 class="fw-bolder mb-4 mt-5">How Much Video Memory Is Enough For Gaming In 2024?</h2>
+                            <br>
+                            <p class="fs-5 mb-4"> 
+                                Graphics memory, or VRAM, holds significant importance in gaming, but it also plays a crucial role in various
+                                productivity and professional workloads. While having more VRAM proves advantageous for graphically intensive tasks,
+                                the notion that purchasing the graphics card with the highest VRAM is always necessary is dispelled.
+                                In reality, certain lower-end cards with ample VRAM may still perform slower than higher-end counterparts
+                                with less VRAM.
+                                <br><br>
+                                For gaming, an 8GB VRAM is generally sufficient for most games, including modern ones. However,
+                                titles designed for advanced gaming consoles like the Xbox Series X/S and PS5 often surpass the 8GB threshold,
+                                meaning that a GPU with only 8GB may struggle with certain new games. Even powerful graphics cards like the
+                                Nvidia RTX 3080, once considered among the fastest, are showing signs of strain in contemporary games due to having
+                                "only" 10GB of VRAM.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/how_much_video_memory_is_enough_for_gaming_2.jpg" %}" alt="..." />
+                                <br><br>
+                                To future-proof a gaming PC, a minimum of 12GB VRAM is recommended. This ensures compatibility with upcoming games
+                                for several years. Opting for even more, such as the 16GB available in the latest generation releases,
+                                provides an extended period of reliability.
+                                <br><br>
+                                In the realm of productivity, Nvidia suggests 8GB to 12GB of VRAM as a minimum requirement.
+                                However, certain applications may function with less VRAM, with Adobe Premiere Pro requiring a minimum of 2GB
+                                and recommending 4GB to 6GB. Autodesk AutoCAD's "basic" specification suggests 1GB of VRAM but recommends 4GB, but that's
+                                not our concern as we are talking about gaming requirements. 
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="how-much-ram-is-enough-for-gaming">
+                            <h2 class="fw-bolder mb-4 mt-5">How Much RAM Is Enough For Gaming In 2024?</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The amount of memory (RAM) your computer needs for gaming depends on the specific games you want to play,
+                                as each game has different requirements. You should check the minimum system requirements provided by the
+                                game developers to know what your computer needs.
+                                <br><br>
+                                Just meeting the minimum requirements doesn't ensure the best gaming experience. Some games may still run
+                                slowly or not perform well. Game developers often suggest the amount of RAM needed for the "recommended requirements,"
+                                and some may even specify "high" or "ultra-high" capacities. When deciding how much RAM to get,
+                                it's a good idea to think about future needs because upcoming games might need more RAM.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/how-much-ram-is-enough-for-gaming.jpg" %}" alt="..." />
+                                <br><br>
+                                Also, consider your computer's upgrade options. Most computers use RAM in pairs, either two or four memory slots.
+                                So, it's best to choose the right parts in a set to get the best performance from your memory.
+                                <br><br>
+                                The amount of RAM you need for gaming isn't only about the games; it also depends on how many other programs you have open.
+                                While 8GB might be okay for some older games, going for 16GB can make your gaming experience much better,
+                                especially for more modern games. If you run other programs in the background, like Chrome or Discord,
+                                you might need 32GB. Having extra RAM can make a big difference in how well your computer performs.
+                                Many gaming fans choose 32GB, 48GB, or even 64GB to be ready for the future, especially as the latest
+                                games recommend at least 16GB of RAM. So, if you use your computer for more than just gaming or want
+                                to be ready for new games, 32GB could be a good choice.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="best-aio-liquid-cooler-for-gaming-cpus">
+                            <h2 class="fw-bolder mb-4 mt-5">Best AIO Liquid Cooler Size For Gaming CPUs</h2>
+                            <br>
+                            <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/best_AIO_liquid_cooler_for_gaming_cpus.jpeg" %}" alt="..." />
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                AIO liquid coolers are available in various sizes, ranging from compact 120mm radiators to larger 420mm options,
+                                although only a few cases can accommodate the latter. The multitude of choices on the market might be
+                                overwhelming for gamers.
+                                <br><br>
+                                Given the heat generated by today's gaming CPUs, the 240mm radiators emerge as the optimal choice for most processors.
+                                What's advantageous is that a majority of cases, even some compact ITX ones, are equipped to support 240mm variants,
+                                making them a versatile and widely applicable option for individuals building PCs. This universality simplifies
+                                the decision-making process for users, ensuring compatibility and efficient cooling solutions for a broad
+                                range of gaming setups.  
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="optimal-amount-of-thermal-paste">
+                            <h2 class="fw-bolder mb-4 mt-5">Optimal Amount Of Thermal Paste</h2>
+                            <br>
+                            <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/optimal_amount_of_thermal_paste.jpeg" %}" alt="..." />
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                Using thermal paste is crucial to maintain the processor's temperature within an optimal range.
+                                It's essential to be mindful, though, that excessive application of thermal paste can have adverse effects on cooling performance.
+                                <br><br>
+                                After evaluating various thermal paste applications, it has been observed that a modest amount,
+                                typically just a single drop of thermal compound, is sufficient for most CPUs.
+                                A recommended method involves using a spatula to evenly spread the compound across the processor's Integrated Heat Spreader (IHS).
+                                This approach ensures that no excess thermal paste is applied to the processor,
+                                promoting effective heat transfer without compromising cooling efficiency.
+                                <br><br>
+                                Applying thermal paste carefully and evenly is a practice that aids in maximizing the cooling potential of a system.
+                                It's a small yet crucial step in optimizing thermal conductivity and maintaining the overall health and performance of
+                                the processor.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="how-to-determine-the-optimal-case-size-for-a-gaming-pc">
+                            <h2 class="fw-bolder mb-4 mt-5">How To Determine The Optimal Case Size For A Gaming PC?</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Computer cases are available in various sizes, ranging from small ITX cases to larger ones capable of accommodating
+                                extended ATX motherboards. Choosing the right case for a personal build can be challenging due to the multitude of options.
+                                <br><br>
+                                Upon examining popular choices from reputable vendors, a clear trend emerges. ATX cases stand out as the
+                                preferred option for most gamers when building PCs because they offer compatibility with a wide range
+                                of hardware available in the market.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/how_to_determine_the_optimal_case_size.jpg" %}" alt="..." />
+                                <br><br>
+                                Micro ATX (M-ATX) hardware is recognized for its budget-friendly nature. Therefore, if you are working on
+                                a budget system, opting for M-ATX components is a sensible choice.
+                                <br><br>
+                                For users with limited space, ITX cases provide a compact solution when building PCs.
+                                These smaller cases are suitable for those who need to maximize space efficiency while still
+                                meeting their computing needs.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="best-gaming-resolution-in-2024">
+                            <h2 class="fw-bolder mb-4 mt-5">Best Gaming Resolution In 2024</h2>
+                            <br>
+                            <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/what_is_best_gaming_resolution.jpg" %}" alt="..." />
+                            <br><br>
+                            <h3>Full HD (1920x1080)</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Full HD gaming monitors provide a compelling and widely adopted display resolution that represents a
+                                good mix between visual quality and performance. With 1920 pixels horizontally and 1080 pixels vertically,
+                                Full HD delivers clear and sharp images that enhance the gaming experience with vibrant colors and detailed
+                                graphics. 1080p monitor gaming is ideal for gamers who prioritize high frame rates and smooth gameplay over
+                                extremely high-resolution visuals.
+                            </p>    
+                            <hr>
+                            <h3>Quad HD (2560x1440)</h3>
+                            <br>
+                            <p class="fs-5 mb-4"> 
+                                With 2560 pixels horizontally and 1440 pixels vertically, Quad HD (QHD) has a higher pixel density that results
+                                in sharper and more immersive imagery. QHD gaming monitors offer a significant upgrade in visual clarity
+                                compared to Full HD. Gamers who value both visual quality and performance typically prefer 1440p monitor gaming
+                                because it delivers state-of-the-art graphics without requiring the most high-end hardware.
+                                This makes 1440p gaming the appealing choice for a wide range of enthusiasts.
+                            </p>
+                            <hr>
+                            <h3>4K UHD (3840x2160)</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                4K UHD gaming monitors offer an unparalleled level of visual immersion and detail,
+                                bringing gaming experiences to new heights of realism and artistry. Gaming 4K monitors provide four times the resolution
+                                of Full HD, with 3840 pixels horizontally and 2160 pixels vertically. This results in stunningly
+                                sharp and lifelike graphics that are the preferred choice for gamers seeking the absolute best visual experience.
+                                Since the best 4K monitors for gaming showcase such breathtaking imagery,
+                                4K resolution often requires powerful hardware to ensure smooth gameplay.
+                            </p>
+                            <hr>
+                            <h3>What resolution is best for your gaming needs?</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The best resolution for gaming depends on your hardware, budget and personal preferences. For many gamers,
+                                Full HD remains a popular choice because of how well it performs without hindering the visual quality.
+                                Full HD is well-supported by modern gaming hardware, and, gaming monitors with 1080p resolution are usually
+                                more affordable. So, if you are a beginner who is still getting used to the exciting world of gaming or if
+                                you are most concerned about a smooth performance, then Full HD gaming monitors might be the best option.
+                                <br><br>
+                                For gamers who have gaming desktops or consoles with high-end graphics cards that put realistic, detailed imagery
+                                above anything else, QHD or 4K UHD resolutions are usually the way to go. Although 4K UHD is more detailed than QHD,
+                                both options provide exceptionally sharp graphics that contribute to a more immersive gaming experience.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="is-it-essential-having-a-mechanical-keyboard">
+                            <h2 class="fw-bolder mb-4 mt-5">Is It Essential Having A Mechanical Keyboard?</h2>
+                            <br>
+                            <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/is_it_essential_having_a_mechanical_keyboard.jpeg" %}" alt="..." />
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                Mechanical keyboards are all the rage in the gaming world, making the gaming experience better.
+                                But, they can be too expensive for some people. When building a PC, users often wonder if spending extra
+                                money on a fancy keyboard is necessary.
+                                <br><br>
+                                Even though mechanical keyboards offer cool customization options, a good-quality regular keyboard
+                                (called a membrane keyboard) can still give you a great gaming experience. So, while mechanical keyboards might
+                                be tempting, especially for gaming fans, a well-made regular keyboard is practical and performs well,
+                                especially for those on a budget. The choice comes down to what you prefer, how much you want to spend,
+                                and what works best for your gaming setup.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="is-extra-case-fans-needed-for-gamers">
+                            <h2 class="fw-bolder mb-4 mt-5">Is Extra Case Fans Needed For Gamers?</h2>
+                            <br>
+                            
+                            <p class="fs-5 mb-4">
+                                Adding extra case fans can significantly improve airflow, making a noticeable impact on system temperatures.
+                                Given the substantial cooling needs of modern CPUs and GPUs, maintaining optimal temperatures is crucial.
+                                Therefore, it becomes essential to ensure that the system is optimized for effective cooling, making the
+                                choice of cases a critical consideration.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/is_extra_case_fans_needed_for_gamers.jpeg" %}" alt="..." />
+                                <br><br>
+                                The decision to purchase additional case fans depends largely on the quality of the fans that come with the case
+                                during the PC building process. Some cases may lack fans altogether, while others may include low-quality models
+                                that are ineffective at moving air. In such instances, users may find it necessary to invest in higher-quality fans
+                                to ensure efficient cooling for their systems.
+                                <br><br>
+                                On the flip side, certain cases, such as the Lancool III, come equipped with reliable fans straight from the box.
+                                In these cases, users can stick with the included fans without the need for additional purchases.
+                                This emphasizes the importance of considering the quality and performance of the stock fans that come with a case,
+                                as it can influence whether additional fans are required for optimal cooling.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="how-much-building-a-gaming-pc-costs">
+                            <h2 class="fw-bolder mb-4 mt-5">How Much Building A Gaming PC Costs?</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Similar to any personal computer or laptop, the cost of a gaming PC is contingent on your specific budget and gaming needs.
+                                The price range can vary from $300 to $5000, with a popular middle ground falling between $700 and $1200. Whether you're working
+                                within a tight budget or seeking top-tier performance as an enthusiast, there is a gaming PC suitable for your preferences.
+                                For a more in-depth exploration of pricing categories, refer to our comprehensive guide on building a gaming PC.
+                            </p>
+                            <br><br>
+                            <table class="table-style">
+                                <tr>
+                                    <td style="background-color:black;"><a style="color:white;font-weight:bold;" href="{% url "budget-pc-builds" %}">Budget PC Builds</a></td>
+                                    <td style="background-color:black;"><a style="color:white;font-weight:bold;" href="{% url "mid-range-pc-builds" %}">Mid-Range PC Builds</a></td>
+                                    <td style="background-color:black;"><a style="color:white;font-weight:bold;" href="{% url "high-end-pc-builds" %}">High-End PC Builds</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="{% url "best-gaming-pc-under-300-usd-in-2024" %}">300$ PC Build</a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-700-usd-in-2024" %}">700$ PC Build</a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-1500-usd-in-2024" %}">1500$ PC Build</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="{% url "best-gaming-pc-under-400-usd-in-2024" %}">400$ PC Build</a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-800-usd-in-2024" %}">800$ PC Build</a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-2000-usd-in-2024" %}">2000$ PC Build</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="{% url "best-gaming-pc-under-500-usd-in-2024" %}">500$ PC Build</a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-1000-usd-in-2024" %}">1000$ PC BUILD</a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-3000-usd-in-2024" %}">3000$ PC Build</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="{% url "best-gaming-pc-under-600-usd-in-2024" %}">600$ PC Build</a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-1200-usd-in-2024" %}">1200$ PC Build</a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-4000-usd-in-2024" %}">4000$ PC Build</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a></a></td>
+                                    <td><a></a></td>
+                                    <td><a href="{% url "best-gaming-pc-under-5000-usd-in-2024" %}">5000$ PC Build</a></td>
+                                </tr>
+                              </table>
+                              <br><br>
+                              <p class="fs-5 mb-4">
+                                When aiming to construct a mid-tier system or better, typically allocate around half of your budget towards the
+                                graphics card, as it tends to be the priciest component. Therefore, prioritizing expenditure on this item is advisable.
+                                The cost of the CPU can also impact your PC build expenses, although this largely hinges on your gaming needs,
+                                as mentioned earlier. Opting for older generation chips can be a cost-saving measure,
+                                freeing up more funds for investing in a better graphics card. 
+                                <br><br>
+                                Achieving a balance among your components is often ideal, though it's crucial to note that overlooking certain areas
+                                may significantly inflate overall costs. Nowadays, RAM kits are reasonably priced, and it's recommended to include
+                                16GB of fast RAM in your build to maximize performance. While it may seem tempting to cut costs on storage,
+                                opting for an SSD is advisable. Although smaller-capacity SSDs may appear cost-effective, they can quickly fill up,
+                                particularly with modern games sometimes surpassing 100GB in size.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/how_much_building_a_pc_costs.jpg" %}" alt="..." />
+                                <br><br>
+                                The cost of building a gaming PC varies depending on your planned specifications and capabilities.
+                                For those aiming to play the latest games at maximum settings and high resolutions, a substantial investment
+                                of $1,500 or more may be necessary. However, for esports enthusiasts prioritizing high frame rates in their
+                                favorite shooters, lower to mid-tier systems can adequately support 144+ FPS in 1080p without requiring
+                                as hefty a budget.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="gaming-computer-parts-cost">
+                            <h2 class="fw-bolder mb-4 mt-5">How Much Do Gaming PC Parts Cost?</h2>
+                            <br>
+                            <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/common_asked_questions_about_pc_building/how-much-pc-parts-costs.jpg" %}" alt="..." />
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                When you're putting together a computer, you can buy parts from lots of different stores, both online and offline.
+                                How much you spend on your PC depends on how much money you have to work with.
+                                Whether you want a basic setup for simple gaming or a fancy one for high-performance gaming,
+                                you can pick and choose parts based on what you need. 
+                                <br><br>
+                                Every part of a computer can be grouped into three cost categories: basic, mid-range, and high-end.
+                                High-end parts are more powerful and have more features, so they cost more. On the other hand,
+                                basic parts might be older models or have fewer features, which makes them cheaper.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="cpu-price-range">
+                            <h2 class="fw-bolder mb-4 mt-5">CPU Price Range</h2>
+                            <br>
+                            <table class="table table-hover" style="width: 60%;">
+                                <tr>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Budget</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Price</a></center></td>
+                                </tr>
+                                <tr>
+                                    <td>Low-end</td>
+                                    <td>$125 - $250</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid-range</td>
+                                    <td>$250 - $500</td>
+                                </tr>
+                                <tr>
+                                    <td>High-end</td>
+                                    <td>$500+</td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                The top-tier processors from AMD and Intel's most recent lineup (7950X3D and 14900K) were priced within
+                                the range of $590 to $700 at their manufacturer's suggested retail price (MSRP). Despite their high performance,
+                                these CPUs remain relatively budget-friendly, considering that you may not necessarily require the absolute best
+                                processor for your specific requirements.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="gpu-price-range">
+                            <h2 class="fw-bolder mb-4 mt-5">GPU Price Range</h2>
+                            <br>
+                            <table class="table table-hover" style="width: 60%;">
+                                <tr>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Budget</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Price</a></center></td>
+                                </tr>
+                                <tr>
+                                    <td>Low-end</td>
+                                    <td>$150 - $350</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid-range</td>
+                                    <td>$350 - $650</td>
+                                </tr>
+                                <tr>
+                                    <td>High-end</td>
+                                    <td>$650+</td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                In a gaming PC, the graphics card usually costs the most money. People often say you should spend about half
+                                of your total budget on it. It's also important to make sure the graphics card matches the power of your processor.
+                                Sometimes, even though the graphics card has a set price, different versions of it might cost more or less.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="ram-price-range">
+                            <h2 class="fw-bolder mb-4 mt-5">RAM Price Range</h2>
+                            <br>
+                            <table class="table table-hover" style="width: 60%;">
+                                <tr>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Budget</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Price</a></center></td>
+                                </tr>
+                                <tr>
+                                    <td>Low-end</td>
+                                    <td>$20 - $40</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid-range</td>
+                                    <td>$40 - $80</td>
+                                </tr>
+                                <tr>
+                                    <td>High-end</td>
+                                    <td>$80+</td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                RAM costs more when you want faster memory kits. If you're after quicker memory with tighter timings, you'll pay extra.
+                                Generally, RAM is pretty cheap, and it's a good idea to aim for 16GB for gaming nowadays, if you can.
+                                But getting more might be smart. With DDR5 memory, there could be some differences because it's newer technology.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="motherboard-price-range">
+                            <h2 class="fw-bolder mb-4 mt-5">Motherboard Price Range</h2>
+                            <br>
+                            <table class="table table-hover" style="width: 60%;">
+                                <tr>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Budget</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Price</a></center></td>
+                                </tr>
+                                <tr>
+                                    <td>Low-end</td>
+                                    <td>$60 - $150</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid-range</td>
+                                    <td>$150 - $250</td>
+                                </tr>
+                                <tr>
+                                    <td>High-end</td>
+                                    <td>$250+</td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                You can save money by choosing a cheaper motherboard, but remember that lower-priced ones usually have fewer
+                                features and abilities. On the other hand, when you're considering higher-end options,
+                                it's important to make the most of all the features your motherboard offers. Often, you can get similar
+                                performance for a lower price, moreover keeping some space for upgrades in the future.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="ssd-price-range">
+                            <h2 class="fw-bolder mb-4 mt-5">SSD(Storage) Price Range</h2>
+                            <br>
+                            <table class="table table-hover" style="width: 60%;">
+                                <tr>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Budget</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Price</a></center></td>
+                                </tr>
+                                <tr>
+                                    <td>Low-end</td>
+                                    <td>$30 - $60</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid-range</td>
+                                    <td>$60 - $100</td>
+                                </tr>
+                                <tr>
+                                    <td>High-end</td>
+                                    <td>$100+</td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                Storage prices depend on how big and fast they are. For example, if you have two SSDs with the same storage space but one is
+                                faster at reading and writing data, it will probably cost more. Also, newer types of SSDs usually come with a higher price tag.
+                                The older 2.5" SSDs are usually the cheapest, while the newer and more convenient m.2 SSDs tend to be more expensive.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="psu-price-range">
+                            <h2 class="fw-bolder mb-4 mt-5">PSU Price Range</h2>
+                            <br>
+                            <table class="table table-hover" style="width: 60%;">
+                                <tr>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Budget</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Price</a></center></td>
+                                </tr>
+                                <tr>
+                                    <td>Low-end</td>
+                                    <td>$30 - $50</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid-range</td>
+                                    <td>$50 - $100</td>
+                                </tr>
+                                <tr>
+                                    <td>High-end</td>
+                                    <td>$100+</td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                A power supply doesn't cost much compared to other parts of the PC. To save money, you can choose a non-modular option and make sure
+                                it provides just enough power for your setup. It's important to avoid anything below Bronze-rated, and it's a good idea to check PSU
+                                tier lists before buying. Always buy from a trusted manufacturer to avoid any issues.
+                                <br><br>
+                                In general, lower wattage power supplies are cheaper. Similarly, certain features like modular cables and LCD displays can drive up
+                                the cost. It's best to avoid these extras and instead invest that extra money into more critical components.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="case-price-range">
+                            <h2 class="fw-bolder mb-4 mt-5">Case Price Range</h2>
+                            <br>
+                            <table class="table table-hover" style="width: 60%;">
+                                <tr>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Budget</a></center></td>
+                                    <td style="background-color:black;"><center><a style="color:white;font-weight:bold;">Price</a></center></td>
+                                </tr>
+                                <tr>
+                                    <td>Low-end</td>
+                                    <td>$40 - $60</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid-range</td>
+                                    <td>$60 - $100</td>
+                                </tr>
+                                <tr>
+                                    <td>High-end</td>
+                                    <td>$100+</td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                PC cases come in various price ranges to suit different budgets. Lower-end cases are basic, with just enough features and fans to get by.
+                                While they can still keep your system cool, they might have some quality issues.
+                                <br><br>
+                                Mid-range cases strike a good balance between price and performance.
+                                They often come with more fans, better dust filters, and features like cable management.
+                                <br><br>
+                                High-end cases are top-quality with fewer worries about durability. They're usually modular, meaning you can change them
+                                according to your needs. Some even have sound-dampening materials for a quieter setup or features for liquid cooling.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

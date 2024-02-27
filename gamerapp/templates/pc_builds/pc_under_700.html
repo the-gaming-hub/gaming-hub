@@ -1,0 +1,653 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">
+                                If you're in the market for a new PC that can handle all the latest games without breaking the bank, you've come to the right place.
+                                <br><br>
+                                Introducing our ultimate $700 PC build. It's affordable, powerful, and, perhaps most importantly, future-proof.
+                            </p>                            
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-overview">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Overview</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                In the past, building the best gaming PC under $700 would have been considered unthinkable due to hardware scarcity. However,
+                                times have changed, and today, $700 can easily get you a gaming PC capable of delivering significant framerates at 1080p and above.
+                                Is it the absolute best build out there? Probably not, but given our limited budget, it's a solid choice. If you're looking for
+                                something that can handle 4K and beyond, we recommend checking out our <a href="{% url "best-gaming-pc-under-2000-usd-in-2024" %}" style="color:#a00000;text-decoration: underline;">Best Gaming PC under $2000 guide</a>. Nevertheless,
+                                this rig can easily tackle any AAA game title today, achieving 60fps and beyond.
+                                <br><br>
+                                Our goal with this build is always to provide you with the best gaming experience possible for just $700. Each component 
+                                is carefully selected and debated by our team of experts to maximize value and performance while ensuring compatibility issues are non-existent,
+                                and your build experience is smooth. If you're not keen on the custom build process, maybe an off-the-shelf pre-built option is more suitable for you?
+                            </p>
+                                <hr>
+                                <h3>PC hardware deals</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    If you're considering building your next gaming PC, searching for deals on various components is a great way to get better performance
+                                    for a lower cost. You can find discounts on GPUs, CPUs, coolers, motherboards, power supplies, and cases. Even outside of
+                                    special sales events, there are often opportunities to save money here and there, allowing you to stretch your budget
+                                    further and get more value for your money.
+                                </p>
+                                <hr>
+                                <h3>PC Budget</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    The more you move down the price ladder, the more the value of the $ changes. The less you have to spend, the more every cent counts.
+                                    You can't just spend an extra $50 on a flashier memory kit, or $100 on a <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">more potent cooling solution</a>, what you're looking for is the
+                                    best bang for the buck for all of your hardware. Despite those limitations, we have, however, managed to create the best custom PC build
+                                    that we could for $700. One that's easy to put together, that performs at the highest levels at <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">1080p gaming</a>, and doesn't break the bank in
+                                    the process. Of course, compromises had to be made, but we've made sure that the impact on gaming wherever possible is minimal to non-existent.
+                                    The CPU and GPU powering the heart of this build can easily handle pretty much all titles at 1080p without fault, however, more recent AAA titles,
+                                    or those requiring <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">raytracing</a> to really make them pop, may need the odd tweak in settings, to really shine.
+                                    <br><br>
+                                    One area we have had to compromise on, however, is storage space, specifically with the SSD. Ideally, we recommend you look at updating this later
+                                    down the line. That said, there is still plenty of room here for your operating system and favorite games to get you going. This mid-level PC can
+                                    not only handle the latest and best games at 1080p with ease, but on top of that, it also looks the part!
+                                </p>
+                                <hr>
+                                <h3>Performance</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Despite the $700 price tag, this custom PC delivers seriously impressive gaming performance. It handles 1080p gaming at maximum settings with ease,
+                                    with most titles reaching well above 80 fps in our testing. While some titles like Hogwarts Legacy and CyberPunk fall slightly below that mark,
+                                    they still maintain a smooth 60fps, ensuring you'll be ready for upcoming games like Liberty Phantom DLC.
+                                    <br><br>
+                                    The Intel Core i5-12400 may not be as powerful as its 13th gen counterpart, but its six cores and 12 threads provide more than enough processing power
+                                    for this build. Its hyper-threading capability makes it suitable for any workload, whether gaming or otherwise. Paired with a 960 GB
+                                    PCIe 3.0 Western Digital M.2 SSD, this custom PC runs smoothly.
+                                    <br><br>
+                                    We did have to compromise in a couple of areas, notably in memory. While we would have liked to include a full 32 GB kit of DDR4 RAM,
+                                    perhaps at 3600 MHz, 16 GB is still more than sufficient for now. However, it's an area we recommend upgrading in the future,
+                                    especially as games become more memory-hungry, such as Forspoken.
+                                </p>
+                                <hr>
+                                <h3>AMD vs Intel</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Why choose Intel over AMD for this build? Well, honestly, there isn't a significant difference at this price point, at least not currently.
+                                    Both AMD and Intel offer impressive budget options. Whether it's the Intel Core i5-12400F featured in this build or the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">AMD Ryzen 5 5600X</a>,
+                                    you'll be more than satisfied with either choice. Ultimately, it comes down to personal preference. Both platforms are excellent,
+                                    although AMD does have a slight edge with its latest generation of processors and motherboards, particularly in terms of PCIe 5.0 SSD support,
+                                    which is still awaiting broader SSD availability.
+                                    <br><br>
+                                    One thing to note when building an AMD system is that they tend to prefer higher-spec memory. AMD's Infinity Fabric,
+                                    which facilitates data transfer between cores on the CPU, benefits from higher-frequency memory. However, there is a limit to this benefit.
+                                    For 5th gen AMD Ryzen processors and DDR4, the cutoff is 3733 MHz, while for 7th gen Ryzen and DDR5, it's 6000 MHz.
+                                </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-build">
+                            <div>
+                                <h2 class="fw-bolder mb-4 mt-5" >The PC Build</h2>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Click on the product images to go to Amazon,
+                                    where you can see additional high-resolution images and check the current price.
+                                    Prices may be greater than $700 due to price changes.
+                                <p>
+                                <div class="pc-comp-row" >
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_cpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                     <div class="pc-comp-name">
+                                        CPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Intel Core i5-12400F
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_gpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        GPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        MSI RX 6600 Mech 2X
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_motherboard.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Motherboard
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        MSI PRO B760M-P
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_ram.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        RAM
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Corsair Vengeance LPX 16GB (2x8GB) 3200MHz
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_storage.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Storage
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Crucial P3 500GB
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_psu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Power Supply
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        EVGA 600 GD 80+ GOLD 600W
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_case.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Case
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        CORSAIR 3000D AIRFLOW
+                                    </div>                           
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <a class="btn pc-build-button" type="button">ORDER THIS BUILD</a>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="components">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Components</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Now that we've given you an overview of the build and what you can expect from it,
+                                let's go further into each component, beginning with the build's brain.
+                            <p>
+                            <br>
+                            <h3>CPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_cpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Intel Core i5-12400F</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>2.5GHz - 4.4GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>6 (12)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>LGA 1700</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>TDP</th>
+                                                    <td>65W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The Core i5-12400F is indeed an impressive processor, packed with some of the best budget technology Intel can offer
+                                        in a chip of this size. With its six cores, 12 threads, and a powerful turbo clock speed reaching up to 4.4 GHz,
+                                        this Alder Lake chip provides ample power to drive your GPU through all the latest 1080p games and beyond for
+                                        the foreseeable future. These features make it the perfect choice for our $700 budget-friendly build.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>GPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_gpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">MSI RX 6600 Mech 2X</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>1626MHz - 2491MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stream Processors</th>
+                                                    <td>1792</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SockMemory Size</th>
+                                                    <td>8GB GDDR6</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>235mm x 125mm x 46mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PSU Required</th>
+                                                    <td>132W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The RX 6600 is an excellent GPU choice for this price range. While it may not be the latest or greatest option available,
+                                        it's unparalleled within a budget of under $700. Capable of running 1080p framerates smoothly across the board,
+                                        it benefits from excellent driver and software support from AMD, with consistent upgrades throughout its lifespan.
+                                        As it's now considered an older choice, you'll get even more value out of it, making it unmatched in terms of price point and performance.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Motherboard</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_motherboard.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">MSI PRO B760M-P</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Chipset</th>
+                                                    <td>INTEL B760</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>LGA 1700</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Form Factor</th>
+                                                    <td>mATX</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        The MSI PRO B760M-P motherboard is indeed on the smaller side, being Micro-ATX, and you'll be installing it into an ATX chassis. Additionally,
+                                        it has a limited number of ports, which could be somewhat restrictive.
+                                        <br><br>
+                                        We would recommend upgrading this component in the future or considering investing a bit more upfront,
+                                        as the lack of rear I/O ports may become a limitation later on. Alternatively, you could opt for a cheap USB hub to address this issue.
+                                        <br><br>
+                                        So why did we choose it for our $700 custom PC build? Well, the combination of price and onboard features outweighs the lackluster rear I/O.
+                                        With support for DDR4 RAM up to 4800 MHz and 2x M.2 PCIe 3.0 slots, this motherboard offers performance comparable to boards that are four
+                                        to five times as expensive.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>RAM</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_ram.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Corsair Vengeance LPX DDR4</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>3200MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>16GB (2x8GB)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Timings</th>
+                                                    <td>16-18-18-36</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CAS Latency</th>
+                                                    <td>16</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>33.53mm x 135mm x 6.64mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        At this price point, the CORSAIR Vengeance LPX 16 GB kit is simply too good to ignore for our $700 custom PC build.
+                                        With a frequency of 3200 MHz and a CAS latency of 16, these sticks deliver exceptional performance across any application.
+                                        <br><br>
+                                        While 16 GB of DDR4 RAM is ideal for gaming at 1080p, it's the one area we strongly recommend upgrading later down the line.
+                                        Thankfully, because the MSI B760M features 4x DIMMs, you can easily add a second kit of these sticks in the future to double
+                                        your capacity for a minimal investment, especially if you require it for more professional-oriented tasks.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Storage</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_storage.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Crucial P3</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Read/Write</th>
+                                                    <td>3,500MB/s - 3,000MB/s  </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>500GB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interface</th>
+                                                    <td>PCIe 3.0 x4 NVMe</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        In 2023, it's highly unlikely to find a $700 custom build without an SSD, let alone without an M.2 SSD. SSDs have become
+                                        a standard component in modern PC builds due to their speed and reliability.
+                                        <br><br>
+                                        There are various standards to choose from, including different generations of PCIe interfaces, sizes, and speeds. However,
+                                        the Crucial P3 500GB offers excellent value, providing fast boot and load times. While the capacity may be somewhat limiting,
+                                        you can always expand it further down the line when necessary.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Power Supply</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_psu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">EVGA 600 GD</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Wattage</th>
+                                                    <td>600W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Efficiency</th>
+                                                    <td>80+ Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Modularity</th>
+                                                    <td>Non-modular</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        This affordable PSU from EVGA also boasts excellent levels of efficiency. Opting for a certified PSU is crucial as it helps ensure the safety
+                                        of your build and protects your investment.
+                                        <br><br>
+                                        The EVGA 600 Watt option is a solid choice, offering both reliability and decent efficiency. With semi-modularity,
+                                        it provides convenience in cable management, and it's designed to run your system smoothly for years without any issues.
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Case</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_700/pc_under_700_usd_case.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">CORSAIR 3000D AIRFLOW</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>ATX Mid Tower</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Motherboard Compatibility</th>
+                                                    <td>ATX, Micro-ATX, Mini-ITX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Maximum GPU Length</th>
+                                                    <td>360mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>462mm x 230mm x 466mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        CORSAIR's latest chassis, the 3000D, initially flew under the radar upon its launch. However,
+                                        it has proven to be one of the best budget PC cases currently available, even challenging the prestigious 4000D.
+                                        <br><br>
+                                        The 3000D is aesthetically pleasing, offers good airflow, supports ATX motherboards, accommodates fairly sizable GPUs,
+                                        all while maintaining a compact size that doesn't overwhelm your desk space.
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="points-to-consider">
+                            <h2 class="fw-bolder mb-4 mt-5" >Points To Consider</h2>
+                            <br><br>
+                            <p class="fs-5 mb-4">
+                                Now that you've got a good grasp of how this build performs and what parts it includes, you're probably starting to figure out if
+                                it's right for you. But before you make up your mind, there are some important things to think about.
+                                <br><br>
+                                Let's break down the key points you need to consider before deciding whether this build is the right choice for you.
+                                By looking at these factors closely, you can make sure it matches your gaming needs perfectly.
+                                <br><br>
+                                So, let's jump in and talk about what you need to know before you buy this build.
+                            </p>
+                            <br><br>
+                            <h3>$700 Budget</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                As mentioned, the $700 custom gaming PC used to sit at the lower end of our mid-level builds, but due to the current market conditions,
+                                it has slipped further down. It's important to consider the cost, as a gamer, to ensure that the PC meets your requirements.
+                                This gaming PC is optimized for 1080p resolutions and, despite expectations, won't be suitable for 4K gaming anytime soon.
+                                For higher resolutions, you may want to consider our $800 PC and above.
+                                <br><br>
+                                Please note that due to Amazon's price fluctuations, the build price may sometimes change. We strive to keep this build as close to
+                                $700 as possible with regular updates.
+                            </p>
+                            <hr>
+                            <h3>Ease Of Building</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                For <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">first-time builders</a>, it's important to consider how challenging the PC build process will be. With this in mind, we've carefully
+                                selected a <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">PC case</a> that simplifies the entire process. The case comes from a trusted manufacturer known for prioritizing building and
+                                <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">cable management</a>. It does a great job of hiding cables with minimal effort on your part. However, for those who want to spend more time on it,
+                                there's plenty of room to create an excellent cable management setup.
+                                <br><br>
+                                Both of our recommended CPUs come with stock coolers included. These stock coolers efficiently handle cooling and come with <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">thermal paste pre-applied</a>,
+                                saving you a step. However, we recommend purchasing a tube of <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">aftermarket thermal paste</a> to replace the pre-applied paste. Replacing <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">the thermal 
+                                paste</a> often results in better thermal performance, lower temperatures, and you'll need to replace it at intervals in the future.
+                            </p>
+                            <hr>
+                            <h3>Upgradability And Future-Proofing</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Future upgrades are always a consideration for PC builders. The ease of <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">upgrading a PC</a> can make future enhancements cheaper and simpler when 
+                                the time comes. While we've made compromises to keep this PC within the $700 target, we've also chosen components that allow for future
+                                improvements. Although these components may not be the latest releases, they still offer excellent gaming performance that will remain relevant for years to come.
+                                <br><br>
+                                If you were to upgrade anything in this build, it would likely be to a larger storage solution. Keep in mind that while upgrades can
+                                enhance performance, they also come with additional costs.
+                            </p>
+                            <hr>
+                            <h3>Overclocking</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">Overclocking</a> your PC can provide a free boost in performance. Increasing your CPU's clock speed or overclocking your RAM has been proven 
+                                to offer additional performance. However, overclocking a CPU generates extra heat, so it's advisable to consider adding a CPU cooler to 
+                                keep temperatures in check.
+                                <br><br>
+                                While this $700 gaming PC features fast RAM, it's important to note that RAM kits typically don't come with these speeds out of the box.
+                                You'll need to <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">overclock them in the BIOS</a>. Fortunately, motherboard manufacturers have made the RAM overclocking process much simpler through BIOS settings.
+                            </p>
+                            <hr>
+                            <h3>Non-Gaming Performance</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Gaming performance on the $700 build is a given, as it's designed specifically as a gaming PC. Despite stock issues, you'll still enjoy your
+                                favorite game titles on this system. However, its performance in other areas is where the AMD build path truly shines, mainly due to its
+                                multithreading capabilities.
+                                <br><br>
+                                The additional threads (virtual cores) enhance this PC's ability to handle multitasking, <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">streaming</a>, and video editing tasks.
+                                It's worth noting that the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RAM kit</a> included in this build complements the AMD <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">CPU</a> well, providing you with a versatile PC for various tasks beyond gaming.
+                            </p>
+                            <hr>
+                            <h3>Aesthetics</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                While aesthetics may not be a top priority for all gamers and enthusiasts, it can hold importance for some. With this in mind,
+                                we've included a case in this build that features a <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">tempered glass</a> panel, allowing you to showcase your components if desired.
+                                For those interested in enhancing the aesthetics further, adding an <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RGB fan</a> or light strip can easily <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">elevate the visual appeal of the PC</a>.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-tips">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building Tips</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Building your own PC may seem daunting, but it's actually quite manageable with the right information and a comprehensive guide,
+                                both of which are more accessible than ever before. With the right resources, you should be able to successfully build your first PC without any worries.
+                                <br><br>
+                                We understand the challenges that first-time builders face, which is why we've compiled a comprehensive list covering exactly <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}" style="color:#a00000;text-decoration: underline;">what
+                                newbie builders should avoid doing</a>, along with a list of <a href="{% url "common-asked-questions-about-pc-building" %}" style="color:#a00000;text-decoration: underline;">common questions you might have during the building process</a>. These resources
+                                aim to provide guidance and support to make your PC building experience smooth and successful.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="closing-thoughts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Closing Thoughts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                There you have it, our comprehensive guide to building the best gaming PC for under $700. If you've followed this guide, you can now enjoy
+                                your favorite AAA games in high detail at 1080p resolution. This gaming PC is more than capable of handling VR games and should provide you
+                                with decent FPS counts. While compromises have to be made at this price point, opting for the AMD build path ensures a flexible gaming rig
+                                that offers excellent performance for the price.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+{% endblock body %}

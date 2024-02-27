@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block homebody %}
+<div style="position: relative; display: inline-block;width:100%;margin-bottom:-40px;">
+    <img class="card-img-top" src="{% static 'images/pc_builds/pc_builds.jpg' %}" alt="..." />
+    <div style="position: absolute; top: 0; left: 0; width: 100%; text-align: center;">
+        <p class="pc-builds-header">PC Builds</p>
+    </div>
+</div>  
+<div class="mt-5 categroies-div">      
+    <center><h2>Subcategories: <a href="{% url "budget-pc-builds" %}">Budget PC Builds</a> | <a href="{% url "mid-range-pc-builds" %}">Mid-Range PC Builds</a> | <a href="{% url "high-end-pc-builds" %}">High-End PC Builds</a></h2></center>
+    <br><br><br><br>
+    <div class="row">
+        {% for pc_build in pc_builds %}
+        <div style="padding-bottom:30px;" class="col-lg-3">
+            <div>
+                <a href="{% url pc_build.slug %}" onmouseover="zoomImage(this)" onmouseout="unzoomImage(this)"><img style="border-radius: 5px;" class="card-img-top" src="{{pc_build.image.url}}" alt="..." /></a>
+                <div class="card-body">
+                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url pc_build.sub_category.slug %}">{{pc_build.sub_category|upper}}</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url pc_build.main_category.slug %}">{{pc_build.main_category|upper}}</a><br>
+                    <div style="margin-bottom:7px"></div>
+                    <a href="{% url pc_build.slug %}" style="font-size:20px;" class="card-title h4 review-link">{{pc_build.topic}}</a>
+                    <div class="small text-muted"><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="15" height="15" style="margin-bottom: 3px; margin-right: 5px;"> {{pc_build.date_created|time_ago_format}}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock homebody %}

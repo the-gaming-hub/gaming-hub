@@ -1,0 +1,20 @@
+<div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+<section>
+<h3 class="fw-bolder mb-4 mt-5" >Related Custom PC Builds</h3>
+    <br>
+    <div class="row">
+        {% for review in pc_builds_related %}
+            <div style="padding-bottom:10px;" class="col-lg-3">
+                <div class="card mb-12">
+                    <a href="{% url review.slug %}" onmouseover="zoomImage(this)" onmouseout="unzoomImage(this)"><img style="border-radius: 5px" class="card-img-top" src="{{review.image.url}}" alt="..." /></a>
+                    <div class="custom-card-body">
+                        {% comment %} <div class="small text-muted"><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="20" height="20" style="margin-bottom: 3px; margin-right: 5px;"> {{review.date_created|time_ago_format}}</div> {% endcomment %}
+                        {% comment %} <a class="badge bg-secondary text-decoration-none link-light" style="font-size:9px;margin:0;" href="{% url review.sub_category.main_category.slug %}">{{review.sub_category.main_category|upper}}</a><br> {% endcomment %}
+                        {% comment %} <div style="margin-bottom:7px"></div> {% endcomment %}
+                        <a href="{% url review.slug %}" style="font-size:16px;" class="card-title h5 review-link">{{review.topic}}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,550 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#bld-by-nzxt">BLD by NZXT</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#maingear">MainGear</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-builder">PC Builder</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#origin-pc">Origin PC</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#xidax">Xidax</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#digital-storm">Digital Storm</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#cyberpowerpc">CyberPowerPC</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#ibuypower">iBuyPower</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#falcon-northwest">Falcon Northwest</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#avadirect">AVADirect</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#build-my-pc">Build My PC</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#singularity-computers">Singularity Computers</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#faqs">FAQs</a></li>   
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p style="font-size:30px;" class="fs-5 mb-4">
+                                Building your own PC has become more accessible than ever, thanks to the rise of custom PC builder websites. Whether you're a seasoned 
+                                enthusiast or a newbie looking to dive into the world of custom rigs, these platforms offer a plethora of options to cater to your 
+                                specific needs and preferences. In this comprehensive guide, we'll explore the best features and offerings from the top 12 custom PC builder websites.
+                            </p>      
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#bld-by-nzxt">BLD by NZXT</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#maingear">MainGear</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-builder">PC Builder</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#origin-pc">Origin PC</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#xidax">Xidax</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#digital-storm">Digital Storm</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#cyberpowerpc">CyberPowerPC</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#ibuypower">iBuyPower</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#falcon-northwest">Falcon Northwest</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#avadirect">AVADirect</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#build-my-pc">Build My PC</a></li>  
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#singularity-computers">Singularity Computers</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#faqs">FAQs</a></li>  
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="bld-by-nzxt">
+                            <h2 class="fw-bolder mb-4 mt-5">1. <a href="#" style="color:#a00000">BLD by NZXT</a> (Best in Customization)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/bld_by_nzxt.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> PC, Content creation, Media</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $1,500 to $3,000+</li>
+                                    <br>
+                                    <li><strong>Features:</strong> Virtual reality, 4K HD, Overclocking, Water cooling</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> USA, Canada</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong> Ground (3-6 business days) , Express Saver (1-3 business days) , Overnight (1 business day)</li>
+                                    <br>
+                                    <li><strong>PC Processing Speed:</strong> Prebuilt & Custom PCs (5 business days) , Refurbished PCs (2 business days)</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> Two years labor, one-year parts</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">NZXT BLD</a>, a subsidiary of NZXT, stands out among custom builder websites as a newcomer with extensive customization options and top-tier components. 
+                                Users have complete control over their PC design, with the option to choose from prebuilt systems or customize their rigs through step-by-step 
+                                questionnaires. These questionnaires consider various factors such as budget, preferred games, and performance requirements to recommend suitable builds. 
+                                Additionally, users can further customize their units with RGB lighting, cooling systems, and other accessories.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/bld_by_nzxt_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                Once configured, the NZXT BLD team assembles the chosen components, professionally manages cables, and fine-tunes the PC for optimal performance. 
+                                These visually appealing PCs are not only aesthetically pleasing but also offer high performance, suitable for various workloads including gaming, 
+                                streaming, and content creation. Customers can test the PCs' FPS performance on popular games before purchasing, ensuring they meet their requirements. 
+                                Despite being a newcomer, NZXT BLD ensures fast shipping within 48 hours, albeit with a flat fee of $350 for shipping and assembly.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="maingear">
+                            <h2 class="fw-bolder mb-4 mt-5">2. <a href="#" style="color:#a00000">MainGear</a>  </h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/main_gear.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> High-quality, ready-to-game PCs and custom desktops, features 3D customization</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $1,099 to $4,000+</li>
+                                    <br>
+                                    <li><strong>Features:</strong> 3D configuration, liquid cooling, up to 1300-watt power supplies</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> International</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong> In US (2-7 business days) , internationally (3-4 weeks) </li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> one-year parts replacement warranty, upgradable to three years</li>
+                                </ul><br>
+                                Since its establishment in 2002, <a href = "#" style="color:#a00000;text-decoration: underline;">MainGear</a> has been a trusted provider of quality PC builds, offering a wide range of desktop systems, laptops, and workstations. 
+                                Their website features a unique 3D customization tool, allowing customers to visualize changes to their customized PCs in real-time. With configurable presets 
+                                ranging from the MG-1 desktop starting at $1099 to the top-of-the-line Rush gaming PC starting at $2029, MainGear caters to diverse preferences. However, 
+                                it's important to note that MainGear does not manufacture laptops.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/main_gear_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                Setting itself apart with a focus on user experience, MAINGEAR has been serving PC users since 2002, providing them with top-notch hardware and components 
+                                to power their workloads. Their innovative 3D design feature allows customers to envision their customized PC configurations in their space, 
+                                enhancing the customization experience. Customers can select from a diverse collection of high-performance parts and accessories to optimize their PC rigs. 
+                                MAINGEAR prioritizes quality and customizability, utilizing verified hardware and premium materials for every build. Additionally, users can add personalized 
+                                artwork to their cases and choose from various configuration options for a unique touch.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-builder">
+                            <h2 class="fw-bolder mb-4 mt-5">3. <a href="#" style="color:#a00000">PC Builder</a></h2>
+                            <br>
+                            <p class="fs-5 mb-4"> 
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/pc_builder.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> system builder and prebuilt PCs</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> prebuilt PCs starting at $789, all-in-one PC starting at $299</li>
+                                    <br>
+                                    <li><strong>Features:</strong> Select from a diverse range of components and verify their compatibility with your system to construct your PC.</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> Australia, Canada, Spain, India, Italy, UK, and the USA</li>
+                                </ul><br>
+                                The <a href = "#" style="color:#a00000;text-decoration: underline;">PC Builder</a> website boasts an extensive array of computer compatibility algorithms, totaling in the hundreds, meticulously crafted to 
+                                evaluate the market's PC parts. Leveraging these algorithms, the platform recommends the optimal PC components by striking a balance 
+                                between price and performance, catering to a wide range of user needs and preferences.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/pc_builder_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                With a repository of over 4,000 components, PC Builder stands out for its comprehensive database, offering users an abundance of choices. 
+                                Moreover, the website employs a performance-based ranking system for computer components, simplifying the selection process for novice users
+                                and aiding them in making informed decisions for their PC setups.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="origin-pc">
+                            <h2 class="fw-bolder mb-4 mt-5">4. <a href="#" style="color:#a00000">Origin PC</a> (Best for Graphics Card Stock)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/origin_pc.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> Gaming, Laptops, Workstations, Home PCs</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> Custom built desktop systems start at $2,349 and custom laptops at $2,199</li>
+                                    <br>
+                                    <li><strong>Features:</strong> NVIDIA GeForce GPU, liquid cooling, 4K HD, Custom cases, PC tuning</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> international</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong> 6 - 8 days</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> One-year part replacement and a 45-day shipping warranty, with optional warranty plans available for purchase</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">Origin PC</a>, established in 2009, stands as a prominent figure in the custom PC industry, catering to diverse user needs, with gaming as its primary focus. 
+                                Offering a broad spectrum of options, from compact mITX PCs to expansive workstations, all housed within Origin's bespoke cases, the company ensures thorough 
+                                compatibility testing for every configuration.
+                                <br><br>
+                                A standout feature of Origin PC is its Gaming Desktop Advisor tool, simplifying the configuration process. Moreover, Origin PC provides 
+                                financing options and maintains consistent stock availability of graphics cards, addressing potential wait times.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/origin_pc_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                Following assembly, Origin PC subjects each system to rigorous performance tests, guaranteeing component compatibility and optimal functionality. 
+                                Customers enjoy extensive customization options, including HD UV printing, RGB lighting, and various color choices, making their PCs truly unique. 
+                                Additionally, Origin PC serves as a comprehensive hub for PC and gaming needs, offering a range of accessories through its gear shop.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="xidax">
+                            <h2 class="fw-bolder mb-4 mt-5">5. <a href="#" style="color:#a00000">Xidax</a> (Best Warranty Period)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/xidax.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong>  Gaming desktops, Servers, Workstations, Laptops</li>
+                                    <br>
+                                    <li><strong>Cost:</strong>  $1,150 to $6,000+</li>
+                                    <br>
+                                    <li><strong>Features:</strong> Virtual reality, 4K HD, Overclocking, Water cooling , Windows recovery, data backup, laser etching</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> international</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong> 5 - 7 days</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> Lifetime warranty</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">Xidax</a> stands out in the custom PC market with its lifetime warranty on labor and parts, 
+                                offering unmatched reliability for its systems. Despite exceptions for AMD video cards and liquid cooling components, Xidax ensures free replacement of 
+                                defective parts and repairs in exchange for store credit if any component is damaged, backed by a 45-day money-back guarantee with a restocking fee.
+                                <br><br>
+                                Known for its emphasis on well-matched components and affordability, Xidax offers a range of gaming desktops and custom PC builds tailored to user preferences. 
+                                Its online catalog, featuring models from the entry-level X-2 to the powerful X-10, showcases the company's commitment to quality and variety. 
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/xidax_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                With a focus on user needs and satisfaction, Xidax delivers sleek and high-quality gaming PC rigs, customizable to meet individual preferences. 
+                                Partnering with renowned brands and personalities like MrBeast and DreamWorks has elevated Xidax's reputation, while its lifetime warranty underscores 
+                                its commitment to long-term product reliability, setting it apart from competitors.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="digital-storm">
+                            <h2 class="fw-bolder mb-4 mt-5">6. <a href="#" style="color:#a00000">Digital Storm</a> (Best for International Clients)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/digital_storm.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> Gaming, Workstations, Laptops</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $1,150 to $4,000+</li>
+                                    <br>
+                                    <li><strong>Features:</strong> intelligent thermal design, VR-compatible, exclusive control board, 4K HD, Overclocking, Water cooling</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> international</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong> 10 - 15 days</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> standard one-year parts warranty and three-year labor warranty</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">Digital Storm</a> stands out among custom PC builders for its international shipping service, 
+                                catering to customers outside the United States. Established in 2002, the company offers a diverse range of custom workstations, laptops, and desktops 
+                                tailored for both professional tasks and gaming pursuits. Notably, Digital Storm presents competitive pricing, exemplified by its Lynx Mid Tower starting 
+                                at $1,000, inclusive of two dedicated GPUs, with financing options available for those in need.
+                                <br><br>
+                                Moreover, Digital Storm distinguishes itself with generous warranty terms, allowing for labor coverage extension up to six years and parts up to four years. 
+                                Renowned for its expertise in crafting intricate setups and innovative water cooling configurations, Digital Storm ensures reliability and performance 
+                                longevity for its products. The company's offerings include prebuilt PCs alongside customizable presets, with desktops boasting a wider 
+                                range of options compared to laptops and workstations.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/digital_storm_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                Since its inception, Digital Storm has garnered acclaim in the PC building industry, earning accolades such as the "Editor's Choice" award from PC Gamer Magazine. 
+                                Customers can browse through Digital Storm's extensive catalog of custom PCs, laptops, and workstations, backed by hand-built and tested products to guarantee
+                                optimal performance. The company's commitment to customer satisfaction extends to lifetime expert support and flexible financing options, 
+                                including a 0% APR six-month plan, empowering users to enjoy today's games while ensuring future upgradability.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="cyberpowerpc">
+                            <h2 class="fw-bolder mb-4 mt-5">7. <a href="#" style="color:#a00000">CyberPowerPC</a> (Best for Beginners)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/cyber_power_pc.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> Gaming, Laptops, Content creation, Gaming PCs</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $950 to $2,399+</li>
+                                    <br>
+                                    <li><strong>Features:</strong> water-cooling solutions, various case designs, Virtual reality, 4K HD, Overclocking</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> USA and Canada only</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong> about 10 days</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> standard one-year parts warranty and three-year labor warranty</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">CyberPowerPC</a>, established in 1998, has solidified its reputation as a prominent custom 
+                                PC builder with a diverse array of offerings. Known for its competitive pricing, the company boasts a wide selection of components, 
+                                allowing users to build base gaming desktops starting at a budget-friendly $769. Moreover, CyberPowerPC caters to the needs of hardcore gamers with custom-built
+                                rigs and a variety of services, including professional cable management and elaborate water-cooling solutions.
+                                <br><br>
+                                With an extensive range of prebuilt systems, CyberPowerPC stands out among PC builder websites, offering gaming laptops and desktops powered by 
+                                AMD, NVIDIA, and Intel. The company's customizable presets, such as Compact, Mid-Tower, Full-Tower, and Syber Cube, provide flexibility in configuration. 
+                                Utilizing a custom PC and laptop building tool, customers can sort components based on budget and gaming preferences, ensuring optimal performance tailored 
+                                to their specifications.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/cyber_power_pc_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                Despite slower shipping times, CyberPowerPC's affordability and financing options through Affirm make it an attractive choice for both beginner and seasoned builders. 
+                                Offering a standard 1-year warranty, complemented by a 3-year service plan and lifetime tech support, the company prioritizes customer satisfaction.
+                                Additionally, CyberPowerPC caters to various use cases beyond gaming, such as its NVIDIA RTX Studio Series tailored for creators seeking 
+                                high-performance systems for creative workflows.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="ibuypower">
+                            <h2 class="fw-bolder mb-4 mt-5">8. <a href="#" style="color:#a00000">iBuyPower</a> (Best for Experienced Gamers)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/i_buy_power.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> Gaming and streaming PCs, Laptops, Media</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $1,249 to $10,000+</li>
+                                    <br>
+                                    <li><strong>Features:</strong> various case designs, AMD or Intel processors, NVMe SSDs, Overclocking, Virtual reality, 4K HD, Water cooling</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> USA and Canada only</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong> 5 - 10 days</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> standard one-year parts warranty and three-year labor warranty</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">iBuyPower</a>, a veteran in the custom PC building arena since 1999, caters primarily to 
+                                seasoned gamers with its extensive range of components. While this array of options may overwhelm novices, it presents a treasure trove for those with 
+                                prior PC-building experience or thorough research under their belts. Positioned within an attractive pricing bracket, iBuyPower offers gaming systems 
+                                starting below $1,000 and provides additional services such as water-cooling, essential cable management, overclocking, and custom engraving.
+                                <br><br>
+                                The company's website features the user-friendly Easy Builder tool, streamlining the customization process. Users can kickstart their configuration 
+                                journey by choosing between AMD or Intel processors, followed by perusing through the suggested builds. Moreover, the platform offers filters based 
+                                on price, storage, visual memory, and special features, empowering users to fine-tune their preferences further.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/i_buy_power_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                For those grappling with decision-making, iBuyPower provides valuable resources on whether building one's PC is more cost-effective and offers a 
+                                guide comparing custom-built PCs with pre-built options. Affordable custom PC solutions are a hallmark of iBuyPower, with gaming desktops starting 
+                                as low as $1,189, complemented by financing options through Affirm for convenient monthly payments. The company also extends its reach through Amazon, 
+                                where pre-built systems are available starting from $540, catering to those seeking quicker delivery.
+                                <br><br>
+                                All iBuyPower custom systems come with a standard 3-year warranty and are typically ready to ship within 5-10 business days, with rush shipping options 
+                                available for expedited delivery. Users can opt for the easy builder tool or a self-selection interface, both providing simplicity and 
+                                affordability tailored to diverse gaming needs. With customizable options ranging from CPUs to accessories, iBuyPower's intuitive interface simplifies 
+                                the PC building process, making it an attractive choice for budget-conscious gamers seeking a seamless purchasing experience.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="falcon-northwest">
+                            <h2 class="fw-bolder mb-4 mt-5">9. <a href="#" style="color:#a00000">Falcon Northwest</a></h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/falcon_northwest.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> Gaming and workstation desktops, Laptops</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $3,500 to $4,000+</li>
+                                    <br>
+                                    <li><strong>Features:</strong> portable design, NVIDIA 40-series graphic cards, liquid cooling radiator</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> International</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong> 2 - 3 weeks (build time included)</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> Three-year period that covers system parts and labor</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">Falcon Northwest</a> stands as the elder statesman among custom PC builders, with a legacy dating 
+                                back to 1992. While renowned for its high-performance desktops and laptops, it may not suit those on a tight budget due to its premium pricing. 
+                                Their desktop options start around $2,900, with laptops beginning at approximately $2,700. Each system boasts a standard 3-year warranty and offers 
+                                customization options both in hardware and aesthetics, including custom-painted cases.
+                                <br><br>
+                                However, despite its reputation for quality, Falcon Northwest's price-to-performance ratio may not be as favorable compared to some competitors. 
+                                For instance, their entry-level Fragbox desktop, priced at $2,900, features specifications that may not justify the cost when compared to other options. 
+                                Moreover, Falcon Northwest doesn't provide financing options, necessitating full payment upfront via credit card.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/falcon_northwest_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                Nonetheless, Falcon Northwest's commitment to excellence shines through its unique offerings. The company's custom desktop cases, engineered for 
+                                optimal thermal management with minimal plastic, set it apart. The FragBox PC, emblematic of Falcon Northwest's engineering prowess, combines 
+                                portability with robust performance capabilities. Despite its higher price tag, Falcon Northwest remains a top choice for those prioritizing design, 
+                                customization, and performance in their custom PC builds.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="avadirect">
+                            <h2 class="fw-bolder mb-4 mt-5">10. <a href="#" style="color:#a00000">AVADirect</a> (Best Automatic PC Builder)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/ava_direct.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> Gaming, Custom laptops, desktops, servers, Workstations, Home PCs, in addition to parts</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $549 to $4,000+</li>
+                                    <br>
+                                    <li><strong>Features:</strong>  barebone kits, budget builds, component marketplace, Easy part selection, 4K HD gaming, Water cooling</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> USA only</li>
+                                    <br>
+                                    <li><strong>Shipping:</strong>  5 - 6 days</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> One-year parts and two-year labor</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">AVADirect</a> stands out among its peers with its extensive product lineup, offering everything 
+                                from high-performance gaming desktops to custom-built laptops, workstations, mini-PCs, and even extreme tablets. Additionally, AVADirect sells individual 
+                                components, catering to users' needs ranging from desktop hard drives to peripherals like headsets, keyboards, and mice.
+                                <br><br>
+                                With custom gaming desktops starting at $1,094 and laptops at $699, AVADirect provides financing options for those seeking to spread out their investment. 
+                                However, while their base model gaming desktop includes respectable specifications, it may not offer the best value compared to competitors like <a href = "#" style="color:#a00000;text-decoration: underline;">Digital Storm</a>, 
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">Origin PC</a>, or <a href = "#" style="color:#a00000;text-decoration: underline;">Maingear</a>.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/ava_direct_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                As a leading player in the market, AVADirect simplifies the customization process with its intuitive PC building system. Users need only specify their budget, 
+                                desired games, machine size, and preferred brands to access a wide array of tailored options. While AVADirect doesn't guarantee delivery times, 
+                                expedited shipping is available without an additional assembly fee.
+                                <br><br>
+                                Moreover, AVADirect offers various preset categories and builder tools for gaming PCs, workstations, and servers, ensuring flexibility in meeting diverse 
+                                user preferences and requirements. Whether users opt for pre-configured systems or build their own with barebone kits, AVADirect's commitment to customization 
+                                and quality remains evident across its product range.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="build-my-pc">
+                            <h2 class="fw-bolder mb-4 mt-5">11. <a href="#" style="color:#a00000">Build My PC</a></h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/build_my_pc.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> gaming, all-in-one, and budget PCs</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $1,099 to $3,000+</li>
+                                    <br>
+                                    <li><strong>Offer:</strong>  Prebuilt PCs and parts (purchased through Amazon)</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> Canada, USA, UK, Australia, Italy, and India</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> One-year parts warranty</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">Build My PC</a> distinguishes itself from other platforms as it functions primarily as a PC 
+                                part compatibility verifier rather than a custom PC assembler. Integrated directly with Amazon, its builder tool enables users to select components from 
+                                Amazon's inventory and construct a personalized configuration. Following component selection, the tool assesses compatibility and facilitates adding 
+                                chosen parts to the user's Amazon cart.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/build_my_pc_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                In addition to its compatibility checker, BuildMyPC provides a range of prebuilt laptop and desktop systems. However, 
+                                it lacks filtering options for these products, restricting users to utilizing the search bar to locate specific parts.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="singularity-computers">
+                            <h2 class="fw-bolder mb-4 mt-5">12. <a href="#" style="color:#a00000">Singularity Computers</a> (Best for Fully-Bespoke PCs)</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/singularity_computers.JPG" %}" alt="..." /></a>
+                                <br>
+                                <ul>
+                                    <li><strong>Specialty:</strong> Water-cooled PC cases</li>
+                                    <br>
+                                    <li><strong>Cost:</strong> $2,199+</li>
+                                    <br>
+                                    <li><strong>Features:</strong> Built-in water cooling, LED lighting, Overclocking, Bespoke designs</li>
+                                    <br>
+                                    <li><strong>Distribution:</strong> International</li>
+                                    <br>
+                                    <li><strong>Warranty:</strong> One year</li>
+                                </ul><br>
+                                <a href = "#" style="color:#a00000;text-decoration: underline;">Singularity Computers</a> stands out as a top choice for those seeking an unparalleled custom 
+                                    PC experience and are willing to invest in a truly unique system. Unlike typical custom PC builders, Singularity Computers doesn't offer 
+                                    predefined builds for customization. Instead, they provide a contact form to initiate the process of configuring your system. Their specialty 
+                                    lies in crafting extreme custom water-cooled systems, as showcased in their impressive build gallery.
+                                <br><br>
+                                <a href = "#"><img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/The 12 Best Custom PC Builder Websites/singularity_computers_2.JPG" %}" alt="..." /></a>
+                                <br>
+                                Originally a personal hobby, Singularity Computers has rapidly evolved into a prominent player in the custom PC industry, particularly 
+                                after gaining recognition on YouTube. What sets Singularity apart is its innovative approach to PC design and manufacturing, including 
+                                the creation of proprietary PC cases with advanced water cooling capabilities, impeccable cable management, and distinctive aesthetics. 
+                                While Singularity's ordering process may not be as straightforward as some competitors, requiring direct contact to place an order, 
+                                it offers the opportunity to elevate your PC building experience with tailor-made components and premium features rarely found elsewhere.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="faqs">
+                            <h2 class="fw-bolder mb-4 mt-5">FAQs</h2>
+                            <br>
+                            <div style="border: 3px solid #a00000;border-radius:12px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);padding:12px;margin:15px;">
+                                <h3>Should I verify the compatibility of PC parts before assembling my PC?</h3>
+                                <p> 
+                                    Ensuring compatibility is crucial, especially regarding the motherboard. Before proceeding with any purchases or assembly, 
+                                    it's essential to check compatibility to avoid potential issues such as the system failing to boot.
+                                </p>
+                            </div>
+                            <div style="border: 3px solid #a00000;border-radius:12px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);padding:12px;margin:15px;">
+                                <h3>How does the process work if I select my own components for the PC build on these websites?</h3>
+                                <p>If you choose your desired PC build and customize the parts to fit your preferences, the websites will handle the assembly for you.</p>
+                            </div>
+                            
+                            <div style="border: 3px solid #a00000;border-radius:12px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);padding:12px;margin:15px;">
+                                <h3>Is it essential to invest in an extended warranty?</h3>
+                                <p>
+                                    Typically, standard warranties cover builds and parts for one to three years. 
+                                    Opting out of an extended warranty can help you avoid additional expenses.
+                                </p>
+                            </div>
+                            <div style="border: 3px solid #a00000;border-radius:12px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);padding:12px;margin:15px;">
+                                <h3>What is the typical lifespan of a gaming PC once it's built?</h3>
+                                <p>
+                                    The longevity of a custom gaming PC varies based on its hardware specifications. Generally, lower-end gaming PCs may last around 3 years, 
+                                    while higher-end builds can maintain satisfactory performance for over 8 years. Additionally, the lifespan of individual components varies; 
+                                    for instance, GPUs may require upgrades every 5 to 7 years, whereas well-maintained motherboards can endure for up to 20 years.
+                                </p>
+                            </div>
+                            <div style="border: 3px solid #a00000;border-radius:12px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);padding:12px;margin:15px;">
+                                <h3> What is the typical lifespan of a CPU used for gaming?</h3>
+                                <p>
+                                    When a CPU is not subjected to overclocking and is adequately cooled,
+                                    it can maintain functionality for gaming purposes for approximately 5 to 10 years or more.
+                                </p>
+                            </div>
+                            <div style="border: 3px solid #a00000;border-radius:12px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);padding:12px;margin:15px;">
+                                <h3>Is it advisable to leave a PC running continuously for 24 hours a day?</h3>
+                                <p>
+                                    Keeping your PC operational 24/7 can potentially lead to wear and tear, particularly due to the frequent cycling of power. 
+                                    However, if you have ongoing tasks or processes that require the computer's continuous operation, it's generally acceptable to 
+                                    leave it running. It's essential to maintain good ventilation in the room where the PC is located and regularly monitor the temperature of 
+                                    its components to prevent overheating issues.
+                                </p>
+                            </div>
+                        </section>
+
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+{% endblock body %}

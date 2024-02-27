@@ -1,0 +1,611 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">
+                                Curious about what a $4000 PC setup looks like? Well, you don't need to wonder anymore! In this article, we've curated a 
+                                selection of the finest and priciest components available. And let me tell you, the results are pretty spectacular.
+                                To be frank, with $4000 at your disposal, there's very little in the realm of PC hardware that you can't afford. So, 
+                                rest assured, the items on our list are truly top-of-the-line.
+                                <br><br>
+                                Now, we understand that not everyone has $4000 to spare.
+                                But fear not! Whether you're looking to upgrade a single component or simply add some flashy RGB flair, 
+                                our PC build guide has something for everyone, regardless of budget.
+                            </p>                            
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-overview">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Overview</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                With a budget of $4000 allocated for your PC build, the possibilities are virtually endless, which is why this section will be brief.
+                            </p>
+                                <hr>
+                                <h3>What you get for your $4000 budget</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    When you invest $4000 into a PC build, you're not just purchasing a collection of components; you're securing a gaming powerhouse that delivers unparalleled 
+                                    performance and versatility. With this budget, you can expect to acquire top-of-the-line hardware across the board, from a high-end graphics card capable 
+                                    of running games in 4K resolution at ultra settings to a premium processor that ensures smooth multitasking and lightning-fast load times. Additionally, 
+                                    you'll have the opportunity to indulge in luxurious extras, such as liquid cooling systems, spacious and stylish cases, and high-quality peripherals. 
+                                    Ultimately, with a $4000 budget, you're not only investing in a cutting-edge gaming rig but also in an immersive and 
+                                    seamless gaming experience that surpasses all expectations.
+                                </p>
+                                <hr>
+                                <h3>Performance</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    It's almost disappointing that there's nothing to nitpick about with this PC build. Priced at $4000, this powerhouse seamlessly 
+                                    handles 4K gaming at ultra settings, eliminating the need for any adjustments to graphics settings. In fact, its capabilities 
+                                    extend to running certain titles at a stunning 60 frames per second in 8K resolution. Essentially, with this setup, 
+                                    you can indulge in any game imaginable at a smooth 60FPS or higher in 4K resolution. Simply max out all the graphics sliders 
+                                    and immerse yourself in the ultimate gaming experience!
+                                </p>
+                                <hr>
+                                <h3>PC hardware deals</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    If you're considering building your next gaming PC, seeking out deals on specific components is a savvy strategy to obtain premium-quality 
+                                    parts at a reduced cost. You can scout for discounts on graphics cards, processors, coolers, motherboards, power supplies, 
+                                    and computer cases. These deals are accessible year-round, not solely during special sales events, enabling you to gradually save money on your build.
+                                </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-build">
+                            <div>
+                                <h2 class="fw-bolder mb-4 mt-5" >The PC Build</h2>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Click on the product images to go to Amazon,
+                                    where you can see additional high-resolution images and check the current price.
+                                    Prices may be greater than $4000 due to price changes.
+                                <p>
+                                <div class="pc-comp-row" >
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_cpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                     <div class="pc-comp-name">
+                                        CPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Ryzen 9 7950X3D
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_gpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        GPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        ASUS ROG Strix GeForce RTX 4080 SUPER OC Edition
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_cooler.jpg ' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Cooler
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        CoolerMaster MasterLiquid PL360 FLUX
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_motherboard.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Motherboard
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Asus ROG Strix X670E-E
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_ram.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        RAM
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        G.Skill Trident Z5 RGB DDR5 32GB (2 x 16GB) DDR5 6400MHz
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_storage.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Storage
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Samsung 990 Pro 4TB
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_psu.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Power Supply
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Corsair RM1000e
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_case.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Case
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Cooler Master HAF 700 EVO
+                                    </div>                           
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <a class="btn pc-build-button" type="button">ORDER THIS BUILD</a>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="components">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Components</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Now that we've given you an overview of the build and what you can expect from it,
+                                let's go further into each component, beginning with the build's brain.
+                            <p>
+                            <br>
+                            <h3>CPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_cpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Ryzen 9 7950X3D</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>4.5GHz - 5.7GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>16 (32)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>AM5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>TDP</th>
+                                                    <td>120W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        Our chosen <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">CPU</a> is AMD's Ryzen 9 7950X3D, renowned for its superior gaming performance compared to any Intel CPU currently available, 
+                                        including the Core i9-14900K. This powerhouse processor boasts an impressive 140MB of cache, thanks to AMD's innovative 3D 
+                                        V-Cache technology. With 16 full-power cores and 32 threads, it surpasses the 13900K's configuration, which consists of 8 regular cores and 16 E-Cores. 
+                                        In our extensive testing, the Ryzen 9 7950X3D outperformed Intel's flagship, the 14900K, by a significant margin of 21 fps in our 
+                                        suite of 1440p gaming tests. Even the more budget-friendly Ryzen 7 7800X3D delivers excellent gaming performance, although it lacks the same number 
+                                        of cores for productivity tasks.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>GPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_gpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">ASUS ROG Strix GeForce RTX 4080 SUPER OC Edition</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>2295MHz - 2670MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stream Processors</th>
+                                                    <td>10240</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Video Memory Size</th>
+                                                    <td>16GB GDDR6X</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>357.6mm x 149.3mm x 70.1mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PSU Required</th>
+                                                    <td>850W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        we chose the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">4080 Super</a> card for my build primarily due to its exceptional performance and future-proofing capabilities. 
+                                        With the 4080 Super, I can experience top-tier gaming performance at high resolutions and settings, ensuring smooth 
+                                        gameplay even in demanding titles. Additionally, the card's advanced features such as ray tracing and DLSS technology 
+                                        enhance visual fidelity and overall gaming experience. Its robust hardware also means it can handle upcoming games and 
+                                        software updates effectively, ensuring longevity and value for my investment. Overall, the 4080 Super represents the pinnacle 
+                                        of graphics card technology, making it the perfect choice for my build.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Cooler</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_cooler.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">CoolerMaster MasterLiquid PL360 FLUX</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Fan Dimensions</th>
+                                                    <td>120mm x 120mm x 25 mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Liquid</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Max Speed</th>
+                                                    <td>2200 RPM</td> 
+                                                </tr>
+                                                <tr>
+                                                    <th>Fan Airflow</th>
+                                                    <td>72.37 CFM (Max)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Number Of Fans</th>
+                                                    <td>3 Fans</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        The reason behind choosing the CoolerMaster MasterLiquid PL360 FLUX for my build lies in its outstanding cooling performance and advanced features. 
+                                        With a large 360mm radiator and three powerful fans, this AIO liquid cooler efficiently dissipates heat from the CPU, ensuring optimal thermal management 
+                                        even under heavy loads. The PL360 FLUX also incorporates CoolerMaster's innovative FlowOp technology, which enhances coolant flow and heat transfer efficiency, 
+                                        resulting in lower temperatures and quieter operation. Additionally, its sleek design and customizable RGB lighting add a touch of style to my build. Overall, 
+                                        the MasterLiquid PL360 FLUX offers a perfect balance of performance, reliability, and aesthetics, making it an ideal choice for keeping my 
+                                        system cool and running smoothly.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Motherboard</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_motherboard.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Asus ROG Strix X670E-E</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Chipset</th>
+                                                    <td>AMD X670</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>AM5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Form Factor</th>
+                                                    <td>ATX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Power stages</th>
+                                                    <td>18+2</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>wifi</th>
+                                                    <td>Wi-Fi 6E</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        I selected the Asus ROG Strix X670E-E motherboard for my build due to its impressive array of features and reliability. This motherboard offers 
+                                        built-in Wi-Fi 6E support, ensuring fast and stable wireless connectivity, along with four M.2 slots for ample storage expansion potential. Moreover, 
+                                        its 18+2 power stages provide robust power delivery, ensuring stable performance even under heavy workloads. The ROG Strix X670E-E also boasts a sleek 
+                                        and stylish design, complemented by customizable RGB lighting for added flair. Additionally, Asus is known for its high-quality components and excellent 
+                                        customer support, providing peace of mind for long-term usage. Overall, the ROG Strix X670E-E motherboard perfectly aligns with my build's performance, 
+                                        connectivity, and aesthetic requirements.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>RAM</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_ram.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">G.Skill Trident Z5 RGB DDR5</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>6400MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>32GB (2x16GB)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CAS Latency</th>
+                                                    <td>CL32</td>   
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>134.87mm x 43.94mm x 7.87mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        Opting to indulge in a higher budget for our build, we've decided to incorporate the speedy G.Skill Trident Z5 RGB DDR5 RAM, operating at an 
+                                        impressive frequency of up to 6,400 MHz. Our review of the Trident Z5 highlighted its remarkable performance and outstanding overclocking capabilities. 
+                                        Although the kit is available in a maximum capacity of 32GB (2 x 16GB DIMMs), we suggest acquiring two of these kits to double your RAM capacity to 64GB. 
+                                        This upgrade ensures ample memory for demanding tasks and future-proofing your system for years to come.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Storage</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_storage.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">	Samsung 990 Pro SSD</h4>    
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Read/Write</th>
+                                                    <td>7,450MB/s - 6,900MB/s</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>4TB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interface</th>
+                                                    <td>PCIe Gen 4.0 x4. PCIe Gen 4.0 x4</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        Opting for the 4TB Samsung 990 Pro, we're ensuring ample storage capacity coupled with top-notch performance. As the fastest PCIe 4.0 drive available, 
+                                        it offers blazing speeds and reliability. While PCIe 5.0 drives exist, we've decided against them for now due to the perceived lack of significant performance 
+                                        gains, especially considering the high-end nature of this build. The Samsung 990 Pro strikes the perfect balance between capacity and speed, 
+                                        making it an ideal choice for our needs.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Power Supply</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_psu.png' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Corsair RM1000e</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Wattage</th>
+                                                    <td>1000W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Efficiency</th>
+                                                    <td>80+ Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Modularity</th>
+                                                    <td>Fully modular</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        We selected the Corsair RM1000e power supply for my build due to its exceptional reliability, efficiency, and robust power delivery. 
+                                        With a 1000W capacity, it provides more than enough power to handle the demanding components in my system, ensuring stability and longevity. 
+                                        Moreover, the RM1000e is 80 PLUS Gold certified, guaranteeing high efficiency and minimal wasted energy, which translates to lower electricity 
+                                        bills and reduced environmental impact. Its fully modular design also simplifies cable management, allowing for a cleaner and more organized build. 
+                                        Overall, the Corsair RM1000e exemplifies top-tier performance and reliability, making it an ideal choice to power my high-performance PC setup.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Case</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_4000/pc_under_4000_usd_case.png' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Cooler Master HAF 700 EVO</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Full Tower</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Motherboard Compatibility</th>
+                                                    <td>Mini ITX, Micro ATX, ATX, E-ATX, SSI CEB, SSI EEB</td>          
+                                                </tr>
+                                                <tr>
+                                                    <th>Included Fans</th>
+                                                    <td>2 x 200mm Sickleflow PWM fans</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>556mm x 279mm x 540mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        We opted for the Cooler Master HAF 700 Evo as our chassis choice for its premium quality and spacious design. Regarded as one of the 
+                                        finest PC cases available regardless of price, it features a sleek glass grille, three 200 mm fans included, and a customizable LCD screen on the front panel, 
+                                        adding both style and functionality to our build. Notably, its thermal performance is outstanding, ensuring optimal cooling for our components. Additionally,
+                                        the HAF 700 Evo offers ample storage options with space for up to 12 different 2.5-inch drives, providing versatility and expandability for our storage needs. 
+                                        Overall, this chassis perfectly complements our high-end build with its combination of aesthetics, cooling capabilities, and storage capacity.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-tips">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building Tips</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Absolutely, having all the components ready is crucial, but knowing how to assemble them correctly is equally important. Without following 
+                                the proper steps, you risk ending up with a pile of parts that won't function as intended. Here are some 
+                                <a href="{% url "common-asked-questions-about-pc-building" %}" style="color:#a00000;text-decoration: underline;">common questions that new PC builders often ask</a>, along with valuable <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}" style="color:#a00000;text-decoration: underline;">PC Building tips</a> to ensure a smooth and successful PC assembly process. 
+                                By familiarizing yourself with these guidelines, you'll be well-equipped to tackle your PC build with confidence and precision.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="closing-thoughts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Closing Thoughts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                investing in a $4000 PC build is not just about assembling a powerful gaming rig; it's about embracing a new level of performance, 
+                                versatility, and immersion in the world of gaming. With this budget, you have the opportunity to create a system that exceeds expectations, 
+                                delivering unmatched gaming experiences at resolutions and frame rates previously unimaginable. 
+                                <br><br>
+                                Whether you're a competitive gamer, 
+                                content creator, or simply an enthusiast looking to push the boundaries of what's possible, a $4000 PC build opens doors to a realm of endless 
+                                possibilities. So, as you embark on your journey to craft the ultimate gaming setup, remember that with each component carefully selected and 
+                                assembled, you're not just building a PC - you're sculpting your own gateway to gaming excellence.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}         

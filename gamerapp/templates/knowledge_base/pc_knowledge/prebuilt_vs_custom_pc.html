@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#convenience-vs-technical-expertise">Convenience vs Technical Expertise</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#price-considerations">Price Considerations</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#flexibility-in-component-selection">Flexibility in Component Selection</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#aesthetic-appeal">Aesthetic Appeal</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#warranty-and-customer-support">Warranty and Customer Support</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#software-setup-and-configuration">Software Setup and Configuration</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#final-decision">Final Decision</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - Which Is Better?</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p style="font-size:30px;" class="fs-5 mb-4">
+                                Are you torn between purchasing a prebuilt gaming PC or assembling a custom one? The ongoing debate between off-the-shelf versus custom-built 
+                                gaming rigs has seen various shifts over the years. While some traditional beliefs about prebuilt systems remain valid, there are also evolving 
+                                considerations to ponder. This guide aims to help you navigate the prebuilt vs. custom PC dilemma, assisting you in determining which option suits
+                                your gaming needs best.
+                            </p>      
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#convenience-vs-technical-expertise">Convenience vs Technical Expertise</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#price-considerations">Price Considerations</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#flexibility-in-component-selection">Flexibility in Component Selection</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#aesthetic-appeal">Aesthetic Appeal</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#warranty-and-customer-support">Warranty and Customer Support</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#software-setup-and-configuration">Software Setup and Configuration</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#final-decision">Final Decision</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="convenience-vs-technical-expertise">
+                            <h2 class="fw-bolder mb-4 mt-5" >Convenience vs Technical Expertise</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Let's start by highlighting the most significant contrast between prebuilt and custom gaming PCs. When embarking on building a custom gaming PC, 
+                                certain prerequisites must be met before even considering the price:
+                                <br><br>
+                                <ul>
+                                    <li>Having substantial knowledge about the latest CPUs, GPUs, motherboard platforms, and storage and memory speeds</li>
+                                    <br>
+                                    <li>Understanding where and how to procure individual components to optimize value</li>
+                                    <br>
+                                    <li>Possessing the technical skills to assemble the PC</li>
+                                    <br>
+                                    <li>Familiarity with optimizing every component and various BIOS and OS settings to enhance gaming performance</li>
+                                </ul><br>
+                                Without staying updated on industry advancements or lacking interest in doing so, navigating the market and purchasing components becomes a futile endeavor. 
+                                Without knowing which motherboard platform to choose, how the Intel versus AMD landscape is evolving, or which storage and memory standards are ideal, 
+                                constructing the best PC within your budget becomes challenging. Additionally, confidence in assembling and managing components, including cable management, 
+                                is imperative.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/prebuilt_vs_custom_pc/convenience-image.jpg" %}" alt="..." />
+                                <br>
+                                In contrast, purchasing a prebuilt gaming PC from reputable retailers circumvents these constraints, allowing you to focus on enjoying your new gaming setup. 
+                                Major retailers now offer a range of powerful prebuilt gaming PCs at varying price points, catering to diverse customer needs. However, basic knowledge of CPU 
+                                and GPU selection remains necessary to ensure the chosen prebuilt system aligns with desired gaming performance.
+                                <br><br>
+                                Overall, the significant technical expertise required to build a custom PC often makes prebuilt systems the more convenient option for many gamers.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="price-considerations">
+                            <h2 class="fw-bolder mb-4 mt-5" >Price Considerations</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                You might want to create or buy the ultimate gaming machine if money didn't matter. But for most people, price is a big deal and often determines what 
+                                they can afford. But deciding on price isn't as straightforward as deciding on convenience.
+                                <br><br>
+                                Traditionally, it was thought that building your own PC was the smartest way to get the most bang for your buck. This is because companies that sell 
+                                prebuilt systems used to add extra costs, making them more expensive than building your own. Also, the parts they used were often not the best quality 
+                                and didn't perform well under heavy use.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/prebuilt_vs_custom_pc/price-consideration-image.jpg" %}" alt="..." />
+                                <br>
+                                However, things have changed over time. Prebuilt gaming PCs now come with better-quality parts, though they're still not as good as what you can choose 
+                                for yourself. Plus, with the prices of important parts like graphics cards going up and down because of cryptocurrency mining, building your own PC isn't 
+                                always cheaper than buying a prebuilt one with similar specs.
+                                Still, prebuilt gaming PCs haven't completely caught up with custom ones when it comes to giving you the most power for your money.
+                                <br><br>
+                                In the end, if you're willing to spend the time and effort to learn about PC hardware and how to build one, you can make a custom PC that's just as good as, 
+                                if not better than, a prebuilt one for the same price (as long as the market is stable).
+                                And remember, if you don't want to build a custom PC yourself, you can always source out a <a href="#" style="color:#a00000;text-decoration: underline;">custom PC building company</a> to do it for you.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="flexibility-in-component-selection">
+                            <h2 class="fw-bolder mb-4 mt-5" >Flexibility in Component Selection</h2>
+                            <br>
+                            <p class="fs-5 mb-4"> 
+                                When crafting your custom PC, you have the liberty to handpick components tailored to your specific needs, ensuring a seamless fit for your 
+                                gaming experience. In contrast, prebuilt PCs offer room for adjustments to optimize efficiency and cost-effectiveness, such as fine-tuning RAM capacity, 
+                                switching storage types, or achieving a better CPU-GPU balance. For instance, a prebuilt system might arrive with an i7 CPU, 32 GB of RAM, and a GTX 1060 
+                                graphics card, whereas for gaming purposes, opting for an i5 CPU, 16 GB of RAM, and a newer, more potent GPU like the GTX 1660 Ti or RTX 2060 would 
+                                be preferable.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/prebuilt_vs_custom_pc/flexibility-image.jpg" %}" alt="..." />
+                                <br>
+                                However, it's essential to consider future-proofing with prebuilt PCs, as some may feature outdated CPUs and chipsets that hinder upgradability. For instance, 
+                                selecting a prebuilt budget gaming PC with older-generation CPUs like AMD FX or obsolete Intel Core models could necessitate motherboard replacements 
+                                for CPU upgrades later on. While many prebuilt gaming PCs allow for tweaking and upgrades, ensuring the configuration avoids overly dated components is
+                                crucial to maximizing value and minimizing future expenses. Ultimately, building a custom gaming PC offers unparalleled flexibility, 
+                                empowering you to customize every aspect, from CPU and GPU selection to the smallest details like cables and case fans.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="aesthetic-appeal">
+                            <h2 class="fw-bolder mb-4 mt-5" >Aesthetic Appeal</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The appearance of your newly acquired gaming PC holds significant importance, alongside its internal components. Given that a gaming PC is typically positioned on or below your desk, it becomes a fixture you encounter daily, emphasizing the importance of its aesthetics in your overall buying or building experience.
+                                <br><br>
+                                Key elements contributing to the aesthetics of your gaming PC include:
+                                <br><br>
+                                <ul>
+                                    <li>Selection of PC case</li>
+                                    <br>
+                                    <li>Quality of component construction</li>
+                                    <br>
+                                    <li>Presence of RGB or ARGB components</li>
+                                    <br>
+                                    <li>Number and placement of case fans</li>
+                                    <br>
+                                    <li>Design of the motherboard</li>
+                                    <br>
+                                    <li>Appearance of the GPU</li>
+                                    <br>
+                                    <li>Utilization of custom cables and extensions</li>
+                                    <br>
+                                    <li>Integration of storage heatsinks</li>
+                                </ul><br>
+                                When opting for an off-the-shelf prebuilt gaming PC or even considering a custom build from a PC building company, your influence over the aesthetics 
+                                of your PC is limited. Most prebuilt systems offer a restricted choice of cases and often compromise on features like RGB lighting, multiple case fans, 
+                                and custom cabling. Even custom PCs from reputable retailers may present limited aesthetic options.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/prebuilt_vs_custom_pc/aesthetic-appeals-image.jpeg" %}" alt="..." />
+                                <br>
+                                In contrast, building a gaming PC from the ground up grants you full control over its appearance. This includes determining the extent of RGB lighting, 
+                                syncing RGB components, selecting the case and fans, and deciding on additional features like custom liquid cooling loops, GPU stands, or all-white components. 
+                                Thus, opting for a custom PC ensures that your aesthetic preferences are fully realized.
+                                <br><br>
+                                However, it's essential to exercise caution during the customization process to avoid overspending. While aiming for top-tier and visually 
+                                appealing components is enticing, it's crucial to maintain a balance and consider budget constraints. Therefore, when embarking on a custom PC build, 
+                                it's prudent to weigh these aesthetic considerations alongside financial considerations.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="warranty-and-customer-support">
+                            <h2 class="fw-bolder mb-4 mt-5" >Warranty and Customer Support</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Even after acquiring or assembling your gaming PC, you may encounter potential issues in the future. Perhaps your operating system fails to boot, 
+                                or your graphics card begins displaying errors. This is where the importance of warranty and technical support becomes evident.
+                                Not everyone possesses the expertise or time to troubleshoot such frustrating problems. Hence, prebuilt gaming PCs hold an advantage over custom-built 
+                                ones in this regard. With prebuilt systems, you have access to a dedicated support team to address any concerns regarding your PC. 
+                                Simply reaching out to tech support allows you to either resolve the issue over the phone or arrange for repairs without the need to identify the 
+                                specific faulty component or software conflict.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/prebuilt_vs_custom_pc/customer-support-image.jpeg" %}" alt="..." />
+                                <br>
+                                On the contrary, a custom-built PC lacks a dedicated technical support option. It becomes your responsibility to diagnose the issue and 
+                                potentially send the defective component for an RMA (Return Merchandise Authorization) process to the manufacturer. 
+                                However, opting for a custom-built PC offers the advantage of longer warranty periods on individual components compared to 
+                                the standard one- or two-year warranty typically provided with prebuilt systems.
+                                <br><br>
+                                In conclusion, if you prioritize convenience over extended warranty periods, a prebuilt system proves superior in terms of technical support and warranties.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="software-setup-and-configuration">
+                            <h2 class="fw-bolder mb-4 mt-5" >Software Setup and Configuration</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                For users who prefer a hassle-free setup process, opting for a prebuilt gaming PC can be advantageous. These systems come pre-installed with the 
+                                operating system, and sometimes include useful programs like Microsoft Office. Additionally, some prebuilt PCs even come with preconfigured BIOS settings, 
+                                such as the XMP/EXPO memory profile, although this feature is not common.
+                                <br><br>
+                                On the other hand, if you decide to build a custom PC, you'll need to handle the setup process yourself. This may involve tasks such as switching BIOS versions, 
+                                installing the operating system, configuring BIOS options like memory profiles and fan curves, and optimizing Windows settings for maximum gaming performance. 
+                                While prebuilt PCs offer a more straightforward plug-and-play experience, custom-built PCs provide the flexibility for users who want to customize their setup 
+                                to their preferences.
+                                <br><br>
+                                <img style="border-radius: 10px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/prebuilt_vs_custom_pc/software-configuration-and-setup-image.png" %}" alt="..." />
+                                <br>
+                                Ultimately, for users who are comfortable with technology and desire full control over their system, building a custom gaming PC is the preferred choice. 
+                                This allows them to fine-tune settings, set up custom fan curves, upgrade BIOS features, and optimize Windows settings according to their preferences and 
+                                requirements.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="final-decision">
+                            <h2 class="fw-bolder mb-4 mt-5" >Final Decision</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Ultimately, the decision rests with you. As previously mentioned, building a PC from scratch allows for optimal customization tailored to your specific needs and budget. On the other hand, opting for a prebuilt PC can offer time and cost savings, particularly for those less familiar with technology or the PC building process.
+                                <br><br>
+                                For most users, especially those lacking technical expertise or support, a prebuilt PC is often the recommended choice. However, it's essential to conduct research and seek advice from knowledgeable sources to avoid ending up with outdated components or subpar builds. 
+                                <br><br>
+                                On our website, you'll find various buying guides featuring recommended builds at different price points, ranging from <a href="{% url "best-gaming-pc-under-600-usd-in-2024" %}" style="color:#a00000;text-decoration: underline;">$600</a>, <a href="{% url "best-gaming-pc-under-800-usd-in-2024" %}" style="color:#a00000;text-decoration: underline;">$800</a>, <a href="{% url "best-gaming-pc-under-1000-usd-in-2024" %}" style="color:#a00000;text-decoration: underline;">$1000</a>, <a href="{% url "best-gaming-pc-under-1500-usd-in-2024" %}" style="color:#a00000;text-decoration: underline;">$1500</a>, and <a href="{% url "best-gaming-pc-under-2000-usd-in-2024" %}" style="color:#a00000;text-decoration: underline;">$2000</a> for custom PCs. We also provide curated selections of top prebuilt gaming PCs under <a href="#" style="color:#a00000;text-decoration: underline;">$500</a>, <a href="#" style="color:#a00000;text-decoration: underline;">$800</a>, and <a href="#" style="color:#a00000;text-decoration: underline;">$1000</a>, offering additional options to consider before making your decision.
+                                <br><br>
+                                In summary, the choice between building a custom PC and purchasing a prebuilt system depends on your gaming preferences and desired level of control. While building a PC can offer greater customization and potentially better value, prebuilt systems provide convenience and ease of use for those willing to spend a bit more.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

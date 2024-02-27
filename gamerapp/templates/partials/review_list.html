@@ -1,0 +1,39 @@
+{% load static %}
+{% load custom_filters %}
+<div style="width:60px;" class="divider"></div>
+<h3 style="margin-left:12px;padding-bottom:8px;">Popular Posts</h3>
+{% for review in popular_posts %}
+    {% if forloop.counter|divisibleby:3 %}
+        <div class="card mb-10">
+            <a href="/{{review.slug}}"><img class="card-img-top" src="{{review.image.url}}" alt="..." /></a>
+            <div class="card-body">
+                <div style="color:#a00000;" class="small text-muted" > <img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="20" height="20" style="margin-bottom: 4px; margin-right: 5px;"> {{review.date_created|time_ago_format}}</div>{% comment %}January 1, 2023 {% endcomment %}
+                <h2 class="card-title" style="padding-top:10px;">{{review.topic}}</h2>  
+                <a style="font-size:15px;text-decoration: none;color:#a00000;" href="/{{review.sub_category.main_category.slug}}">{{review.sub_category.main_category|upper}}</a>  
+                <div style="margin-bottom:25px;"></div>                  
+                <p class="card-text" style="font-size:20px;">{{one_review.intro}}</p>
+                <a class="btn btn-primary" href="/{{review.slug}}">Read more →</a>
+            </div>
+        </div>
+        <hr>
+    {% else %}
+        <div class="card mb-10" style="max-width: 1000px;">
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <a href="/{{review.slug}}"><img src="{{review.image.url}}" class="card-img-top" alt="..."></a>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <a style="font-size:15px;text-decoration: none;color:#a00000;" href="/{{review.sub_category.main_category.slug}}">{{review.sub_category.main_category|upper}}</a><br> 
+                        <a style="text-decoration: none;color:black;" href="/{{review.slug}}" class="card-title h4">{{review.topic}}</a>
+                        <div style="color:#a00000; padding-top:10px; padding-bottom:15px;" class="small text-muted" > <img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="20" height="20" style="margin-bottom: 4px; margin-right: 5px;"> {{one_review.date_created|time_ago_format}}</div>
+                        <p style="font-size:17px" class="card-text">{{review.intro}}</p>
+                        <a class="btn btn-primary mt-auto" href="/{{review.slug}}">Read more →</a>
+                        {% comment %} <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    {% endif %}
+{% endfor %}

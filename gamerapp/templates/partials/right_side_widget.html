@@ -1,0 +1,19 @@
+{% if request.path|slice:"0:8" == '/search/' %}
+    <div style="margin-top:-20px;" class="col-lg-3" id = "right-widget">    
+{% else %}
+<div style="margin-top:-20px;" class="col-lg-2" id = "right-widget">
+{% endif %}
+    <p style="font-size:12px;margin-top:20px;margin-left:12px;">GamingHub is reader-supported. When you purchase through links on our site, we may earn a small commission.</p>
+    <div class="divider"></div>
+    <h3 style="margin-left:12px;padding-bottom:8px;">You May Like</h3>
+    {% for review in you_may_like %}
+        <div style="margin-bottom:10px;" class="col">
+            <div class="card">
+                <a href="{% url review.slug %}" onmouseover="zoomImage(this)" onmouseout="unzoomImage(this)"><img src="{{review.image.url}}" class="card-img-top" alt="..."></a>
+                <div class="custom-card-body">
+                    <a href="{% url review.slug %}" style="font-size:16px;" class="card-title h5 review-link">{{review.topic}}</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

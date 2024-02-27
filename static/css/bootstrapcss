@@ -1,0 +1,581 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body %}
+<style>
+    p {
+        {% comment %} font-family: Merriweather, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; {% endcomment %}
+        font-size: 23px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+</style>
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                        </ul>
+                    </div>
+                </div>    
+                <div class="col-lg-7">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.main_category.slug %}">{{review.sub_category.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p style="font-size:30px;" class="fs-5 mb-4">Looking for the best gaming PC under $300 in 2024? Get ready for an adventure where budget meets gaming power!
+                            Building an awesome gaming setup on a tight budget is all about making smart choices. In this guide,
+                            we'll help you pick the right parts and gear to create the ultimate gaming PC without breaking the bank.</p>
+
+                            <br>
+
+                            <p class="fs-5 mb-4">Whether you're new to gaming or just looking for a wallet-friendly upgrade, we've got you covered.
+                                Join us as we explore the latest components and tips to build a gaming rig that delivers a fantastic gaming experience on a budget.
+                                Let's dive into the world of affordable gaming and discover how you can get the most out of your $300 for the ultimate gaming setup in 2024!</p>                            
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-overview">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Overview</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                It can be difficult to build a gaming PC for less than $300,
+                                but we were able to do it while still getting good entry-level performance because of AMD's wide selection of APUs.
+                                The AMD Ryzen 5 5600G powers this system. It has Radeon Vega graphics, which perform admirably in low-intensive games like Fortnite and CS2.
+                                <br><br>
+                                Let's take a brief look at what this build has to offer in terms of performance and functionality,
+                                and while we're at it, let's talk about some of the challenges we had and why we ended up choosing the hardware we did.
+                            </p>
+                                <hr>
+                                <h3>PC hardware deals</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    If you want to build your next gaming PC,
+                                    looking for offers on components is the greatest approach to acquire something better for less money.
+                                    In that case, you can get discounts on GPUs, CPUs, coolers, motherboards, power supplies, and enclosures.
+                                    Even if there are no big specials going on, you can still save a few bucks here and there.
+                                </p>
+                                <hr>
+                                <h3>PC Budget</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    One of the key goals for the $300 custom build was to construct a gaming PC capable of short-term gaming.
+                                    The objective behind an entry-level PC like this is to upgrade and save for a dedicated GPU as soon as possible,
+                                    hence improving your in-game experience. AMD's APU lineup makes this much easier than it used to be.
+                                    <br><br>
+                                    The 5600G is the best APU we could obtain while staying inside our budget,
+                                    which isn't a terrible thing.
+                                    By choosing an APU, we eliminated the need to worry about the expense of a standalone GPU.
+                                    This means we may improve other aspects of this build, such as RAM.
+                                </p>
+                                <hr>
+                                <h3>Performance</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Let's be honest, you're not buying this build to play AAA games in 4K/ultra resolution.
+                                    This version is optimized for low-intensive games like Fortnite, CSGO and Overwatch.
+                                    On low to medium settings, the APU should be able to produce 60+FPS in these games.
+                                </p>
+                                <hr>
+                                <h3>AMD APUs</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    An APU is an accelerated processing unit that includes integrated graphics.
+                                    Unlike Intel CPUs, an AMD APU includes Vega graphics, which are significantly more powerful.
+                                    The 5600G features Radeon Vega graphics, which perform similarly to a GT 1030. So not awful.
+                                    <br><br>
+                                    When an APU's integrated graphics are active, they are completely dependent on your system's RAM.
+                                    As a result, if you want to get the most out of your APU, you must equip your setup with fast RAM.
+                                </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-build">
+                            <div>
+                                <h2 class="fw-bolder mb-4 mt-5" >The PC Build</h2>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Click on the product images to go to Amazon,
+                                    where you can see additional high-resolution images and check the current price.
+                                    Prices may be greater than $300 due to price changes.
+                                <p>
+                                <div class="pc-comp-row" >
+                                    <div>
+                                        <a href="#"><img width="225" height="225" class="card-img-top" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_cpu.png' %}" alt="..." /></a>
+                                    </div>
+                                     <div class="pc-comp-name">
+                                        CPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        AMD Ryzen 5 5600G
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div >
+                                        <a href="#"><img width="225" height="225" class="card-img-top" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_gpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        GPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Integrated AMD Radeon Vega 7 graphics from the CPU
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div>
+                                        <a href="#"><img width="225" height="225" class="card-img-top" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_motherboard.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Motherboard
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        ASRock A520M-HDV
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div>
+                                        <a href="#"><img width="225" height="225" class="card-img-top" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_ram.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        RAM
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Silicon Power Value Gaming RAM 16GB (2x8GB) 3200MHz
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div>
+                                        <a href="#"><img width="225" height="225" class="card-img-top" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_storage.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Storage
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        WD Blue SN570 500GB 
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div>
+                                        <a href="#"><img width="225" height="225" class="card-img-top" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_pws.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Power Supply
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Thermaltake Smart 500W 80+ White Certified
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div>
+                                        <a href="#"><img width="225" height="225" class="card-img-top" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_case.jpg  ' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Case
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Cooler Master MasterBox Q300L
+                                    </div>                           
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <a class="btn pc-build-button" type="button">ORDER THIS BUILD</a>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="components">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Components</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Now that we've given you an overview of the build and what you can expect from it,
+                                let's go further into each component, beginning with the build's brain.
+                            <p>
+                            <br>
+                            <h3>CPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_300/pc_under_300_cpu.png' %}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 style="margin-left:180px;" class="card-title">AMD Ryzen 5 5600G</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>3.9GHz - 4.4GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>6 (12)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>AM4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Graphics</th>
+                                                    <td>Vega 7</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The Ryzen 5 5600G offers outstanding value for money and outperforms the competition in its price range.
+                                        The 5600G's outstanding performance places it among the greatest value-for-money items available today.
+                                        It is equipped with Vega Radeon integrated graphics that perform similarly to the GT 1030.
+                                        This means you can run low-intensive AAA games at 50+ FPS in low/medium settings.
+                                        Ideal for any entry-level PC build.
+                                    </p>
+                                </div>
+                            </div>
+                            {% comment %} <br><br><br>
+                            <h3>GPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_300/pc_under_300_cpu.png' %}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 style="margin-left:180px;" class="card-title">AMD Ryzen 5 5600G</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>3.9GHz - 4.4GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>6 (12)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>AM4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Graphics</th>
+                                                    <td>Vega 7</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The Ryzen 5 5600G offers outstanding value for money and outperforms the competition in its price range.
+                                        The 5600G's outstanding performance places it among the greatest value-for-money items available today.
+                                        It is equipped with Vega Radeon integrated graphics that perform similarly to the GT 1030.
+                                        This means you can run low-intensive AAA games at 50+ FPS in low/medium settings.
+                                        Ideal for any entry-level PC build.
+                                    </p>
+                                </div>
+                            </div> {% endcomment %}
+                            <br><br><br>
+                            <h3>Motherboard</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_motherboard.png' %}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 style="margin-left:180px;margin-bottom:30px;" class="card-title">ASRock A520M-HDV</h4>
+                                        <p class="card-text">
+                                        The Ryzen 5 5600G offers outstanding value for money and outperforms the competition in its price range.
+                                        The 5600G's outstanding performance places it among the greatest value-for-money items available today.
+                                        It is equipped with Vega Radeon integrated graphics that perform similarly to the GT 1030.
+                                        This means you can run low-intensive AAA games at 50+ FPS in low/medium settings.
+                                        Ideal for any entry-level PC build.</p>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>RAM</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_300/pc_under_300_ram.png' %}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 style="margin-left:130px;" class="card-title">Silicon Power Value Gaming</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>3200MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>16GB (2x8GB)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CAS Latency</th>
+                                                    <td>16</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Timings</th>
+                                                    <td>16-18-18-38</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>127mm x 25.4mm x 25.4mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        We chose a Silicon Power DDR416GB 3200MHz RAM kit for our $300 project because it provides good performance at a low price.
+                                        It's pretty much the ideal combination for the Ryzen APU.
+                                        With 16GB at your disposal, you're in a good starting point and won't need to upgrade for a long time.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Storage</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_storage.png' %}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 style="margin-left:200px;" class="card-title">WD Blue SN570</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Read/Write</th>
+                                                    <td>3,500 MB/s - 2,300 MB/s</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>500GB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interface</th>
+                                                    <td>NVMe</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        We chose an SSD over a standard HDD for this design since it significantly improves the system's performance and usability.
+                                        Even while we lose approximately 750GB of storage capacity by switching to an SSD,
+                                        we make up for it with significantly faster boot/load times.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Power Supply</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_pws.png' %}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 style="margin-left:180px;margin-bottom:30px;" class="card-title">Thermaltake Smart 500W 80+ White Certified</h4>
+                                        <p class="card-text">
+                                            A Thermaltake 500W PSU is more power than is required for this PC,
+                                            but it leaves room for a dedicated GPU in the future.
+                                            To stay within price, we had to choose a non-modular,
+                                            White-rated solution, but it is dependable and from a reputable company.
+                                        </p>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Case</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_300/pc_under_300_case.jpg' %}" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 style="margin-left:180px;margin-bottom:30px;" class="card-title">Cooler Master MasterBox Q300L</h4>
+                                        <p class="card-text">
+                                            The Cooler Master Q300L PC Case may not win any style awards,
+                                            but it still has a lot to offer as an entry-level case.
+                                            Cooler Master includes one pre-installed 120mm fan, which provides cooling right out of the box.
+                                            You can't ask for much more from a case at this price point.
+                                        </p>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="points-to-consider">
+                            <h2 class="fw-bolder mb-4 mt-5" >Points To Consider</h2>
+                            <br><br>
+                            <h3>$300 Budget</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Your budget is one of the most important factors to consider when embarking on your custom PC building journey.
+                                Many consumers come to us expecting to spend $300 on a custom build that can run 4K games at 100fps.
+                                Unfortunately, this isn't the case.
+                                <br><br>
+                                Our $300 setup has been specifically built to play less intensive esports games like LOL, DOTA 2, and CS2.
+                                Understanding your budget's constraints from the beginning will save you a lot of time in the long run.
+                                <br><br>
+                                It's worth noting that Amazon pricing alter frequently.
+                                As a result, the builds may not always meet the specified aim.
+                                Don't worry, we review the builds on a daily basis to ensure that the most recent and best-value goods are selected.
+                            </p>
+                            <hr>
+                            <h3>Ease Of Building</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                As a first-time builder, having to physically build your rig can be frightening,
+                                especially if the case isn't builder-friendly.
+                                Always conduct research on the case to ensure it is the appropriate size for your components.
+                                <br><br>
+                                We used a PC building toolbox for this build and urge you do the same to make the entire process run more smoothly.
+                                An anti-static bracelet is also worth considering, as it can be obtained for almost nothing extra.
+                            </p>
+                            <hr>
+                            <h3>Upgradability And Future-Proofing</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                When creating your own PC, you should also consider future improvements.
+                                Let's be honest; a PC won't last you forever.
+                                At some point, you will need to upgrade the components.
+                                Limiting the amount of items that require updating when the time comes is an important component of the hardware selection process.
+                                <br><br>
+                                Fortunately, we have already done this for you. This setup includes an up-to-date motherboard,
+                                which is ideal for future upgrades. The casing is also a viable option,
+                                allowing for GPU and additional storage capacity upgrades.
+                            </p>
+                            <hr>
+                            <h3>Overclocking</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Overclocking has grown more achievable in the previous ten years,
+                                owing primarily to improved hardware quality.
+                                It's an excellent technique to gain increased performance at no extra cost.
+                                <br><br>
+                                This build is configured for modest overclocking and will respond if you chose to do so.
+                                However, it is worth noting that Ryzen processors are incredibly well-optimized out of the box.
+                                For the time being, considerable performance enhancements are unlikely to occur.
+                            </p>
+                            <hr>
+                            <h3>Non-Gaming Performance</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Another important factor to consider is the non-gaming aspects of a PC design.
+                                A huge number of gaming fans will construct a system that combines gaming and workstation chores.
+                                You will be pleased to know that we have done the same.
+                                <br><br>
+                                This build's multi-threaded performance allows it to handle small demanding tasks.
+                                Simple video and photo editing should be more than possible, if slow.
+                                If you want to broadcast, we recommend one of our premium builds.
+                            </p>
+                            <hr>
+                            <h3>Aesthetics</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Aesthetics are always crucial in a custom build since you want it to appear its finest.
+                                However, aesthetics, like performance, often have a direct impact on the cost of construction.
+                                <br><br>
+                                Unfortunately, the aesthetics of PC cases at this price point are lacking.
+                                There are a lot of beautiful cases out there; you only need to boost your budget to accommodate one.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-tips">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building Tips</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                That's pretty much all you need to know about the custom build and the hardware it includes.
+                                However, we haven't actually talked about how this PC was built. If you're new to the PC building game,
+                                I recommend reading our article on the <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}">top 15 Mistakes that Every Newbie PC Builder Makes</a>. Furthermore,
+                                our <a href="{% url "common-asked-questions-about-pc-building" %}">15 Common Questions About Building a PC</a> should address the most often asked questions by first-time builders.
+                            </p>
+                            
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="closing-thoughts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Closing Thoughts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">So, there you have it, our comprehensive guide to the best $300 custom PC build.
+                                We've done our best to stick within the strict set price boundaries and still provide a PC that offers an immersive gaming experience.
+                                <br><br>
+                                Remember, this build isn't going to blow anyone away with incredible graphics. It will, however,
+                                provide first-time gamers with the opportunity to play low-intensive games without breaking the bank.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section>
+                            <h3 class="fw-bolder mb-4 mt-5" >Related Custom PC Builds</h3>
+                                <br>
+                                <div class="row">
+                                    {% for review in pc_builds_related %}
+                                        <div style="padding-bottom:10px;" class="col-lg-3">
+                                            <div class="card mb-12">
+                                                <a href="{% url review.slug %}"><img style="border-radius: 5px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></a>
+                                                <div class="card-body">
+                                                    {% comment %} <div class="small text-muted"><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="20" height="20" style="margin-bottom: 3px; margin-right: 5px;"> {{review.date_created|time_ago_format}}</div> {% endcomment %}
+                                                    <a style="font-size:13px;text-decoration: none;color:#a00000;" href="{% url review.sub_category.main_category.slug %}">{{review.sub_category.main_category|upper}}</a><br>
+                                                    <div style="margin-bottom:7px"></div>
+                                                    <a href="{% url review.slug %}" style="font-size:20px;" class="card-title h4 review-link">{{review.topic}}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                        </section>
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

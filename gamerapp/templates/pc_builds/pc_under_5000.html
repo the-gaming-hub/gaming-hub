@@ -1,0 +1,687 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block body %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - The Ultimate PC Build Guide</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">
+                                Dreaming about owning a top-notch setup that can handle any game at 60 frames per second, even in stunning 4K resolution, 
+                                is one thing. Actually putting together such a powerhouse by yourself can be daunting, especially if you're not a tech expert. 
+                                But fear not, that's where we come in.
+                                <br><br>
+                                Our mission is to guide you through assembling one of the finest $5000 PCs out there. We'll introduce you to the best components on the market, 
+                                explain why they're top-notch, and help you locate them.
+                                So, without further ado, let's dive into what this $5000 PC has in store for you.
+                            </p>                            
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-overview">PC Overview</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#pc-build">The PC Build</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#components">PC Components</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#points-to-consider">Points To Consider</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#building-tips">Building Tips</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#closing-thoughts">Closing Thoughts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-overview">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Overview</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                When you reach the $5000 mark, each part in this build is top-notch and serves its purpose exceptionally well. 
+                                This PC is our best recommendation yet. It's capable of handling almost any task you throw at it. But, for gaming alone, 
+                                it might be seen as too powerful considering its high price.
+                            </p>
+                                <hr>
+                                <h3>What you get for your $5000 budget</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    If you're willing to forgo liquid cooling, you could technically build a gaming PC for under $5000 with fewer components. However, 
+                                    our goal is to assist you in crafting your ultimate machine without the need for liquid cooling.
+                                    <br><br>
+                                    At the $5000 mark, you're entering the realm of top-tier custom PCs. There's no skimping on looks, power, or reliability in this price bracket. 
+                                    Simply put, when you're investing in such a premium setup, you can expect nothing but the absolute best components available.
+                                </p>
+                                <hr>
+                                <h3>Performance</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    When it comes to performance, rest assured, this computer won't disappoint. Its gaming prowess alone is top-notch, thanks to the exceptional components it houses. 
+                                    At the heart of it all is a flagship Ryzen 9 CPU, currently one of the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">best CPUs</a> available. Teaming up with this powerhouse processor is the most powerful <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">GPU</a> 
+                                    ever created, ensuring smooth gameplay for even the most demanding titles and future-proofing your setup for years to come.
+                                    <br><br>
+                                    Supporting these high-performing components is arguably one of the best motherboards on the market. This motherboard provides stability and confidence, 
+                                    allowing you to push your system to its limits without worry. Additionally, we've included high-capacity, fast RAM, which pairs perfectly with Ryzen processors, 
+                                    further enhancing performance. Lastly, to put the finishing touches on the build, we've included a spacious NVMe M.2 drive, delivering lightning-fast boot 
+                                    times for a seamless user experience.
+                                </p>
+                                <hr>
+                                <h3>PC hardware deals</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    If you're gearing up to build your next gaming PC, hunting for deals on components is a smart way to maximize your budget. 
+                                    Whether it's GPUs, CPUs, coolers, motherboards, power supplies, or cases, keeping an eye out for discounts can help you get higher-quality 
+                                    parts at a lower cost. Even outside of special sales events, there are often opportunities to snag savings here and there, allowing you to 
+                                    stretch your budget further.
+                                </p>
+                                <hr>
+                                <h3>Intel Vs AMD</h3>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Although Intel processors have undeniable gaming advantages, the versatility of the latest Ryzen chips from AMD is simply too impressive to overlook. 
+                                    AMD provides incredible performance for the price you pay. While their single-core performance might not stand out, 
+                                    their multitasking capabilities are unmatched.
+                                </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="pc-build">
+                            <div>
+                                <h2 class="fw-bolder mb-4 mt-5" >The PC Build</h2>
+                                <br>
+                                <p class="fs-5 mb-4">
+                                    Click on the product images to go to Amazon,
+                                    where you can see additional high-resolution images and check the current price.
+                                    Prices may be greater than $5000 due to price changes.
+                                <p>
+                                <div class="pc-comp-row" >
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_cpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                     <div class="pc-comp-name">
+                                        CPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Ryzen 9 7950X3D
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_gpu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        GPU
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        ASUS ROG Strix GeForce RTX 4090 OC Edition
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_cooler.jpg ' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Cooler
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Corsair iCUE H150i Elite Capellix XT
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_motherboard.png' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Motherboard
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        ASUS ROG Crosshair X670E Hero 
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_ram.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        RAM
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        G.Skill Trident Z5 NEO RGB DDR5 32GB (2x16GB) 6000MHz
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_storage.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Storage
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Corsair MP700 SSD 2TB
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_psu.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Power Supply
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Corsair RM1000x SHIFT
+                                    </div>                           
+                                </div>
+                                <hr class="my-0" />
+                                <div class="pc-comp-row">
+                                    <div class="pc-build-img">
+                                        <a href="#"><img class="card-img-top" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_case.jpg' %}" alt="..." /></a>
+                                    </div>
+                                    <div class="pc-comp-name">
+                                        Case
+                                    </div>
+                                    <div class="pc-comp-text">
+                                        Corsair iCUE 5000X RGB
+                                    </div>                           
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <a class="btn pc-build-button" type="button">ORDER THIS BUILD</a>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="components">
+                            <h2 class="fw-bolder mb-4 mt-5" >PC Components</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Now that we've given you an overview of the build and what you can expect from it,
+                                let's go further into each component, beginning with the build's brain.
+                            <p>
+                            <br>
+                            <h3>CPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_cpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Ryzen 9 7950X3D</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>4.5GHz - 5.7GHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Core (threads)</th>
+                                                    <td>16 (32)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>AM5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>TDP</th>
+                                                    <td>120W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        The <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">7950X3D</a> is AMD's top-of-the-line processor and represents the highest point of CPU technology. This CPU 
+                                        is unmatched in its capabilities and offers much more than just gaming performance.
+                                        <br><br>
+                                        With a whopping 16 cores and 32 threads, the 7950X3D is a multitasking powerhouse. It runs at a base speed of 4.2GHz and can be boosted up to an 
+                                        impressive 5.7GHz. It's undoubtedly one of the best desktop processors you can get your hands on and excels at handling any kind of task, 
+                                        whether it's for work or play. And when it comes to gaming, it's a piece of cake for this beast of a processor.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>GPU</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_gpu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">ASUS ROG Strix GeForce RTX 4090 OC</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>2235MHz - 2640MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stream Processors</th>
+                                                    <td>16384</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Video Memory Size</th>
+                                                    <td>24GB GDDR6X</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>357.6mm x 149.3mm x 70.1mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PSU Required</th>
+                                                    <td>1000W</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        We chose the cASUS ROG Strix GeForce RTX 4090 OC Edition</a> for the build because it represents the pinnacle of graphics card technology, 
+                                        offering unmatched gaming performance and an array of features tailored to all needs. With its advanced cooling system and robust build quality, 
+                                        this GPU ensures optimal performance and reliability, even under heavy loads. The customizable RGB lighting adds a touch of personalization to your build, 
+                                        while features like ray tracing and DLSS technology enhance visual quality and immersion in games. Additionally, 
+                                        the ASUS ROG Strix GeForce RTX 4090 OC Edition boasts high clock speeds and ample VRAM, making it perfect for running the 
+                                        latest AAA titles at maximum settings and resolutions. Overall, it was the ultimate choice to elevate your gaming experience and push the boundaries of 
+                                        performance in your build.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Cooler</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_cooler.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Corsair iCUE H150i Elite Capellix XT</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Fan Dimensions</th>
+                                                    <td>120mm x 120mm x 25mm</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Liquid</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>550 - 2100 RPM ±10%</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Fan Airflow</th>
+                                                    <td>13.8 - 65.57 CFM</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Number Of Fans</th>
+                                                    <td>3 x 120mm fans</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        To simplify your building experience, we've chosen the Corsair H150i Elite Capellix <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">liquid cooler</a>. This cooler comes equipped with 
+                                        three 120mm fans that not only provide efficient cooling but are also quiet and feature RGB lighting for added flair. With a spacious 360mm 
+                                        radiator, it ensures ample heat dissipation, effectively keeping temperatures under control even during intense usage.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Motherboard</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_motherboard.png' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">ASUS ROG Crosshair X670E Hero</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Chipset</th>
+                                                    <td>AMD X670</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Socket</th>
+                                                    <td>AM5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Form Factor</th>
+                                                    <td>ATX</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Power stages</th>
+                                                    <td>18+2</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>wifi</th>
+                                                    <td>Wi-Fi 6E</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        The Asus ROG Crosshair <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">X670E</a> Hero motherboard boasts amazing overclocking capabilities, making it one of the top choices for consumers. 
+                                        It's designed to work seamlessly with AMD's latest Ryzen 7000 CPUs and offers additional desirable features like PCIe Gen 5 connectivity, 
+                                        support for DDR5 RAM, and thermal armor for improved cooling.
+                                        <br><br>
+                                        With top-notch VRMs and numerous M.2 slots for potential upgrades, this motherboard is built to handle future enhancements. 
+                                        The M.2 slots even come with their own heatsinks for better temperature management. Additionally, the motherboard's I/O panel is highly versatile, 
+                                        including Wi-Fi6E support for seamless wireless connectivity.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>RAM</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_ram.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">G.Skill Trident Z5 NEO RGB DDR5</h4>
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Speed</th>
+                                                    <td>6000MHz</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>32GB (2x16GB)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CAS Latency</th>
+                                                    <td>CL36</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>134.87mm x 7.87mm x 43.94mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        This G.Skill memory kit provides a generous 32GB of RAM, ensuring you're well-equipped for the future. Its speedy 6,000MT/s speed is perfectly 
+                                        matched for the new <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">AMD Ryzen CPU</a>, effectively boosting your gaming performance. With this fast speed, you can rest assured 
+                                        that your <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">RAM</a> won't hold you back, even when running demanding applications.
+                                        <br><br>
+                                        With its combination of high quality, large capacity, and impressive RGB lighting, this memory kit is the perfect fit for the $5000 build.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Storage</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_storage.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Corsair MP700 SSD</h4>    
+                                        <p class="card-text"></p>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Read/Write</th>
+                                                    <td>10,000MB/s - 9,500MB/s</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Capacity</th>
+                                                    <td>2TB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interface</th>
+                                                    <td>PCIe Gen5 x4 NVMe 2.0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="fs-5 mb-4">
+                                        To fully leverage the capabilities of your motherboard and CPU, consider investing in a PCIe 5 <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">SSD</a>. This cutting-edge storage solution takes advantage 
+                                        of the additional PCIe bandwidth available, allowing for blazing-fast speeds of up to 10,000MB/s for sequential read and write operations. 
+                                        This level of performance is truly impressive and enhances your overall computing experience.
+                                        <br><br>
+                                        However, it's important to note that such high-speed SSDs require adequate cooling to maintain optimal performance. Fortunately, 
+                                        the Hero motherboard comes equipped with a suitable cover designed to keep the fast <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">M.2</a> SSD running smoothly, 
+                                        ensuring that your storage remains cool and reliable.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Power Supply</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_psu.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Corsair RM1000x SHIFT</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Wattage</th>
+                                                    <td>1000W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Efficiency</th>
+                                                    <td>80+ Gold</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Modularity</th>
+                                                    <td>Fully modular</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        The $5000 gaming PC packs some power-hungry components, so you'll need a reliable <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">PSU</a> to keep everything running smoothly. 
+                                        At the heart of this high-end build is an impressive 1000W PSU with a <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">high-efficiency rating</a>. The RMx PSU offers <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">full modularity</a>., 
+                                        ensuring easy <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">cable management</a>, along with a long warranty for peace of mind. Plus, its quiet operation strikes the perfect 
+                                        balance between efficient cooling and silent operation, making it an ideal choice for your powerful gaming rig.
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <h3>Case</h3>
+                            <br>
+                            <div class="row g-0 custom-card">
+                                <div class="col-md-4">
+                                  <img style="margin-left:10px;" src="{% static 'images/pc_builds/pc_under_5000/pc_under_5000_usd_case.jpg' %}" class="img-fluid rounded-start pc-comp-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Corsair iCUE 5000X RGB (Black)</h4>
+                                        <table style="margin-top:50px;" class="table table-bordered border-primary">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <td>Mid-Tower</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Motherboard Compatibility</th>
+                                                    <td>ATX, mATX, Mini-ITX</td>          
+                                                </tr>
+                                                <tr>
+                                                    <th>Included Fans</th>
+                                                    <td>3 x 120mm RGB</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Dimensions</th>
+                                                    <td>520mm x 245mm x 520mm</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a style="margin-bottom:20px;" class="pc-comp-button">SEE PRICE</a>
+                                </div>
+                                <div class="text-container">
+                                    <p class="card-text">
+                                        To safeguard your high-end components while adding a touch of style, we've chosen the <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">Corsair iCUE 5000X RGB PC case</a>. 
+                                        This mid-tower case features three preinstalled 120mm RGB fans, ensuring optimal airflow right from the start.
+                                        <br><br>
+                                        Pairing this case with the CPU cooler ensures that your gaming PC maintains low temperatures, even during intense gaming sessions. 
+                                        With its sleek design and <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">tempered glass</a> panels, the 5000X adds a touch of elegance to your build, keeping it looking sharp and sophisticated.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="points-to-consider">
+                            <h2 class="fw-bolder mb-4 mt-5" >Points To Consider</h2>
+                            <br><br>
+                            <h3>$5000 Budget</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Here at Gaming Hub, we categorize all our recommended builds into different budget brackets. However, when your budget reaches $5000, you have the freedom 
+                                to create virtually any computer you desire. For hardcore gamers, this means experiencing the pinnacle of gaming performance, with incredibly high 
+                                frame rates and top-of-the-line graphical power. But don't worry if you're a casual gamer or a fan of 4K resolution , this PC will deliver unreal FPS 
+                                counts even at the highest resolutions.
+                                <br><br>
+                                While we strive to keep our custom PC builds within the designated budget, prices can sometimes fluctuate. This fluctuation is often influenced by the market, 
+                                particularly on platforms like Amazon. Rest assured, we'll be monitoring the build regularly to ensure it remains the best recommendation throughout the year.
+                            </p>
+                            <hr>
+                            <h3>Ease Of Building</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The $5000 build is surprisingly similar to the $2000 recommendation we offer. The chosen case stands out for its remarkable spaciousness, 
+                                making the entire building process a breeze. There were no issues with clearance, and the CPU cooler radiator fit perfectly. What's more, 
+                                the case comes with pre-installed fans, effectively keeping the system cool and saving you from having to purchase additional ones. 
+                                The manufacturer of the case excels in providing quality <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">cable management</a> options, which further simplifies the assembly process.
+                                <br><br>
+                                All you need to complete the build is a screwdriver, but for added protection of your components, investing in <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">anti-static equipment</a> is advisable. 
+                                It's worth mentioning that the cooler comes with a small tube of thermal paste for you to apply onto your CPU. We recommend removing the 
+                                <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">old thermal paste</a> and applying a branded type, such as those featured in our best <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">thermal paste roundup</a>. Optimal thermal paste and application 
+                                contribute to better thermal performance overall.
+                            </p>
+                            <hr>
+                            <h3>Upgradability And Future-Proofing</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                This high-end gaming PC is packed with top-of-the-line components, leaving little room for upgrades. It's future-proofed to the maximum, 
+                                ensuring excellent performance for years to come. The next logical step would be to consider upgrading to the new Ryzen Threadripper processors 
+                                and installing a custom water cooling loop for even better performance and cooling efficiency.
+                            </p>
+                            <hr>
+                            <h3>Overclocking</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                While this PC build is already among the best available, there's always room for a boost, especially for those customers who enjoy squeezing extra 
+                                value from their components. Rest assured, we've selected products with overclocking capabilities, allowing you to push your 
+                                system further without breaking the bank or risking overheating.
+                                <br><br>
+                                After installation, remember to double-check your RAM speeds, as they may not initially be running at their full potential. Fortunately, 
+                                the motherboard is designed to handle overclocking, so all you need to do is access the BIOS and <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">enable XMP</a> to set the RAM speed to 3600MHz.
+                            </p>
+                            <hr>
+                            <h3>Non-Gaming Performance</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The gaming performance of the $5000 custom PC is undoubtedly top-notch, as expected. However, its capabilities extend beyond gaming. 
+                                Thanks to the potent AMD processor and speedy DDR4 RAM, this PC excels in various tasks. The multithreaded processor makes it an 
+                                excellent choice for content creation purposes. While it might be overkill for gaming alone, if you're into rendering videos or 
+                                multitasking, you're in for an exceptional experience with this machine.
+                            </p>
+                            <hr>
+                            <h3>Aesthetics</h3>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                The $5000 build includes a durable, high-quality case that not only enhances the overall appearance of the PC but also ensures longevity. 
+                                With tempered glass panels, you can admire the stunning RGB components housed inside.
+                                <br><br>
+                                Additionally, the case comes equipped with a fan controller, allowing you to synchronize all your fans seamlessly. If you're thinking 
+                                about adding an extra RGB fan for the back of the case or upgrading to braided PSU cables to further enhance the aesthetics, feel 
+                                free to <a href="{% url "coming-soon" %}" style="color:#a00000;text-decoration: underline;">pimp out your PC</a> even more.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="building-tips">
+                            <h2 class="fw-bolder mb-4 mt-5" >Building Tips</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                When embarking on a PC building journey, it's crucial to handle your components with care, especially if it's your first build. 
+                                Take the time to familiarize yourself with various online <a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}" style="color:#a00000;text-decoration: underline;">tips</a> and resources to clear up any <a href="{% url "common-asked-questions-about-pc-building" %}" style="color:#a00000;text-decoration: underline;">questions</a> or uncertainties you may 
+                                have before diving in. This preparation will help ensure a smoother and more successful building experience.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="closing-thoughts">
+                            <h2 class="fw-bolder mb-4 mt-5" >Closing Thoughts</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                Congratulations! You've now got your hands on the ultimate gaming PC for under $5000. Can it handle whatever you throw at it? 
+                                Absolutely! This powerhouse will deliver solid gaming performance, with high FPS counts even at 4K resolution. Each component was 
+                                carefully selected to ensure you get the best possible gaming experience and leave your friends green with envy over your setup.
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}         

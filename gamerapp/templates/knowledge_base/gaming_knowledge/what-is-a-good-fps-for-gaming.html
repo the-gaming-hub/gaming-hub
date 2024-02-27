@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#importance-of-fps-in-gaming">Importance Of FPS In Gaming</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#ideal-fps-for-gaming">Ideal FPS For Gaming</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#is-60-fps-enough-for-todays-games">Is 60 FPS Enough For Today's Games?</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#is-120-fps-the-best-for-modern-games">Is 120+ FPS The Best For Modern Games?</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#120-to-360-fps">120 To 360+ FPS</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}} - Which Is Better?</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p style="font-size:30px;" class="fs-5 mb-4">
+                                If you're new to gaming, you may be perplexed by all the terminology and 
+                                wondering whether you're playing at an appropriate FPS.
+                                <br><br>
+                                If so, you'll be pleased to know that this isn't a difficult issue. We will explain everything in this guide.
+                                <br><br>
+                                First, we should define what FPS is. This is an abbreviation for Frames Per Second, which is a measure of how many images can be displayed in a given second.
+                                Take cautious not to confuse the Frames Per Second measurement with the First Person Shooter video game genre, which shares the same moniker.
+                            </p>      
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#importance-of-fps-in-gaming">Importance Of FPS In Gaming</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#ideal-fps-for-gaming">Ideal FPS For Gaming</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#is-60-fps-enough-for-todays-games">Is 60 FPS Good Enough For Today's Games?</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#is-120-fps-the-best-for-modern-games">Is 120+ FPS The Best For Modern Games?</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#120-to-360-fps">120 To 360+ FPS</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="importance-of-fps-in-gaming">
+                            <h2 class="fw-bolder mb-4 mt-5" >Importance Of FPS In Gaming</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                A decade ago, memes circulated about the limitations of human vision in terms of frames per second (FPS) in video games. 
+                                Console players, who were then limited to 30 frames per second, frequently asserted that this frame rate was the absolute 
+                                maximum that the human eye could perceive. However, the truth is more convoluted. While our eyes can only detect 
+                                approximately 10-12 distinct frames per second, higher frame rates are viewed as smoother motion.
+                                <br><br>
+                                Nonetheless, there is a clear difference in frame rates, including 24 FPS, 30 FPS, and the more fluid 60 FPS. For example, 
+                                when comparing 24 FPS with 60 FPS, the difference in smoothness is noticeable.
+                                <br><br>
+                                In the demonstration below, you will see how things appear at various frame rates. The jerky motion at 24 FPS may create 
+                                the appearance of slower movement than the smoother transitions at 60 FPS, despite the objects reaching the screen edges at the same time.                                <br>
+                                <br>
+                                <iframe width="760" height="415" src="https://www.youtube.com/embed/_SzGQkI-IwM?si=dttFNv-5LTaP1T9h" frameborder="0" allowfullscreen></iframe>
+                                <br><br>
+                                Given these data, you might conclude that 60 FPS is the ideal frame rate for gaming. While gaming at 60 frames per second 
+                                clearly provides a smoother experience, other elements must be considered before drawing any conclusions.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="ideal-fps-for-gaming">
+                            <h2 class="fw-bolder mb-4 mt-5" >Ideal FPS for Gaming</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/what_is_a_good_fps fps_gaming/ideal_fps_for_gaming.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                For many years, gaming at 30 frames per second was plenty for everyone. However, as technology evolved, gamers and developers attempted 
+                                to take use of it. 60 FPS quickly became the new standard for single-player games, while 120 or higher became the norm for multiplayer games, 
+                                notably first-person shooters.
+                                <br><br>
+                                This may lead you to believe that more is always better, and while you will undoubtedly have a smoother experience, it does not 
+                                necessarily imply that it is the ideal option for you.
+                                <br><br>
+                                Let's go over this in greater detail.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="is-60-fps-enough-for-todays-games">
+                            <h2 class="fw-bolder mb-4 mt-5" >Is 60 FPS Enough For Today's Games?</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/what_is_a_good_fps fps_gaming/is-60-fps-enough.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4"> 
+                                The previous threshold of 30 FPS is still sufficient to keep a game watchable. Anything below that can appear unsteady, 
+                                and most gamers will struggle to enjoy their games at a lower frame rate.
+                                The modern cinematography and animation standard is 24 frames per second. However, there are experiences that do not require human engagement. 
+                                As a result, our eyes are more relaxed, allowing us to appreciate the film at that frame rate.
+                                <br><br>
+                                The new norm of 60 FPS took a little longer to reach for console gamers, as only the most recent console generations, the PlayStation 5 and Xbox Series X, 
+                                support native 60 FPS. PC players, on the other hand, have been playing at 60 frames per second for nearly a decade.
+                                <br><br>
+                                For the majority of players, 60 FPS is the optimal frame rate. This is due to not only the smoothness of the visuals displayed, 
+                                but also the fact that 60Hz displays are the most widely available.
+                                Furthermore, purchasing a GPU capable of producing 60 frames per second in a video game is now relatively simple and inexpensive.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="is-120-fps-the-best-for-modern-games">
+                            <h2 class="fw-bolder mb-4 mt-5" >Is 120+ FPS The Best For Modern Games?</h2>
+                            <br>
+                            <img style="border-radius: 20px;margin-left: auto; margin-right: auto; display: block;" class="card-img-top" src="{% static "images/knowledge_base/what_is_a_good_fps fps_gaming/Is-120-FPS-The-Best-For-Modern-Games.jpg" %}" alt="..." />
+                            <br>
+                            <p class="fs-5 mb-4">
+                                At 120 FPS, things appear different. Of course, the image is smoother than at 60 FPS, but most gamers still find playing at 120 FPS to be excessive.
+                                Many players struggle to discern the difference between 120 and 60 FPS, making it difficult to create a compelling case for playing at 120 FPS.
+                                <br><br>
+                                Nonetheless, given that higher framerates significantly reduce input lag, particularly in multiplayer games, more is clearly better.
+                                As previously stated, gaming at 120 FPS necessitates more expensive hardware, particularly if you intend 
+                                to run a graphical powerhouse like Control at that frame rate.
+                                <br><br>
+                                First, you'll need a really strong GPU, although depending on the game, you might be able to get away with something a little less expensive.
+                                You will then need to choose a monitor that not only supports 120 Hz but also a vertical synchronization technique that 
+                                is compatible with your GPU. This is only applicable if you wish to reap the full benefits of 120 FPS gaming.
+                                If you want to game with NVIDIA's GPUs, you may notice a minor cost rise due to the G-Sync technology, 
+                                which requires a special license from the monitor maker. AMD's FreeSync technology makes things slightly cheaper.
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="120-to-360-fps">
+                            <h2 class="fw-bolder mb-4 mt-5" >120 To 360+ FPS</h2>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                If you're willing to spend as much money as necessary to have the 120 FPS experience, go for it, but we still have to
+                                tell you the main disadvantage of 120 FPS gaming.
+                                The truth is that with such a price increase, the eye test cannot produce the desired results.
+                                You may only notice it when playing an online game that requires a high frame rate.
+                                <br><br>
+                                We are primarily talking to shooter games like Counter-Strike: Global Offensive. In those instances, you will have a clear advantage over 
+                                an opponent who plays at a lower frame rate because you can see and respond to them faster. We're talking milliseconds here, 
+                                which most casual players are unlikely to benefit from.
+                                Competitive gamers, on the other hand, might enjoy a better experience at 120 FPS, while the top eSports competitors go much higher,
+                                to 240 FPS or 360 FPS. These frame rates are not currently popular, but will be in the future.
+                                <br><br>
+                                The video below shows the exact difference between these frame rates, which should help you understand the information offered in this guide.
+                                <br><br>
+                                <iframe width="760" height="415" src="https://www.youtube.com/embed/4-owPNqwxMo?si=RMj8EkKxEiNmq2AA" frameborder="0" allowfullscreen></iframe>
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}
