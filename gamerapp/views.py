@@ -399,11 +399,11 @@ def headset_buying_guide(request):
 
 
 
-def top_10_logitech_mouse(request):
+def best_logitech_mouse(request):
     
     
     context={}
-    return render(request, 'buying_guides/gaming_peripherals/mouse_guides/top_10_logitech_mouse.html' , context)
+    return render(request, 'buying_guides/gaming_peripherals/mouse_guides/best_logitech_mouse.html' , context)
 
 def top_10_razer_mouse(request):
     

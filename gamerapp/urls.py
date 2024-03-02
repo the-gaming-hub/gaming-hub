@@ -83,6 +83,6 @@ path('buying-guide/gaming-peripherals/mouse-pads/', views.mouse_pad_buying_guide
 path('buying-guide/gaming-peripherals/monitors/', views.monitor_buying_guide , name="monitors-buying-guide"),
 path('buying-guide/gaming-peripherals/chairs/', views.chair_buying_guide , name="chairs-buying-guide"),
 
-path('buying-guide/gaming-peripherals/mouse/top-10-gaming-logitech-mouse-in-2024/', views.top_10_logitech_mouse , name="top-10-gaming-logitech-mouse-in-2024"),
+path('buying-guide/gaming-peripherals/mouse/the-best-gaming-logitech-mouse-in-2024/', views.best_logitech_mouse , name="the-best-gaming-logitech-mouse-in-2024"),
 path('buying-guide/gaming-peripherals/mouse/top-10-gaming-razer-mouse-in-2024/', views.top_10_razer_mouse , name="top-10-gaming-razer-mouse-in-2024"),
 ]

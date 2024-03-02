@@ -20,12 +20,14 @@
         <link rel="stylesheet" href="{% static 'css/light-theme.css' %}">
         {% comment %} ----nav bar---- {% endcomment %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"><!--Navbar/Slider-->
+
         
 
     </head>
     <nav id = "navbar">
       <div class="wrapper">
-        <div class="logo"><a href="{% url "home" %}"><img src="{% static 'images/logo.png' %}" width="150" height="43" alt="Logo"></a></div>
+        <div class="logo"><a href="{% url "home" %}"><img src="{% static 'images/thegaminghub-logo.png' %}" width="240" height="40" alt="Logo"></a></div>
         <input type="radio" name="slider" id="menu-btn">
         <input type="radio" name="slider" id="close-btn">
         <ul class="nav-links">
@@ -253,7 +255,7 @@
         <!-- Footer-->
         <footer class="py-5 bg-dark custom-footer" style="position: relative;">
           <div class="footer-logo text-center">
-              <img src="{% static 'images/logo.png' %}" width="200" height="55" alt="Logo">
+              <img src="{% static 'images/thegaminghub-logo.png' %}" width="240" height="40" alt="Logo">
           </div>
           <div class="social-icons">
             <a href="#"  title="facebook"> 
@@ -278,7 +280,7 @@
               <i class="fab fa-camera-retro" aria-hidden="true"></i>
             </a> {% endcomment %}
           </div>
-          <p style="font-size: 12px; position: absolute; bottom: 10px; left: 0; right: 0;" class="m-0 text-center text-white">Copyright &copy; GamingHub 2023</p>
+          <p style="font-size: 12px; position: absolute; bottom: 10px; left: 0; right: 0;" class="m-0 text-center text-white">Copyright &copy; TheGamingHub 2024</p>
       </footer>
     </body>
 </html>
