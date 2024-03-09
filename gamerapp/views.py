@@ -308,20 +308,20 @@ def pc_builds(request):
 #------------------------sub categories---------------------------
 def budget_pc_builds(request):
     
-    
-    context={}
+    budget_pc_builds = Review.objects.filter(main_category__name = 'PC Builds' , sub_category__slug = 'budget-pc-builds').order_by('?')
+    context={'budget_pc_builds' : budget_pc_builds}
     return render(request, 'pc_builds/budget_pc_builds.html' , context)
 
 def mid_range_pc_builds(request):
     
-    
-    context={}
+    mid_range_pc_builds = Review.objects.filter(main_category__name = 'PC Builds' , sub_category__slug = 'mid-range-pc-builds').order_by('?')
+    context={'mid_range_pc_builds' : mid_range_pc_builds}
     return render(request, 'pc_builds/mid_range_pc_builds.html' , context)
 
 def high_end_pc_builds(request):
     
-    
-    context={}
+    high_end_pc_builds = Review.objects.filter(main_category__name = 'PC Builds' , sub_category__slug = 'high-end-pc-builds').order_by('?')
+    context={'high_end_pc_builds' : high_end_pc_builds}
     return render(request, 'pc_builds/high_end_pc_builds.html' , context)
 #----------------------reviews-----------------------------------
 def pc_under_300(request):
@@ -422,7 +422,7 @@ def buying_guide(request):
 
 def gaming_peripherals_buying_guide(request):
     
-    gaming_peripherals_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guide').order_by('?')
+    gaming_peripherals_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guides').order_by('?')
     context={'gaming_peripherals_buying_guides' : gaming_peripherals_buying_guides}
     return render(request, 'buying_guides/gaming_peripherals/gaming_peripherals.html' , context)
 
@@ -440,43 +440,93 @@ def gaming_laptops_buying_guide(request):
 #------------sub categories--------------
 def mouse_buying_guide(request):
     
-    
-    context={}
+    mouse_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guides' , sub_subcategory__slug = 'mouse-buying-guides').order_by('?')
+    context={'mouse_buying_guides' : mouse_buying_guides}
     return render(request, 'buying_guides/gaming_peripherals/mouse.html' , context)
 
 def keyboard_buying_guide(request):
     
-    
-    context={}
+    keyboard_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guides' , sub_subcategory__slug = 'keyboards-buying-guides').order_by('?')
+    context={'keyboard_buying_guides' : keyboard_buying_guides}
     return render(request, 'buying_guides/gaming_peripherals/keyboard.html' , context)
 
 def monitor_buying_guide(request):
     
-    
-    context={}
+    monitor_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guides' , sub_subcategory__slug = 'monitors-buying-guides').order_by('?')
+    context={'monitor_buying_guides' : monitor_buying_guides}
     return render(request, 'buying_guides/gaming_peripherals/monitor.html' , context)
 
 def chair_buying_guide(request):
     
-    
-    context={}
+    gaming_chair_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guides' , sub_subcategory__slug = 'gaming-chairs-buying-guides').order_by('?')
+    context={'gaming_chair_buying_guides' : gaming_chair_buying_guides}
     return render(request, 'buying_guides/gaming_peripherals/chair.html' , context)
 
 def mouse_pad_buying_guide(request):
     
-    
-    context={}
+    mouse_pad_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guides' , sub_subcategory__slug = 'mouse-pads-buying-guides').order_by('?')
+    context={'mouse_pad_buying_guides' : mouse_pad_buying_guides}
     return render(request, 'buying_guides/gaming_peripherals/mouse_pad.html' , context)
 
 def headset_buying_guide(request):
     
-    
-    context={}
+    headset_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guides' , sub_subcategory__slug = 'headsets-buying-guides').order_by('?')
+    context={'headset_buying_guides' : headset_buying_guides}
     return render(request, 'buying_guides/gaming_peripherals/headset.html' , context)
 
+    #----------------pc components buyign guide-----------------------------
+
+def cpu_buying_guide(request):
+    
+    cpu_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guides' , sub_subcategory__slug = 'cpu-buying-guides').order_by('?')
+    context={'cpu_buying_guides' : cpu_buying_guides}
+    return render(request, 'buying_guides/pc_components/cpu_buying_guide.html' , context)
+
+def cpu_cooler_buying_guide(request):
+    
+    cpu_cooler_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guides' , sub_subcategory__slug = 'cpu-coolers-buying-guides').order_by('?')
+    context={'cpu_cooler_buying_guides' : cpu_cooler_buying_guides}
+    return render(request, 'buying_guides/pc_components/cpu_coolers_buying_guide.html' , context)
+
+def gpu_buying_guide(request):
+    
+    gpu_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guides' , sub_subcategory__slug = 'gpu-buying-guides').order_by('?')
+    context={'gpu_buying_guides' : gpu_buying_guides}
+    return render(request, 'buying_guides/pc_components/gpu_buying_guide.html' , context)
+
+def motherboard_buying_guide(request):
+    
+    motherboard_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guides' , sub_subcategory__slug = 'motherboards-buying-guides').order_by('?')
+    context={'motherboard_buying_guides' : motherboard_buying_guides}
+    return render(request, 'buying_guides/pc_components/motherboards_buying_guide.html' , context)
+
+def ram_buying_guide(request):
+    
+    ram_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guides' , sub_subcategory__slug = 'ram-buying-guides').order_by('?')
+    context={'ram_buying_guides' : ram_buying_guides}
+    return render(request, 'buying_guides/pc_components/ram_buying_guide.html' , context)
+
+def ssd_buying_guide(request):
+    
+    ssd_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guides' , sub_subcategory__slug = 'ssd-buying-guides').order_by('?')
+    context={'ssd_buying_guides' : ssd_buying_guides}
+    return render(request, 'buying_guides/pc_components/ssd_buying_guide.html' , context)
+
+def psu_buying_guide(request):
+    
+    psu_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guides' , sub_subcategory__slug = 'psu-buying-guides').order_by('?')
+    context={'psu_buying_guides' : psu_buying_guides}
+    return render(request, 'buying_guides/pc_components/psu_buying_guide.html' , context)
+
+def case_buying_guide(request):
+    
+    cases_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guides' , sub_subcategory__slug = 'cases-buying-guides').order_by('?')
+    context={'cases_buying_guides' : cases_buying_guides}
+    return render(request, 'buying_guides/pc_components/cases_buying_guide.html' , context)
 
 
 
+#--------------- buying guide articles-----------------
 def best_logitech_mouse(request):
     
     

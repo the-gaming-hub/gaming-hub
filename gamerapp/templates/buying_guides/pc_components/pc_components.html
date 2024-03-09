@@ -9,7 +9,7 @@
     </div>
 </div>  
 <div class="mt-5 categroies-div">      
-    <center><h2>Sub-subcategories: <a href="#">CPUs</a> | <a href="#">CPU Coolers</a> | <a href="#">GPUs</a> | <a href="#">Motherboards</a> | <a href="#">Ram</a> | <a href="#">SSDs</a> | <a href="#">PSUs</a> | <a href="#">Cases</a></h2></center>
+    <center><h2>Sub-subcategories: <a href="{% url "cpu-buying-guides" %}">CPUs</a> | <a href="{% url "cpu-coolers-buying-guides" %}">CPU Coolers</a> | <a href="{% url "gpu-buying-guides" %}">GPUs</a> | <a href="{% url "motherboards-buying-guides" %}">Motherboards</a> | <a href="{% url "ram-buying-guides" %}">Ram</a> | <a href="{% url "ssd-buying-guides" %}">SSDs</a> | <a href="{% url "psu-buying-guides" %}">PSUs</a> | <a href="{% url "cases-buying-guides" %}">Cases</a></h2></center>
     <br><br><br><br>
     <div class="row">
         {% for review in pc_components_buying_guides %}

@@ -13,28 +13,46 @@ def global_variables(request):
         '/buying-guide/',
         '/knowledge-base/',
         '/coming-soon/',
-        '/reviews/gaming-peripherals/',
-        '/reviews/pc-components/',
+        '/pc-builds/budget-pc-builds/',
+        '/pc-builds/mid-range-pc-builds/',
+        '/pc-builds/high-end-pc-builds/',
+        '/reviews/gaming-peripherals-reviews/',
+        '/reviews/pc-components-reviews/',
+        '/reviews/gaming-laptops-reviews/',
         '/knowledge-base/pc-building-tips/',
         '/knowledge-base/pc-knowledge/',
         '/knowledge-base/gaming-knowledge/',
-        '/buying-guide/gaming-peripherals/',
-        '/buying-guide/pc-components/',
-        '/buying-guide/gaming-laptops/',
-        '/reviews/gaming-peripherals/mouse/',
-        '/reviews/gaming-peripherals/keyboards/',
-        '/reviews/gaming-peripherals/monitors/',
-        '/reviews/gaming-peripherals/mouse-pads/',
-        '/reviews/gaming-peripherals/gaming-chairs/',
-        '/reviews/gaming-peripherals/headsets/',
-        '/reviews/pc-components/cpu/',
-        '/reviews/pc-components/cpu-coolers/',
-        '/reviews/pc-components/gpu/',
-        '/reviews/pc-components/motherboards/',
-        '/reviews/pc-components/ram/',
-        '/reviews/pc-components/ssd/',
-        '/reviews/pc-components/psu/',
-        '/reviews/pc-components/cases/'
+        '/buying-guide/gaming-peripherals-buying-guides/',
+        '/buying-guide/pc-components-buying-guides/',
+        '/buying-guide/gaming-laptops-buying-guides/',
+        '/reviews/gaming-peripherals-reviews/mouse-reviews/',
+        '/reviews/gaming-peripherals-reviews/keyboards-reviews/',
+        '/reviews/gaming-peripherals-reviews/monitors-reviews/',
+        '/reviews/gaming-peripherals-reviews/mouse-pads-reviews/',
+        '/reviews/gaming-peripherals-reviews/gaming-chairs-reviews/',
+        '/reviews/gaming-peripherals-reviews/headsets-reviews/',
+        '/reviews/pc-components-reviews/cpu-reviews/',
+        '/reviews/pc-components-reviews/cpu-coolers-reviews/',
+        '/reviews/pc-components-reviews/gpu-reviews/',
+        '/reviews/pc-components-reviews/motherboards-reviews/',
+        '/reviews/pc-components-reviews/ram-reviews/',
+        '/reviews/pc-components-reviews/ssd-reviews/',
+        '/reviews/pc-components-reviews/psu-reviews/',
+        '/reviews/pc-components-reviews/cases-reviews/',
+        '/buying-guide/pc-components-buying-guides/cpu-buying-guides/',
+        '/buying-guide/pc-components-buying-guides/cpu-coolers-buying-guides/',
+        '/buying-guide/pc-components-buying-guides/gpu-buying-guides/',
+        '/buying-guide/pc-components-buying-guides/motherboards-buying-guides/',
+        '/buying-guide/pc-components-buying-guides/ram-buying-guides/',
+        '/buying-guide/pc-components-buying-guides/ssd-buying-guides/',
+        '/buying-guide/pc-components-buying-guides/psu-buying-guides/',
+        '/buying-guide/pc-components-buying-guides/cases-buying-guides/',
+        '/buying-guide/gaming-peripherals-buying-guides/mouse-buying-guides/',
+        '/buying-guide/gaming-peripherals-buying-guides/keyboards-buying-guides/',
+        '/buying-guide/gaming-peripherals-buying-guides/headsets-buying-guides/',
+        '/buying-guide/gaming-peripherals-buying-guides/mouse-pads-buying-guides/',
+        '/buying-guide/gaming-peripherals-buying-guides/monitors-buying-guides/',
+        '/buying-guide/gaming-peripherals-buying-guides/gaming-chairs-buying-guides/'
     ]
     
     #get the latest reviews------------------
@@ -59,12 +77,12 @@ def global_variables(request):
         main_page = None
         
     try:
-        sub_main_page = Sub_Category.objects.get(path=request.path.split('/')[2])
+        sub_main_page = Sub_Category.objects.get(slug=request.path.split('/')[2])
     except:
         sub_main_page = None
         
     try:
-        sub_sub_main_page = Sub_SubCategory.objects.get(path=request.path.split('/')[3])
+        sub_sub_main_page = Sub_SubCategory.objects.get(slug=request.path.split('/')[3])
     except:
         sub_sub_main_page = None
         
