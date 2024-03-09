@@ -1,0 +1,931 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block body %}
+        {% comment %} <div class="container mt-5">
+             <div style="margin-right: -185px;margin-left: -185px;" class="row"  {% endcomment %}
+                <div class="col-lg-2-5" >
+                    <div id="toc">
+                        <Center><h3>Table of Contents</h3></center>
+                            <Center><div style="margin-top:5px;margin-left:1px;width:260px;" class="divider"></div></center>
+                        <ul style="list-style-type: disc;">
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-overall">Best Overall</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-lightweight">Best Lightweight</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-versatility">Best Versatility</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-budget">Best Budget</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-value">Best Value</a></li>
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-all-in-one">Best All-In-One</a></li> 
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7-5">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4" id="intro">
+                            <!-- Post title-->
+                            <h1 style="font-size:45px" class="fw-bolder mb-1">{{review.topic}}</h1><br>
+                            <p>{{review.intro}}</p>
+                            <!-- Post meta content-->
+                            <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category.name|upper}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category.name|upper}}</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p style="font-size:30px;" class="fs-5 mb-4">
+                                Logitech gaming mice are popular due to their exceptional sensor performance and diverse specifications. 
+                                These ergonomic pointers are often wireless and speedy, offering both high-end and affordable options. 
+                                Logitech's Lightspeed technology has made many of their releases contenders for the best wireless gaming mouse trophy. 
+                                <br><br>
+                                The brand specializes in introducing wireless connectivity to a wider range of devices, leading the way in introducing it to budget price points. 
+                                Users have tested Logitech's mouse models in high-energy first-person shooter environments, simulation and action adventure scenarios, 
+                                and everyday use to ensure they are the best Logitech gaming mouse all-round.
+                            </p>      
+                        </section>
+                        <section id="toc-mobile-sec">
+                            <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                            <div class="col-lg-2-5" >
+                                <div class="toc-mobile">
+                                    <Center><h3>Table of Contents</h3></center>
+                                        <Center><div style="margin-top:5px;margin-left:1px;width:90%;" class="divider"></div></center>
+                                    <ul style="list-style-type: disc;">
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#intro">Intro</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-overall">Best Overall</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-lightweight">Best Lightweight</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-versatility">Best Versatility</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-budget">Best Budget</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-value">Best Value</a></li>
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-all-in-one">Best All-In-One</a></li> 
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="best-overall">
+                            <h2 class="fw-bolder mb-4 mt-5"><a href="{% url "coming-soon" %}" style="color:#a00000;">Razer Viper V2 Pro</a> (Best Overall)</h2>
+                            <br>
+                            <div id="carouselExampleIndicators" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Viper-V2-Pro-1.jpeg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Viper-V2-Pro-2.webp" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Viper-V2-Pro-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Viper-V2-Pro-4.webp" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Viper-V2-Pro-5.jpg" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 100 - 30,000 dpi</li>
+                                    <li><strong>Switches:</strong> Optical Mouse Switches Gen-3 </li>
+                                    <li><strong>Weight:</strong> 58g </li>
+                                    <li><strong>Connection:</strong>  Wired / Wireless </li>
+                                    <li><strong>Buttons:</strong> 6 </li>
+                                    <li><strong>IPS:</strong> 750 </li>
+                                    <li><strong>Polling Rates:</strong>  400, 800, 1600, 3200, 6400, 8000 Hz</li>
+                                    <li><strong>Shape:</strong>  Right-Handed</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Remarkably light in weight </h5>
+                                            <h5><a class="pro">✔</a> Exceptional click responsiveness with low latency </h5>
+                                            <h5><a class="pro">✔</a> Comfortable symmetrical shape for extended use </h5>
+                                            <h5><a class="pro">✔</a> Smooth gliding feet suitable for various surfaces </h5>
+                                            <h5><a class="pro">✔</a> High-quality build ensuring durability and reliability </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Absence of a storage compartment for the wireless receiver </h5>
+                                            <h5><a class="con">✖</a> Slightly bulky design, not ideal for storage in laptop bags or cases </h5>
+                                            <h5><a class="con">✖</a> Missing side buttons on the right side, making it less accommodating for left-handed users compared to previous models </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3UZczih" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                Diving in into it's design The featherweight 58g form factor makes wild sweeps and frenzied spins exceedingly comfortable on the wrist. 
+                                The flatter design may not fit for everyone, but we discovered that, with a fingertip grip in particular, 
+                                this is an infinitely comfortable and responsive experience.
+                                <br><br>
+                                If you struggle to retain control, the black coloration may be the best option. Neither model has a sticky texture on the sides like the 
+                                previous Razer Viper Ultimate, although they do come with additional tape to tack on. Unfortunately, 
+                                the white variant features the same black stickers, which detracts from the overall look. 
+                                <br><br>
+                                The features of The V2 Pro is a powerhouse that is also efficient. Because the RGB lights has been removed, you won't have to worry about 
+                                the battery life of this pointer. That's a sacrifice we're ready to make; the device's pristine white contours are stunning as is. 
+                                The Viper V2 Pro also has Razer's greatest technology ever, including a 30K sensor and Gen 3 optical switches for very precise and quick actuation. 
+                                <br><br>
+                                Now about it's performance, The Razer Viper V2 Pro's biggest feature is how well everything works together. 
+                                A lightweight and high-speed sensor are always going to win, but add a highly comfortable design, snappy switches under each clicker, 
+                                and super smooth PFTE feet, and you have a serious piece of gear. 
+                                <br><br>
+                                Lastly If you don't prioritize speed in your gameplay, this mouse price isn't worth it but, if you have a diverse collection of 
+                                fast-paced titles in your Steam library, this is your best bet.  
+                                <br><br>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Competitive gaming is your focus: While the advanced technology and meticulous weight engineering come with a price, this investment proves most beneficial for avid players of competitive titles </h5>
+                                            <h5><a class="pro">✔</a> Speed and precision are your top priorities: The Razer Viper V2 Pro demonstrates remarkable swiftness and accuracy, akin to a laser, making it the fastest and most precise Razer mouse we've experienced </h5>
+                                            <h5><a class="pro">✔</a> Weight reduction is crucial to you: Weighing in at 58g, this mouse stands among the lightest gaming peripherals available, particularly within Razer's lineup </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>DON'T BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Preference for slower-paced games: Investing in the speed and precision offered by this mouse may not be justified if you primarily engage in slower-paced games, as the benefits may not be as pronounced </h5>
+                                            <h5><a class="con">✖</a> Dependence on programmable buttons: If you seek an extensive control hub, this mouse falls short. With only two buttons on its side panel, it pales in comparison to other models offering up to 12 programmable buttons </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3UZczih" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="best-lightweight">
+                            <h2 class="fw-bolder mb-4 mt-5"><a href="{% url "coming-soon" %}" style="color:#a00000;">Razer DeathAdder V3</a> (Best Lightweight)</h2>
+                            <br>
+                            <div id="carouselExampleIndicators2" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    {% comment %} <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="3" aria-label="Slide 4"></button> {% endcomment %}
+                                    <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V3-1.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V3-2.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V3-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    {% comment %} <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V3-4.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div> {% endcomment %}
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V3-5.jpg" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 100 - 30,000 dpi</li>
+                                    <li><strong>Switches:</strong> Razer Optical Mouse Switches Gen 3</li>
+                                    <li><strong>Weight:</strong> 59 g</li>
+                                    <li><strong>Connection:</strong>  Wired </li>
+                                    <li><strong>Buttons:</strong> 6</li>
+                                    <li><strong>IPS:</strong> 750</li>
+                                    <li><strong>Polling Rates:</strong>  400, 800, 1600, 3200, 6400, 8000 Hz</li>
+                                    <li><strong>Shape:</strong>  Right-Handed</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Exceptionally low click latency</h5>
+                                            <h5><a class="pro">✔</a> Impressively lightweight construction </h5>
+                                            <h5><a class="pro">✔</a> Superior build quality </h5>
+                                            <h5><a class="pro">✔</a> Comfortable for larger hands with its wider base, while maintaining an incredibly lightweight feel </h5>
+                                            <h5><a class="pro">✔</a> Incorporates the latest generation sensor and switches </h5>
+                                            <h5><a class="pro">✔</a> Delivers superfast performance across various gaming genres </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> The cable may retain minor kinking due to packaging </h5>
+                                            <h5><a class="con">✖</a> Lacks RGB customization options </h5>
+                                            <h5><a class="con">✖</a> The pronounced dome shape may not be suitable for users with smaller hands </h5>
+                                            <h5><a class="con">✖</a> Features fewer programmable buttons compared to competing models </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3ImFG7A" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                The Razer DeathAdder V3 was dubbed a "FPS mouse for those who detest FPS mice" by us. This is due to the fact that 
+                                it's a very light pointer that isn't just able to lose weight by constricting everything to a small form factor.
+                                <br><br>
+                                The design is Extremely light gaming mice, such as the MSI Clutch GM31 and the Razer Viper V2 Pro mentioned above, 
+                                are frequently very compact, which makes them uncomfortable for users with larger hands. But the Razer DeathAdder V3 
+                                still manages to provide the hefty curves necessary for long-term comfort in a 59g package. Not everyone will be able to 
+                                use that form; in fact, it is significantly more suited to people with larger hands. It's a quick pointer, though, and stays 
+                                clear of the traps that many thin gaming mouse have. 
+                                <br><br>
+                                It's features Compared to the similarly priced Razer Basilisk V3 model, the lower price does mean you're losing out on RGB support, 
+                                and there are fewer programmable buttons here, but there are still plenty of great features. 
+                                <br><br>
+                                We suggest taking a look at the new Razer Viper V3 Hyperspeed if you like the DeathAdder's design but would prefer a wireless connection. 
+                                It has a 2.4GHz Hyperspeed connection, is priced the same, and maintains the bigger dome form of the DeathAdder series as opposed to 
+                                the more conventionally flat Viper range. 
+                                <br><br>
+                                Under the hood, you have Razer's newest generation of sensors and switches in addition to the blazingly quick performance one would 
+                                anticipate from such parts. However, the perks of that low weight were somewhat compromised here by the chunkier form factor, 
+                                particularly if you're using smaller hands. Nevertheless, in our tests, that sensor was able to handle everything from Apex Legends to The Witcher 3. 
+                                <br><br>
+                                Concluding all this although the Razer DeathAdder V3 is a lightweight gaming mouse that appeals to a far larger market than normal, 
+                                it won't be for everyone. Larger hands are no longer an obstacle in this race, and it has the internal specifications to support that claim as well. 
+                                <br><br>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Wireless connectivity isn't necessary: For those prioritizing speed, the wired design of this device poses minimal hindrance </h5>
+                                            <h5><a class="pro">✔</a> You possess larger hands: The DeathAdder V3 provides a chunkier design suited for larger hands, yet maintains a low weight ideal for optimal performance in FPS scenarios </h5>
+                                            <h5><a class="pro">✔</a> You prefer a smooth grip: Unlike grippy tape or rubber textures that can be bothersome for some users, the soft-touch finish of this mouse offers a comfortable hold without slipping </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>DON'T BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a>  Desire for RGB customization: Razer opted to exclude RGB lighting from this model to maintain a lower weight. If you seek a full Chroma experience, you'll need to explore other options </h5>
+                                            <h5><a class="con">✖</a> You possess smaller hands: The pronounced dome and wider base of this mouse make it less suitable for individuals with smaller hands </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3ImFG7A" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="best-versatility">
+                            <h2 class="fw-bolder mb-4 mt-5"><a href="{% url "coming-soon" %}" style="color:#a00000;">Razer Naga V2 Pro</a> (Best Versatility)</h2>
+                            <br>
+                            <div id="carouselExampleIndicators3" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Naga-V2-Pro-1.avif" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Naga-V2-Pro-2.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Naga-V2-Pro-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Naga-V2-Pro-4.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-Naga-V2-Pro-5.jpg" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 100 - 30,000 dpi</li>
+                                    <li><strong>Switches:</strong> Razer Optical</li>
+                                    <li><strong>Weight:</strong> 134 g</li>
+                                    <li><strong>Connection:</strong>  Wired / Wireless (2.4GHz dongle / Bluetooth)</li>
+                                    <li><strong>Buttons:</strong> 10, 14 or 20 programmable buttons</li>
+                                    <li><strong>IPS:</strong> 750</li>
+                                    <li><strong>Polling Rates:</strong>  125 / 250 / 500 / 1000 Hz</li>
+                                    <li><strong>Shape:</strong>  Right-Handed</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Comfortable form factor with ergonomic design</h5>
+                                            <h5><a class="pro">✔</a> Excellent customization options, including scroll wheel behavior </h5>
+                                            <h5><a class="pro">✔</a> Supports wireless charging </h5>
+                                            <h5><a class="pro">✔</a> Robust construction and durability, feels well-built </h5>
+                                            <h5><a class="pro">✔</a> Right-handed design with finger rest for added comfort </h5>
+                                            <h5><a class="pro">✔</a> Versatility with hot-swappable side panels offering different button layouts </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Increased weight may lead to a cumbersome experience in FPS gaming </h5>
+                                            <h5><a class="con">✖</a> The product is priced higher, catering to a specific, specialized audience </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/49DEatX" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                Now on the market, the most adaptable Razer mouse is the Razer Naga V2 Pro, thanks to its three interchangeable control panels, 
+                                ergonomic design, and quick internals.
+                                <br><br>
+                                It's design from an angle other than only the side, the Nava V2 Pro stands out from other gaming mice. This style is somewhat squat, 
+                                with a sharp front slope and an oversized hump in the back. From the wrist and top of the hand's standpoint, that is comfortable, 
+                                but it does make the whole thing a little awkward. Since this is a firm palm grip number, its form factor does result in a loss of speed and precision.
+                                <br><br>
+                                Features wise the interchangeable panels are the main attraction here, providing exceptional adaptability and flexibility regardless of the
+                                game you're playing. It'll be there for you in MOBAs and battle royales alike. In addition, we were happy to see that switching between
+                                the panels is fast and simple—we were browsing our Steam library in a matter of seconds between each genre. 
+                                <br><br>
+                                A maximum of 20 programmable buttons are available to you with the option of a two-, six-, or 12-button side layout. Furthermore, this programming 
+                                has two levels, which enables each button on top to have a second set of commands given to it. That is amazing personalization that extends 
+                                to the scroll wheel as well. Under the hood, this is the Razer HyperScroll Pro, which offers six modes for scrolling speed and style. 
+                                There is an action for every movement in Synapse 3, whether you choose to create your own style or switch between a free-wheeling spin 
+                                and a tighter, heavier scroll. It was discovered that this functionality was more helpful for productivity purposes than for casual gaming. 
+                                Nevertheless, it's still a useful tool. 
+                                <br><br>
+                                It's performance Despite its shape hindering it in highly competitive endeavors, we discovered that the Nava V2 Pro excelled in a variety of 
+                                genres. Actually, the middle is where this Razer mouse operates at its best. Here, slower action adventure games and massively multiplayer 
+                                online experiences are recommended to allow those configurable buttons and quick sensor to really shine. 
+                                <br><br>
+                                Lastly with its sleek sensor and countless customizability possibilities, the Naga V2 Pro is, theoretically, a better Razer mouse 
+                                than the Basilisk V3. Nevertheless, it is far more costly and has a feature set that casual gamers won't find useful. It will, however, 
+                                be a game-changer if you have a sizable Steam library that includes titles from several competitive genres. 
+                                <br><br>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> If you're comfortable with a bulkier design, the heavier build might not be suitable for everyone, especially for swift maneuvers in fast-paced gameplay. However, individuals with larger hands or a preference for stability during gameplay may find it advantageous </h5>
+                                            <h5><a class="pro">✔</a> If you enjoy a variety of gaming genres and don't plan on switching out the side panels, the added cost of this customization may not be justified </h5>
+                                            <h5><a class="pro">✔</a> Considering the substantial price tag of the Naga V2 Pro, it's essential to view it as a long-term investment and expect to utilize it for several years to fully justify the expense </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>DON'T BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> For those who don't indulge in MMOs, there are numerous alternatives available at lower price points that provide superior comfort and quicker response rates </h5>
+                                            <h5><a class="con">✖</a> If you engage in fast-paced gaming experiences, the larger size of the Naga V2 Pro may not be suitable, as it could hinder performance in competitive gameplay </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/49DEatX" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="best-budget">
+                            <h2 class="fw-bolder mb-4 mt-5"><a href="{% url "coming-soon" %}" style="color:#a00000;">Razer DeathAdder V2 Mini</a> (Best Budget)</h2>
+                            <br>
+                            <div id="carouselExampleIndicators4" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V2-Mini-1.webp" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V2-Mini-2.jpeg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V2-Mini-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V2-Mini-4.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/Razer-DeathAdder-V2-Mini-5.jpg" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 100 - 8,500 dpi</li>
+                                    <li><strong>Switches:</strong> Optical</li>
+                                    <li><strong>Weight:</strong> 62 g</li>
+                                    <li><strong>Connection:</strong>  Wired</li>
+                                    <li><strong>Buttons:</strong> 6</li>
+                                    <li><strong>IPS:</strong> 300</li>
+                                    <li><strong>Polling Rates:</strong>  125 / 250 / 500 / 1000 Hz</li>
+                                    <li><strong>Shape:</strong>  Right-Handed</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Boasts excellent build quality</h5>
+                                            <h5><a class="pro">✔</a> Exceptionally quick clicking response time </h5>
+                                            <h5><a class="pro">✔</a> Offers extensive customization options </h5>
+                                            <h5><a class="pro">✔</a> Comfortable ergonomic design tailored for smaller hands </h5>
+                                            <h5><a class="pro">✔</a> Optical switches </h5>
+                                            <h5><a class="pro">✔</a> Enhanced grip with grip tape </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Grip tape susceptibility to dust accumulation </h5>
+                                            <h5><a class="con">✖</a> Some users may find the small size uncomfortable </h5>
+                                            <h5><a class="con">✖</a> Potential limitation for larger hands </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3ToC4s4" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                The V2 Mini is the least expensive model in Razer's ergonomic yet reasonably priced DeathAdder family of pointers. The DeathAdder V2 Mini, 
+                                which is frequently available for less than $25 (and occasionally less than $10 on sale), provides exceptional value for the money in general.
+                                <br><br>
+                                It's design definitely worth noting that all of that is available for such a minimal cost. The grip tape that came with the Mini version was actually 
+                                much more enjoyable to us than the normal release's standard gripping surface, and we also really liked the sweat-absorbing design. 
+                                Additionally, we noticed that Razer's quick switches were even more haptic beneath the minuscule size, in contrast to the full-sized device, 
+                                which sometimes feel a little mushy. 
+                                <br><br>
+                                Although the 8,500 DPI is less sensitive than the 20K in the V2 and the 30K in the V3, regular players won't often require higher sensitivity. 
+                                Additionally, there are still six programmable buttons for you to personalize, as well as a set of optical switches to maintain speed underneath. 
+                                <br><br>
+                                The DeathAdder V2 Mini glides across the desk thanks to its compact dimensions and snappy switches. There are still many advantages to that 
+                                smooth sensation, even while the internal specifications aren't sufficient to combine that extra physical speed with excellent tracking and polling. 
+                                Everything works well together here, and although the speed won't be quick enough for more competitive activities, regular play is worthwhile for the money.
+                                <br><br>
+                                As a conclusion The Razer DeathAdder V2's performance is somewhat diminished, while the more recent Razer DeathAdder V3 has a more comfortable 
+                                footprint for extended sessions. But the Razer DeathAdder V2 X and these two pointers cost far more than £60 or $60. The Mini is your best option 
+                                if you're looking for a Razer gaming mouse at a significantly lower cost than usual. 
+                                <br><br>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> While it may not meet the requirements for competitive gaming due to its slower speeds, the V2 Mini is perfectly suited for leisurely single-player experiences </h5>
+                                            <h5><a class="pro">✔</a> If you're on a tight budget, the V2 Mini offers an affordable starting price and frequently appears in sales, saving you even more </h5>
+                                            <h5><a class="pro">✔</a> Designed with smaller hands in mind, the compact size of the V2 Mini is ideal for users who prefer not to struggle with oversized gaming mice </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>DON'T BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Users with larger hands may find the Mini too cramped, leading to challenges in accuracy and discomfort during use </h5>
+                                            <h5><a class="con">✖</a> If you're into fast-paced gaming, be it single-player titles requiring quick reflexes or competitive online battles, the Razer DeathAdder V2 Mini may not withstand the intensity </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3ToC4s4" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="best-value">
+                            <h2 class="fw-bolder mb-4 mt-5"><a href="{% url "coming-soon" %}" style="color:#a00000;">Razer Basilisk V3</a> (Best Value)</h2>
+                            <br>
+                            <div id="carouselExampleIndicators5" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/raze-basilisk-v3-1.webp" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/raze-basilisk-v3-2.webp" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/raze-basilisk-v3-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/raze-basilisk-v3-4.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/raze-basilisk-v3-5.jpg" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 100 - 26,000 dpi</li>
+                                    <li><strong>Switches:</strong>  Razer 2nd Gen Optical Mechanical </li>
+                                    <li><strong>Weight:</strong> 101 g (Excluding cable)</li>
+                                    <li><strong>Connection:</strong>  Wired </li>
+                                    <li><strong>Buttons:</strong> 11</li>
+                                    <li><strong>IPS:</strong> 650 </li>
+                                    <li><strong>Polling Rates:</strong>  125 / 500 / 1000 Hz</li>
+                                    <li><strong>Shape:</strong>  Right-Handed</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Includes considerate additional features </h5>
+                                            <h5><a class="pro">✔</a> Boasts a lightning-fast 26K DPI sensor for superior performance </h5>
+                                            <h5><a class="pro">✔</a> Features an ergonomic design for enhanced comfort during prolonged use </h5>
+                                            <h5><a class="pro">✔</a> Offers a more affordable price compared to the V2 model </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Heavyweight </h5>
+                                            <h5><a class="con">✖</a> Considerable bulkiness, possibly incompatible with many laptop cases </h5>
+                                            <h5><a class="con">✖</a> Not sufficiently lightweight for competitive gaming needs </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on logitech.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3T7BkWK" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                On paper, the Razer Basilisk V3 may not be the finest mouse in its range, but because of its affordable pricing and comprehensive feature set, 
+                                it's now the best Razer mouse for most players.
+                                <br><br>
+                                The design of the Basilisk V3 is crammed with programmable buttons, but despite this, its longer slope and larger body make it incredibly 
+                                comfortable to hold and use on the battlefield. Even though the total weight of this pointer is heavier than other Razer pointers that are 
+                                more focused on frames per second, the thumb tray and extra grip support help to maintain accuracy. 
+                                <br><br>
+                                Features wise for the vast majority of players searching for a reliable all-in-one experience, it's an obvious suggestion because to 
+                                it's abundance of RGB colors and customisation options. Along with updated second generation switches in the main clicks, 
+                                you get a very potent RGB underglow effect that offers up one of the more inventive applications of LEDs that we've seen in a long time. 
+                                <br><br>
+                                Nevertheless, the clever scroll wheel is arguably the most remarkable feature. There are two scroll modes available here: a free-wheeling spin and a haptic, 
+                                regulated clicky scroll. When you activate Synapse's automatic switch feature, magic happens. When activated 
+                                (which is irksomely limited to when the Synapse software is operating), the wheel will recognize when you need to scroll more
+                                quickly and will automatically convert between modes to provide an incredibly smooth experience. An outstanding all-arounder, 
+                                this was as useful in our daily work as it was when managed in gameplay.
+                                <br><br>
+                                Compared to other Razer mouse, this one has a lighter actuation point and smooth, responsive switches beneath each primary click. 
+                                That's ideal for more competitive endeavors, while the Basilisk V3's size and weight keep things grounded for action-packed third-person adventures. 
+                                In addition, the 26K sensor is fast enough to handle almost everything you throw at it. 
+                                <br><br>
+                                As a conclusion because to its cozy construction, versatile form, and abundance of extra functions, this is the finest Razer mouse for most gamers. 
+                                Every profile we switched between for Planet Coaster, Life is Strange: True Colors, and Borderlands 2 felt just as natural as the previous one. 
+                                <br><br>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> You favor a larger form factor: For those with larger hands or a preference for a more substantial mouse, this design offers enhanced comfort and stability </h5>
+                                            <h5><a class="pro">✔</a> Wireless connectivity is not a necessity: The inclusion of a cable helps keep the price down; however, if you don't require wireless connectivity, there's no need to invest in it unnecessarily </h5>
+                                            <h5><a class="pro">✔</a> Your Steam library boasts a diverse range of genres: With its versatile features and specifications, this mouse enhances the enjoyment of various game types in your backlog </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>DON'T BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Requiring a lightweight device: For FPS players, minimizing weight takes precedence over features such as RGB lighting and additional programmable buttons </h5>
+                                            <h5><a class="con">✖</a> Seeking top-tier speeds for competitive gaming: Razer now offers mice equipped with upgraded 30K sensors, surpassing the 26K DPI capability of this model </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3T7BkWK" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </p>
+                        </section>
+                        <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
+                        <section class="mb-5" id="best-all-in-one">
+                            <h2 class="fw-bolder mb-4 mt-5" ><a href="{% url "coming-soon" %}" style="color:#a00000;">Razer Cobra Pro</a> (Best All-In-One)</h2>
+                            <br>
+                            <div id="carouselExampleIndicators6" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/razer-cobra-pro-1.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/razer-cobra-pro-2.jpeg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/razer-cobra-pro-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/razer-cobra-pro-4.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_razer_mouse/razer-cobra-pro-5.jpg" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <br>
+                            <p class="fs-5 mb-4">
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 100 - 30,000 dpi</li>
+                                    <li><strong>Switches:</strong> Optical Gen-3</li>
+                                    <li><strong>Weight:</strong> 77 g</li>
+                                    <li><strong>Connection:</strong>  Wireless (2.4 GHz dongle / Bluetooth)</li>
+                                    <li><strong>Buttons:</strong> 10</li>
+                                    <li><strong>IPS:</strong> 750 </li>
+                                    <li><strong>Polling Rates:</strong>  125 / 500 / 1000 Hz</li>
+                                    <li><strong>Shape:</strong> Right-Handed</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Exceptionally rapid and dependable sensor for precision</h5>
+                                            <h5><a class="pro">✔</a> Robust customization options for personalized settings </h5>
+                                            <h5><a class="pro">✔</a> Sleek and ergonomic slimline design for enhanced comfort </h5>
+                                            <h5><a class="pro">✔</a> Stylish aesthetic adds sophistication to any setup </h5>
+                                            <h5><a class="pro">✔</a> Notable overall construction quality showcases impressive durability </h5>
+                                            <h5><a class="pro">✔</a> Gratifying mouse clicks for an enjoyable user experience </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> May not suit larger hands, potentially compromising comfort </h5>
+                                            <h5><a class="con">✖</a> Weightier compared to competitors, offering stability and durability </h5>
+                                            <h5><a class="con">✖</a> Scroll wheel lacks free-scrolling mode and left/right tilt inputs, limiting versatility </h5>
+                                            <h5><a class="con">✖</a> Features fewer side buttons compared to alternative choices </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3ItRTYo" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                The Razer Cobra Pro is a one-stop shop. Because of its versatility, it has reached a great sweet spot, even though it falls short of the low weight 
+                                expectations of an FPS-focused gadget and the larger macro functionality of a more MMO-focused pointer. Rather than concentrating all of its 
+                                efforts on a few select use cases, this gaming mouse is designed to be an all-in-one device for the Steam generalist. 
+                                <br><br>
+                                Although it initially resembles a Viper, the glossy accents, RGB underglow, and DPI shifter buttons beneath the scroll wheel set it apart from 
+                                the other snake pit objects. This mouse is still understated; like many Razer models, it has a soft touch matte plastic back, but it also has a 
+                                rubber textured surface along the left flank and an RGB color shock. Its body is shorter than that of other Razer gaming mouse, and its central 
+                                hump is less noticeable, making it comfortable to hurl about a desk in a fingertip, claw, or palm grip.
+                                <br><br>
+                                Under the hood, there is ten customizable buttons, a second layer of Razer Hypershift capabilities, and both 2.4GHz and Bluetooth connectivity. 
+                                There are many customization choices there, all of which are ready to be stored to one of the five onboard profiles. 
+                                <br><br>
+                                Performance wise it's Equipped with the newest technology, this Razer mouse is among the newest to enter the market. The Focus Pro 30K sensor is 
+                                fantastic, delivering a gratifying click with each shot thanks to its Gen 3 Optical switches. Regardless of the game, everything comes together 
+                                to produce a flawless experience. Every test we ran on the Cobra Pro, from Halo Infinite to Planet Coaster, felt fantastic. 
+                                <br><br>
+                                As a conclusion The Cobra Pro is a great choice if you're searching for a Razer mouse that won't force you into a particular genre or use case. 
+                                Although it's pricy, $119.99 provides you all the newest technology, which is typically reserved for more specialized equipment. 
+                                Considering the years you'll get out of this item, that's a worthy investment. 
+                                <br><br>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Prioritize wireless connectivity: Ensuring a rapid, low-latency wireless connection is essential. The Cobra Pro provides this feature, albeit marginally cheaper than typical Razer gaming mice </h5>
+                                            <h5><a class="pro">✔</a> Maintain your preference for RGB lighting: While numerous Razer models are foregoing RGB lighting in favor of lighter builds or reduced costs, the Cobra Pro retains the vibrant Chroma lighting, delivering the desired visual flair </h5>
+                                            <h5><a class="pro">✔</a> Avoid being restricted: Concerned about being limited to a specific gaming mouse for niche purposes? The Cobra Pro offers versatility with its specifications and physical design, catering to a wide array of gaming genres </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>DON'T BUY IF</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Insufficient side buttons: Despite its overall versatility, the mouse offers only two side buttons. This limitation might not be ideal for users requiring a plethora of programmable inputs </h5>
+                                            <h5><a class="con">✖</a> Not suitable for larger hands: If you have larger hands, this mouse may feel cramped due to its smaller size and less prominent hump </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on razer.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3ItRTYo" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p>
+                        </section>
+                        {% include "partials/related_custom_pc_builds.html" %}
+                    </article>
+                </div>
+                
+                {% comment %} {% include "partials/right_side_widget.html" %} {% endcomment %}
+            {% comment %} </div>
+        </div> {% endcomment %}
+{% endblock body %}

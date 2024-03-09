@@ -28,8 +28,8 @@
                             <!-- Post meta content-->
                             <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
                             <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category.name|upper}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category.name|upper}}</a>
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>

@@ -16,7 +16,7 @@
                             <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-wireless">Best Wireless</a></li> 
                             <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-budget">Best Budget</a></li> 
                             <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-mini">Best Mini</a></li>
-                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-versatile">Best Versatile</a></li> 
+                            <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-ambidextrous">Best Ambidextrous</a></li> 
                         </ul>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
                             <!-- Post meta content-->
                             <div style="font-size:19px;color:#a00000;margin-top: 15px;margin-bottom: 20px;" class="small text-muted" ><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="25" height="25" style="margin-top: -7px; margin-right: 5px;margin-left: 3px;"> {{review.date_created|time_ago_format}}</div>
                             <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category}}</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.sub_category.slug %}">{{review.sub_category.name|upper}}</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="{% url review.main_category.slug %}">{{review.main_category.name|upper}}</a>
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4"><img style="border-radius: 15px;margin-bottom:30px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></figure>
@@ -61,7 +61,7 @@
                                         <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-wireless">Best Wireless</a></li> 
                                         <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-budget">Best Budget</a></li> 
                                         <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-mini">Best Mini</a></li>
-                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-versatile">Best Versatile</a></li> 
+                                        <li style="margin-left:20px;font-size:15px;"><a class="review-link toc-el" href="#best-ambidextrous">Best Ambidextrous</a></li> 
                                     </ul>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                             </div>
                             <br>
                             <p class="fs-5 mb-4">
-                                <h5>Specs:</h5>
+                                <h5 style="font-size:25px">Specs:</h5>
                                 <ul>
                                     <li><strong>DPI:</strong> 100 - 25,600 dpi</li>
                                     <li><strong>Switches:</strong> Lightforce optical-mechanical</li>
@@ -144,7 +144,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="d-grid gap-2">
-                                                <a class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                                <a href="https://amzn.to/3T4CJgK" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@
                             </div>
                             <br>
                             <p class="fs-5 mb-4">
-                                <h5>Specs:</h5>
+                                <h5 style="font-size:25px">Specs:</h5>
                                 <ul>
                                     <li><strong>DPI:</strong> 100 - 25,600 dpi</li>
                                     <li><strong>Switches:</strong> Mechanical</li>
@@ -249,7 +249,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="d-grid gap-2">
-                                                <a class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                                <a href="https://amzn.to/3Tm1LcX" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
                                             </div>
                                         </div>
                                     </div>
@@ -312,7 +312,7 @@
                             </div>
                             <br>
                             <p class="fs-5 mb-4">
-                                <h5>Specs:</h5>
+                                <h5 style="font-size:25px">Specs:</h5>
                                 <ul>
                                     <li><strong>DPI:</strong> 100 - 16,000 dpi</li>
                                     <li><strong>Switches:</strong> Mechanical</li>
@@ -350,7 +350,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="d-grid gap-2">
-                                                <a class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                                <a href="https://amzn.to/3TlCZJV" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
                                             </div>
                                         </div>
                                     </div>
@@ -380,24 +380,309 @@
                         <section class="mb-5" id="best-budget">
                             <h2 class="fw-bolder mb-4 mt-5"><a href="{% url "coming-soon" %}" style="color:#a00000;">Logitech G203 Lightsync</a> (Best Budget)</h2>
                             <br>
+                            <div id="carouselExampleIndicators4" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G203-Lightsync-1.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G203-Lightsync-2.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G203-Lightsync-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G203-Lightsync-4.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G203-Lightsync-5.webp" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <br>
                             <p class="fs-5 mb-4">
-
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 200 - 8,000 dpi</li>
+                                    <li><strong>Switches:</strong> Mechanical</li>
+                                    <li><strong>Weight:</strong> 85 g</li>
+                                    <li><strong>Connection:</strong>  Wired</li>
+                                    <li><strong>Buttons:</strong> 6</li>
+                                    <li><strong>IPS:</strong> 200</li>
+                                    <li><strong>Polling Rates:</strong>  125 / 250 / 500 / 1000 Hz</li>
+                                    <li><strong>Shape:</strong>  Right-Handed</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Great balance between price and performance</h5>
+                                            <h5><a class="pro">✔</a> Good range of features considering the cost </h5>
+                                            <h5><a class="pro">✔</a> Ergonomic design for comfortable usage </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Small size (may not be suitable for individuals with larger hands) </h5>
+                                            <h5><a class="con">✖</a> Very similar in appearance and functionality to the G203 Prodigy </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on logitech.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/48Ms808" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                If you don't want to spend in range $40 on a Logitech gaming mouse, the G203 Lightsync is the option for you. 
+                                Not only is this still capable pointer reasonably priced, but we frequently see it on sale for about $20 or less. Given 
+                                the high quality and six programmable buttons, that's incredible value. 
+                                <br><br>
+                                You're not sacrificing comfort here either (well, not unless you have larger hands). While this is a smaller pointer with a less 
+                                noticeable hump than we were used to throughout our testing, it remains comfortable over extended hours of play. Furthermore, 
+                                the G203's smaller form allows it to remain lightweight and easily manoeuvrable, attributes that command a premium in the high-end market. 
+                                <br><br>
+                                Yes, the build quality is straightforward, with an all-plastic body and no grip textures. However, you will still discover programmable RGB 
+                                lights along the body's edges and in the G logo on the rear.
+                                <br><br>
+                                The performance significantly exceeds its pricing. While it isn't a laser-fast high-tech clicker, the sensor under the hood provides reliable 
+                                tracking. It may be inexpensive, but the G203 can surely keep up. DPI shifting is available in 50 increments, with a maximum of 8K. 
+                                You may be concerned about making a sacrifice with Logitech's 25K offerings, but the great majority of players never require more than 3,500 dots per inch.
+                                <br><br>
+                                The Logitech G203 provides all of the basic functions of gaming mice ten times its price. By making judicious tradeoffs and retaining everything in a 
+                                lightweight chassis, it's the best Logitech gaming mouse for those on a tight budget. If you want an inexpensive gaming mouse for larger hands, 
+                                we recommend the G502 Hero or the Hyperion Fury.
                             </p>
                         </section>
                         <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
                         <section class="mb-5" id="best-mini">
                             <h2 class="fw-bolder mb-4 mt-5"><a href="{% url "coming-soon" %}" style="color:#a00000;">Logitech G705</a> (Best Mini)</h2>
                             <br>
+                            <div id="carouselExampleIndicators5" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G705-1.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G705-2.webp" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G705-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G705-4.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/Logitech-G705-5.jpeg" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <br>
                             <p class="fs-5 mb-4">
-
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 100 - 8,200 dpi</li>
+                                    <li><strong>Switches:</strong> Mechanical</li>
+                                    <li><strong>Weight:</strong> 85 g</li>
+                                    <li><strong>Connection:</strong>  Wired / Wireless</li>
+                                    <li><strong>Buttons:</strong> 6</li>
+                                    <li><strong>IPS:</strong> 130 </li>
+                                    <li><strong>Polling Rates:</strong>  125 / 250 / 500 / 1000 Hz</li>
+                                    <li><strong>Shape:</strong>  Right-Handed</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Remarkable click latency</h5>
+                                            <h5><a class="pro">✔</a> Built-in storage for USB receiver </h5>
+                                            <h5><a class="pro">✔</a> Provides a comfortable user experience </h5>
+                                            <h5><a class="pro">✔</a> High build quality and Impeccable design </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> Optimal size for individuals with small to medium-sized hands </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on logitech.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3Tij8LB" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                Whether portability is the goal, or you're a fellow small-handed player seeking for a pointer you can actually scale to reach, 
+                                the Logitech G705 delivers a powerful punch.
+                                <br><br>
+                                The squat shape makes this suitable for those who do not want access to a plethora of extra buttons, but it also provides for greater control 
+                                and precision when pressing the buttons that are present. This small device is part of Logitech's Aurora line 
+                                (which also includes the G715 keyboard and G735 headset), so you'll get the familiar soft white design with soft yet tactile materials. 
+                                A small thumb rest provides a comfortable place to lean on, which is a must-have given that we found the ergonomics to require some getting accustomed to.
+                                <br><br>
+                                However, once inside, we realized that this small chassis packs a lot of power for both work and productivity. 
+                                This lightweight design worked well for FPS and action games, with the two side buttons offering just enough more input. 
+                                <br><br>
+                                The G705 is the greatest Logitech gaming mouse for little hands, but it doesn't seem comfortable from the start. 
+                                During our own testing, we found it difficult to adjust to the hefty form factor. However, once muscle memory is established,
+                                a purpose-built pointer provides unsurpassed control and precision in Logitech's current lineup.
                             </p>
                         </section>
                         <div style="margin-top:45px;margin-bottom:45px;margin-left:1px; width:60px;" class="divider"></div>
-                        <section class="mb-5" id="best-versatile">
-                            <h2 class="fw-bolder mb-4 mt-5" ><a href="{% url "coming-soon" %}" style="color:#a00000;">Logitech G Pro Wireless</a> (Best Versatile)</h2>
+                        <section class="mb-5" id="best-ambidextrous">
+                            <h2 class="fw-bolder mb-4 mt-5" ><a href="{% url "coming-soon" %}" style="color:#a00000;">Logitech G Pro Wireless</a> (Best Ambidextrous)</h2>
+                            <br>
+                            <div id="carouselExampleIndicators6" class="carousel slide slider" data-bs-ride="carousel">
+                                <div class="carousel-indicators" >
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <!--Slider-->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/logitech-g-pro-wireless-1.webp" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/logitech-g-pro-wireless-2.png" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/logitech-g-pro-wireless-3.jpg" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/logitech-g-pro-wireless-4.png" %}" class="d-block w-100 slider_img" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img draggable="false" src="{% static "images/buying_guide/best_logitech_mouse/logitech-g-pro-wireless-5.webp" %}" class="d-block w-100 slider_img" alt="..." >
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="prev" style="width:6vw">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden" >Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide="next" style="width:6vw">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
                             <br>
                             <p class="fs-5 mb-4">
-
+                                <h5 style="font-size:25px">Specs:</h5>
+                                <ul>
+                                    <li><strong>DPI:</strong> 100 - 25,600 dpi</li>
+                                    <li><strong>Switches:</strong> Omron mechanical</li>
+                                    <li><strong>Weight:</strong> 80 g</li>
+                                    <li><strong>Connection:</strong>  Wired / Wireless</li>
+                                    <li><strong>Buttons:</strong> 8</li>
+                                    <li><strong>IPS:</strong> 400 </li>
+                                    <li><strong>Polling Rates:</strong>  125 / 250 / 500 / 1000 Hz</li>
+                                    <li><strong>Shape:</strong> Ambidextrous</li>
+                                </ul>
+                                <div class="row g-0 custom-card">
+                                    <div class="row">
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Pros</h4>
+                                            <br><br>
+                                            <h5><a class="pro">✔</a> Impressive battery longevity</h5>
+                                            <h5><a class="pro">✔</a> Soft, precise clicking sensation </h5>
+                                            <h5><a class="pro">✔</a> Exceptional tracking performance </h5>
+                                            <h5><a class="pro">✔</a> Interchangeable side buttons </h5>
+                                        </div>
+                                        <div class="col-md-6 pros-cons">
+                                            <br>
+                                            <h4>Cons</h4>
+                                            <br><br>
+                                            <h5><a class="con">✖</a> No Bluetooth support </h5>
+                                            <h5><a class="con">✖</a> Not ideal for individuals with smaller hands who use a fingertip grip </h5>
+                                            <h5><a class="con">✖</a> Lacks an ergonomic design tailored specifically for right-handed users </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a class="btn review-cons-pros-btn" type="button">See Price on logitech.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-grid gap-2">
+                                                <a href="https://amzn.to/3Io71pS" target="_blank" class="btn review-cons-pros-btn" type="button">See Price on amazon</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <br>
+                                There aren't many left-handed gaming mouse models available right now, but Logitech goes above and above to accommodate lefties. 
+                                This roster includes dozens of ambidextrous and particularly built pointers, including the ever-popular G903,
+                                but the Logitech G Pro Wireless takes the cake. 
+                                <br><br>
+                                That's because the design is truly ambidextrous. A flat body sacrifices some of the ergonomic comfort that a slightly slanted design provides, 
+                                but there is still a noticeable hump in the back that keeps you comfy. However, the swappable side buttons secured this position. 
+                                Magnetically attachable clickers (available in two heights) allow you to quickly swap between right and left-handed setups. 
+                                This means no superfluous buttons or unintentional clicks.  
+                                <br><br>
+                                Aside from the extra clickers, you'll still get a comfortable pointer for both left and right handed use. The matte plastic
+                                chassis feels pleasant to the touch, and despite the lack of additional grips on the sides. However, after a
+                                longer session, such a material begins to feel slightly clammy. 
+                                <br><br>
+                                This is an older equipment, and its age is most visible in the plastic cable. Nonetheless, there's a strong connection here, 
+                                with extra supports on either side of the socket to keep things safe when charging or playing in wired mode. 
+                                However, the G Pro's low click latency and lightweight form size (combined with that 25K sensor) help to keep it not only current but also 
+                                thriving in the modern era. 
                             </p>
                         </section>
                         {% include "partials/related_custom_pc_builds.html" %}

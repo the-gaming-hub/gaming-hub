@@ -42,7 +42,7 @@
                   <img src="{% static 'images/logo.png' %}" alt="">
                 </div> {% endcomment %}
                 <div class="row">
-                  <a href="{% url "coming-soon" %}"><header class="menu-header">Best PC components</header></a>
+                  <a href="{% url "pc-components-buying-guide" %}"><header class="menu-header">Best PC components</header></a>
                   <ul class="mega-links" style="margin-bottom:20px;">
                     <li><a href="{% url "coming-soon" %}">CPUs</a></li>
                     <li><a href="{% url "coming-soon" %}">CPU Coolers</a></li>
@@ -55,7 +55,7 @@
                   </ul>
                 </div>
                 <div class="row">
-                  <a href="{% url "coming-soon" %}"><header class="menu-header">Best Gaming Peripherals</header></a>
+                  <a href="{% url "gaming-peripherals-buying-guide" %}"><header class="menu-header">Best Gaming Peripherals</header></a>
                   <ul class="mega-links  margin-top-100">
                     <li><a href="{% url "coming-soon" %}">Keyboards</a></li>
                     <li><a href="{% url "coming-soon" %}">Mouse</a></li>
@@ -66,7 +66,7 @@
                   </ul>
                 </div>
                 <div class="row">
-                  <a href="{% url "coming-soon" %}"><header class="menu-header">Best Gaming Laptops</header></a>
+                  <a href="{% url "gaming-laptops-buying-guide" %}"><header class="menu-header">Best Gaming Laptops</header></a>
                   <ul class="mega-links"  style="margin-top:-180px;">
                     <li><a href="{% url "coming-soon" %}"></a></li>
 
@@ -120,23 +120,23 @@
                   <img src="{% static 'images/logo.png' %}" alt="">
                 </div> {% endcomment %}
                 <div class="row">
-                  <a href="{% url "coming-soon" %}"><header class="menu-header">PC components</header></a>
+                  <a href="{% url "pc-components-reviews" %}"><header class="menu-header">PC components</header></a>
                   <ul class="mega-links" style="margin-bottom:20px;">
-                    <li><a href="{% url "coming-soon" %}">CPUs</a></li>
-                    <li><a href="{% url "coming-soon" %}">CPU Coolers</a></li>
-                    <li><a href="{% url "coming-soon" %}">GPUs</a></li>
-                    <li><a href="{% url "coming-soon" %}">Motherboards</a></li>
-                    <li><a href="{% url "coming-soon" %}">Ram</a></li>
-                    <li><a href="{% url "coming-soon" %}">SSDs</a></li>
-                    <li><a href="{% url "coming-soon" %}">PSUs</a></li>
-                    <li><a href="{% url "coming-soon" %}">Cases</a></li>
+                    <li><a href="{% url "cpu-reviews" %}">CPUs</a></li>
+                    <li><a href="{% url "cpu-coolers-reviews" %}">CPU Coolers</a></li>
+                    <li><a href="{% url "gpu-reviews" %}">GPUs</a></li>
+                    <li><a href="{% url "motherboards-reviews" %}">Motherboards</a></li>
+                    <li><a href="{% url "ram-reviews" %}">Ram</a></li>
+                    <li><a href="{% url "ssd-reviews" %}">SSDs</a></li>
+                    <li><a href="{% url "psu-reviews" %}">PSUs</a></li>
+                    <li><a href="{% url "cases-reviews" %}">Cases</a></li>
                   </ul>
                 </div>
                 <div class="row">
                   <a href="{% url "gaming-peripherals-reviews" %}"><header class="menu-header">Gaming Peripherals</header></a>
                   <ul class="mega-links margin-top-100">
                     <li><a href="{% url "keyboards-reviews" %}">Keyboards</a></li>
-                    <li><a href="{% url "mouses-reviews" %}">Mouse</a></li>
+                    <li><a href="{% url "mouse-reviews" %}">Mouse</a></li>
                     <li><a href="{% url "monitors-reviews" %}">Monitors</a></li>
                     <li><a href="{% url "headsets-reviews" %}">Headsets</a></li>
                     <li><a href="{% url "mouse-pads-reviews" %}">Mouse Pads</a></li>
@@ -144,12 +144,9 @@
                   </ul>
                 </div>
                 <div class="row">
-                  <a href="{% url "coming-soon" %}"><header class="menu-header">Games</header></a>
+                  <a href="{% url "gaming-laptops-reviews" %}"><header class="menu-header">Gaming Laptops</header></a>
                   <ul class="mega-links margin-top-180">
-                    <li><a href="{% url "coming-soon" %}">Fortnite</a></li>
-                    <li><a href="{% url "coming-soon" %}">Valorant</a></li>
-                    <li><a href="{% url "coming-soon" %}">League Of Legends</a></li>
-                    <li><a href="{% url "coming-soon" %}">Rocket League</a></li>
+                    {% comment %} <li><a href="{% url "coming-soon" %}">###########</a></li> {% endcomment %}
                   </ul>
                 </div>
               </div>
@@ -207,28 +204,37 @@
           </li>
           <li><a href="{% url "coming-soon" %}">Prebuilts</a></li>
           <li><a href="{% url "coming-soon" %}">News</a></li>
-          <li>  
-            <div class="input-group" style="margin-top:18px;margin-left:30px;">
+          <li>
+            <!-- Search icon -->
+            <a id="searchIcon" href="#"><i class="fas fa-search"></i></a>
+            <!-- Search input (dropdown) -->
+            <div id="searchDropdown" class="input-group" style="display: none; position: absolute; top: 60px; right: 0;width:300px;">
                 <form id="searchForm">
-                  <input id="searchInput" class="form-control" type="text" placeholder="What are you looking for ?" aria-label="What are you looking for..." aria-describedby="button-search" />
+                    <input id="searchInput" class="form-control" type="text" placeholder="What are you looking for ?" aria-label="What are you looking for..." aria-describedby="button-search" />
                 </form>
             </div>
           </li>
+          {% comment %} <a id="emailIcon" href="#"><i class="fas fa-envelope"></i></a> {% endcomment %}
         </ul>
         <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
       </div>
     </nav>
+    <div id="searchBar" class="input-group" style="display: none;margin-left:30px;">
+      <form id="searchForm">
+          <input id="searchInput" class="form-control" type="text" placeholder="What are you looking for ?" aria-label="What are you looking for..." aria-describedby="button-search" />
+      </form>
+    </div>
     {% if request.path != '/' %}
       {% if request.path|slice:"0:8" == '/search/' or request.path == '/coming-soon/' %}
         {% else %}
         <div class="path">
-            <a href="{% url "home" %}">Home</a> » {% if review %}<a href="{% url review.main_category.slug %}">{{review.main_category.name}}</a> » <a href="{% url review.sub_category.slug %}">{{review.sub_category.name}}</a> {% if review.sub_subcategory %}» <a href="{% url review.sub_subcategory.slug %}">{{review.sub_subcategory.name}}</a>{% endif %} » <a style="color:#a00000;">{{review.topic}}</a>{% else %}<a style="color:#a00000;">{{current_page}}</a>{% endif %}
+            <a href="{% url "home" %}">Home</a> » {% if review %}<a href="{% url review.main_category.slug %}">{{review.main_category.name}}</a> » <a href="{% url review.sub_category.slug %}">{{review.sub_category.name}}</a> {% if review.sub_subcategory %}» <a href="{% url review.sub_subcategory.slug %}">{{review.sub_subcategory.name}}</a>{% endif %} » <a style="color:#a00000;">{{review.topic}}</a>{% else %}{% if main_page and not sub_main_page and not sub_sub_main_page %}<a style="color:#a00000;">{{main_page.name}}</a>{% endif %}{% if main_page and sub_main_page and not sub_sub_main_page %}<a href="{% url main_page.slug %}">{{main_page.name}}</a> » <a style="color:#a00000;">{{sub_main_page.name}}</a>{% endif %}{% if main_page and sub_main_page and sub_sub_main_page %}<a href="{% url main_page.slug %}">{{main_page.name}}</a> » <a href="{% url sub_main_page.slug %}">{{sub_main_page.name}}</a> » <a style="color:#a00000;">{{sub_sub_main_page.name}}</a>{% endif %}{% endif %}
         </div>
         {% endif %}
     {% endif %}
     <body id="content">
         <!-- Responsive navbar-->
-        {% if request.path == '/' or request.path == '/pc-builds/' or request.path == '/reviews/' or request.path == '/buying-guide/' or request.path == '/knowledge-base/' or request.path == '/coming-soon/' %}
+        {% if request.path in homebody_paths %}            
             {% block homebody %}
             {% endblock homebody %}
         {% elif request.path|slice:"0:8" == '/search/' %}
@@ -324,5 +330,28 @@
     dropdown.addEventListener('mouseout', () => {
       dropdown.querySelector('.dropdown-content').style.display = 'none';
     });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var searchIcon = document.getElementById("searchIcon");
+      var searchBar = document.getElementById("searchDropdown");
+      var searchInput = document.getElementById("searchInput");
+
+      searchIcon.addEventListener("click", function() {
+          if (searchBar.style.display === "none") {
+              searchBar.style.display = "block";
+              searchInput.focus();
+              searchInput.select();
+          } else {
+              searchBar.style.display = "none";
+          }
+      });
+
+      document.body.addEventListener("click", function(event) {
+          if (!searchIcon.contains(event.target) && !searchBar.contains(event.target)) {
+              searchBar.style.display = "none";
+          }
+      });
   });
 </script>

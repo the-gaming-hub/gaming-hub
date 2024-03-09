@@ -91,50 +91,117 @@ def reviews(request):
 # ----------------------------------------GAMING PERIPHERALS---------------------------------------------------------
 #----------------category---------------
 def gaming_peripherals_reviews(request):
-    
-    
-    context={}
+
+    gaming_peripherals_reviews = Review.objects.filter(sub_category__slug = 'gaming-peripherals-reviews').order_by('?')
+    context={'gaming_peripherals_reviews' : gaming_peripherals_reviews}
     return render(request, 'reviews/gaming_peripherals/gaming_peripherals.html' , context)
+
+def pc_components_reviews(request):
+
+    pc_components_reviews = Review.objects.filter(sub_category__slug = 'pc-components-reviews').order_by('?')
+    context={'pc_components_reviews' : pc_components_reviews}
+    return render(request, 'reviews/pc_components/pc_components.html' , context)
+
+def gaming_laptops_reviews(request):
+
+    gaming_laptops_reviews = Review.objects.filter(sub_category__slug = 'gaming-laptops-reviews').order_by('?')
+    context={'gaming_laptops_reviews' : gaming_laptops_reviews}
+    return render(request, 'reviews/gaming_laptops/gaming_laptops.html' , context)
+
+
 #------------sub categories--------------
 def mouse_reviews(request):
     
-    
-    context={}
+    mouse_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'gaming-peripherals-reviews' , sub_subcategory__slug = 'mouse-reviews').order_by('?')
+    context={'mouse_reviews' : mouse_reviews}
     return render(request, 'reviews/gaming_peripherals/mouse.html' , context)
 
 def keyboard_reviews(request):
     
-    
-    context={}
+    keyboards_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'gaming-peripherals-reviews' , sub_subcategory__slug = 'keyboards-reviews').order_by('?')
+    context={'keyboards_reviews' : keyboards_reviews}
     return render(request, 'reviews/gaming_peripherals/keyboard.html' , context)
 
 def monitor_reviews(request):
     
-    
-    context={}
+    monitors_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'gaming-peripherals-reviews' , sub_subcategory__slug = 'monitors-reviews').order_by('?')
+    context={'monitors_reviews' : monitors_reviews}
     return render(request, 'reviews/gaming_peripherals/monitor.html' , context)
 
 def chair_reviews(request):
     
-    
-    context={}
+    gaming_chairs_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'gaming-peripherals-reviews' , sub_subcategory__slug = 'gaming-chairs-reviews').order_by('?')
+    context={'gaming_chairs_reviews' : gaming_chairs_reviews}
     return render(request, 'reviews/gaming_peripherals/chair.html' , context)
 
 def mouse_pad_reviews(request):
     
-    
-    context={}
+    mouse_pads_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'gaming-peripherals-reviews' , sub_subcategory__slug = 'mouse-pads-reviews').order_by('?')
+    context={'mouse_pads_reviews' : mouse_pads_reviews}
     return render(request, 'reviews/gaming_peripherals/mouse_pad.html' , context)
 
 def headset_reviews(request):
     
-    
-    context={}
+    headsets_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'gaming-peripherals-reviews' , sub_subcategory__slug = 'headsets-reviews').order_by('?')
+    context={'headsets_reviews' : headsets_reviews}
     return render(request, 'reviews/gaming_peripherals/headset.html' , context)
+
+                #-----------------pc components-----------------
+
+def cpu_reviews(request):
+    
+    cpu_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'pc-components-reviews' , sub_subcategory__slug = 'cpu-reviews').order_by('?')
+    context={'cpu_reviews' : cpu_reviews}
+    return render(request, 'reviews/pc_components/cpu_reviews.html' , context)
+
+def cpu_cooler_reviews(request):
+    
+    cpu_cooler_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'pc-components-reviews' , sub_subcategory__slug = 'cpu-cooler-reviews').order_by('?')
+    context={'cpu_cooler_reviews' : cpu_cooler_reviews}
+    return render(request, 'reviews/pc_components/cpu_coolers_reviews.html' , context)
+
+def gpu_reviews(request):
+    
+    gpu_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'pc-components-reviews' , sub_subcategory__slug = 'gpu-reviews').order_by('?')
+    context={'gpu_reviews' : gpu_reviews}
+    return render(request, 'reviews/pc_components/gpu_reviews.html' , context)
+
+def motherboard_reviews(request):
+    
+    motherboard_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'pc-components-reviews' , sub_subcategory__slug = 'motherboard-reviews').order_by('?')
+    context={'motherboard_reviews' : motherboard_reviews}
+    return render(request, 'reviews/pc_components/motherboards_reviews.html' , context)
+
+def ram_reviews(request):
+    
+    ram_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'pc-components-reviews' , sub_subcategory__slug = 'ram-reviews').order_by('?')
+    context={'ram_reviews' : ram_reviews}
+    return render(request, 'reviews/pc_components/ram_reviews.html' , context)
+
+def ssd_reviews(request):
+    
+    ssd_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'pc-components-reviews' , sub_subcategory__slug = 'ssd-reviews').order_by('?')
+    context={'ssd_reviews' : ssd_reviews}
+    return render(request, 'reviews/pc_components/ssd_reviews.html' , context)
+
+def psu_reviews(request):
+    
+    psu_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'pc-components-reviews' , sub_subcategory__slug = 'psu-reviews').order_by('?')
+    context={'psu_reviews' : psu_reviews}
+    return render(request, 'reviews/pc_components/psu_reviews.html' , context)
+
+def case_reviews(request):
+    
+    cases_reviews = Review.objects.filter(main_category__name = 'Reviews' , sub_category__slug = 'pc-components-reviews' , sub_subcategory__slug = 'cases-reviews').order_by('?')
+    context={'cases_reviews' : cases_reviews}
+    return render(request, 'reviews/pc_components/cases_reviews.html' , context)
+
+
+
 
 # ----------------reviews----------------
 
-
+        #------- gaming peripherals reviewsss-----------
 def logitech_g402_review(request):
     
     
@@ -153,7 +220,13 @@ def finalmouse_ultralightx_review(request):
     context={}
     return render(request, 'reviews/gaming_peripherals/mouse_reviews/finalmouse_ultralightx_review.html' , context)
 
-
+        #--------pc components reviews-------------
+        
+def amd_ryzen_9_5900x_review(request):
+    
+    
+    context={}
+    return render(request, 'reviews/pc_components/cpu_reviews/amd_ryzen_9_5900x_review.html' , context)
 
 
 # -------------------------------------------------------------------KNOWLEDGE BASE--------------------------------------------
@@ -166,22 +239,22 @@ def knowledge_base(request):
 
 def pc_building_tips(request):
     
-    
-    context={}
+    pc_building_tips_reviews = Review.objects.filter(sub_category__slug = 'pc-building-tips').order_by('?')
+    context={'pc_building_tips_reviews' : pc_building_tips_reviews}
     return render(request, 'knowledge_base/pc_building_tips.html' , context)
 
 
 def pc_knowledge(request):
     
-    
-    context={}
+    pc_knowledge_reviews = Review.objects.filter(sub_category__slug = 'pc-knowledge').order_by('?')
+    context={'pc_knowledge_reviews' : pc_knowledge_reviews}
     return render(request, 'knowledge_base/pc_knowledge.html' , context)
 
 
 def gaming_knowledge(request):
     
-    
-    context={}
+    gaming_knowledge_reviews = Review.objects.filter(sub_category__slug = 'gaming-knowledge').order_by('?')
+    context={'gaming_knowledge_reviews' : gaming_knowledge_reviews}
     return render(request, 'knowledge_base/gaming_knowledge.html' , context)
 
 
@@ -224,13 +297,6 @@ def news(request):
     
     context={}
     return render(request, 'news/news.html' , context)
-
-#--------------------------------------------------------------------------laptops---------------------------------------------------
-def laptops(request):
-    
-    
-    context={}
-    return render(request, 'laptops/laptops.html' , context)
 
 #-------------------------------------------------------------------PC BUILDS------------------------------------------------------
 #-------------------------category--------------------------------
@@ -356,9 +422,21 @@ def buying_guide(request):
 
 def gaming_peripherals_buying_guide(request):
     
-    
-    context={}
+    gaming_peripherals_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-peripherals-buying-guide').order_by('?')
+    context={'gaming_peripherals_buying_guides' : gaming_peripherals_buying_guides}
     return render(request, 'buying_guides/gaming_peripherals/gaming_peripherals.html' , context)
+
+def pc_components_buying_guide(request):
+    
+    pc_components_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'pc-components-buying-guide').order_by('?')
+    context={'pc_components_buying_guides' : pc_components_buying_guides}
+    return render(request, 'buying_guides/pc_components/pc_components.html' , context)
+
+def gaming_laptops_buying_guide(request):
+    
+    gaming_laptops_buying_guides = Review.objects.filter(main_category__name = 'Buying Guide' , sub_category__slug = 'gaming-laptops-buying-guide').order_by('?')
+    context={'gaming_laptops_buying_guides' : gaming_laptops_buying_guides}
+    return render(request, 'buying_guides/gaming_laptops/gaming_laptops.html' , context)
 #------------sub categories--------------
 def mouse_buying_guide(request):
     
@@ -405,8 +483,8 @@ def best_logitech_mouse(request):
     context={}
     return render(request, 'buying_guides/gaming_peripherals/mouse_guides/best_logitech_mouse.html' , context)
 
-def top_10_razer_mouse(request):
+def best_razer_mouse(request):
     
     
     context={}
-    return render(request, 'buying_guides/gaming_peripherals/mouse_guides/top_10_razer_mouse.html' , context)
+    return render(request, 'buying_guides/gaming_peripherals/mouse_guides/best_razer_mouse.html' , context)

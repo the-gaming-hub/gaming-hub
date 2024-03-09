@@ -12,18 +12,32 @@ urlpatterns = [
     #-------------------------------------gaming peripherals------------------------------------------------
     # -----------category-------------------
     path('reviews/gaming-peripherals/', views.gaming_peripherals_reviews , name="gaming-peripherals-reviews"),
+    path('reviews/pc-components/', views.pc_components_reviews , name="pc-components-reviews"),
+    path('reviews/gaming-laptops/', views.gaming_laptops_reviews , name="gaming-laptops-reviews"),
     # --------------sub categories-----------
-    path('reviews/gaming-peripherals/mouses/', views.mouse_reviews , name="mouses-reviews"),
+    path('reviews/gaming-peripherals/mouse/', views.mouse_reviews , name="mouse-reviews"),
     path('reviews/gaming-peripherals/keyboards/', views.keyboard_reviews , name="keyboards-reviews"),
     path('reviews/gaming-peripherals/headsets/', views.headset_reviews , name="headsets-reviews"),
     path('reviews/gaming-peripherals/mouse-pads/', views.mouse_pad_reviews , name="mouse-pads-reviews"),
     path('reviews/gaming-peripherals/monitors/', views.monitor_reviews , name="monitors-reviews"),
     path('reviews/gaming-peripherals/gaming-chairs/', views.chair_reviews , name="gaming-chairs-reviews"),
-    #-----------------reviews------------------
     
-    path('reviews/gaming-peripherals/mouses/logitech-g402-review-2024/', views.logitech_g402_review , name="logitech-g402-hyperion-fury-review-2024"),
-    path('reviews/gaming-peripherals/mouses/logitech-g502-lightspeed-review-2024/', views.logitech_g502_review , name="logitech-g502-lightspeed-review-2024"),
-    path('reviews/gaming-peripherals/mouses/finalmouse-ultralightx-mouse-review/', views.finalmouse_ultralightx_review , name="finalmouse-ultralightx-mouse-review"),
+    
+    path('reviews/pc-components/cpu/', views.cpu_reviews , name="cpu-reviews"),
+    path('reviews/pc-components/cpu-coolers/', views.cpu_cooler_reviews , name="cpu-coolers-reviews"),
+    path('reviews/pc-components/gpu/', views.gpu_reviews , name="gpu-reviews"),
+    path('reviews/pc-components/motherboards/', views.motherboard_reviews , name="motherboards-reviews"),
+    path('reviews/pc-components/ram/', views.ram_reviews , name="ram-reviews"),
+    path('reviews/pc-components/ssd/', views.ssd_reviews , name="ssd-reviews"),
+    path('reviews/pc-components/psu/', views.psu_reviews , name="psu-reviews"),
+    path('reviews/pc-components/cases/', views.case_reviews , name="cases-reviews"),
+    #-----------------reviews------------------
+                    # ----gaming peripheralss------------
+    path('reviews/gaming-peripherals/mouse/logitech-g402-review-2024/', views.logitech_g402_review , name="logitech-g402-hyperion-fury-review-2024"),
+    path('reviews/gaming-peripherals/mouse/logitech-g502-lightspeed-review-2024/', views.logitech_g502_review , name="logitech-g502-lightspeed-review-2024"),
+    path('reviews/gaming-peripherals/mouse/finalmouse-ultralightx-mouse-review/', views.finalmouse_ultralightx_review , name="finalmouse-ultralightx-mouse-review"),
+                    #-------- pc componentss-------------
+    path('reviews/pc-components/cpu/amd-ryzen-9-5900x-review/', views.amd_ryzen_9_5900x_review , name="amd-ryzen-9-5900x-review"),
 
     
     #-------------------------------------knowledge base------------------------------------------------------
@@ -39,10 +53,7 @@ urlpatterns = [
     
     #--------------------------------------------News----------------------------------------------------------
     path('news/', views.news , name="news"),
-    
-    #---------------------------------------------Laptops------------------------------------------------------
-    path('laptops/', views.laptops , name="laptops"),
-    
+        
     #-----------------------------------------pc builds--------------------------------------------------------
     #-----------------category---------------------
     path('pc-builds/', views.pc_builds , name="pc-builds"),
@@ -75,8 +86,11 @@ urlpatterns = [
 path('buying-guide/', views.buying_guide , name="buying-guide"),
 
 path('buying-guide/gaming-peripherals/', views.gaming_peripherals_buying_guide , name="gaming-peripherals-buying-guide"),
+path('buying-guide/pc-components/', views.pc_components_buying_guide , name="pc-components-buying-guide"),
+path('buying-guide/gaming-laptops/', views.gaming_laptops_buying_guide , name="gaming-laptops-buying-guide"),
+
 # --------------sub categories-----------
-path('buying-guide/gaming-peripherals/mouses/', views.mouse_buying_guide , name="mouses-buying-guide"),
+path('buying-guide/gaming-peripherals/mouses/', views.mouse_buying_guide , name="mouse-buying-guide"),
 path('buying-guide/gaming-peripherals/keyboards/', views.keyboard_buying_guide , name="keyboards-buying-guide"),
 path('buying-guide/gaming-peripherals/headsets/', views.headset_buying_guide , name="headsets-buying-guide"),
 path('buying-guide/gaming-peripherals/mouse-pads/', views.mouse_pad_buying_guide , name="mouse-pads-buying-guide"),
@@ -84,5 +98,5 @@ path('buying-guide/gaming-peripherals/monitors/', views.monitor_buying_guide , n
 path('buying-guide/gaming-peripherals/chairs/', views.chair_buying_guide , name="chairs-buying-guide"),
 
 path('buying-guide/gaming-peripherals/mouse/the-best-gaming-logitech-mouse-in-2024/', views.best_logitech_mouse , name="the-best-gaming-logitech-mouse-in-2024"),
-path('buying-guide/gaming-peripherals/mouse/top-10-gaming-razer-mouse-in-2024/', views.top_10_razer_mouse , name="top-10-gaming-razer-mouse-in-2024"),
+path('buying-guide/gaming-peripherals/mouse/the-best-gaming-razer-mouse-in-2024/', views.best_razer_mouse , name="the-best-gaming-razer-mouse-in-2024"),
 ]

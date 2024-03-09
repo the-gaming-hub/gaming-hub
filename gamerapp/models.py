@@ -51,26 +51,26 @@ class Category(models.Model):
 class Sub_Category(models.Model):
     name = models.CharField(max_length=64)
     slug = models.SlugField(blank = True , null = True)
-    
+    path = models.SlugField(blank = True , null = True)
     
     # def save(self , *args , **kwargs):
     #     self.slug = slugify(self.name)
     #     super(Sub_Category , self).save(*args , **kwargs)
     
     def __str__(self):
-        return self.name
+        return self.name +'(' + self.slug + ')'
     
 class Sub_SubCategory(models.Model):
     name = models.CharField(max_length=64)
     slug = models.SlugField(blank = True , null = True)
-    
+    path = models.SlugField(blank = True , null = True)
     
     # def save(self , *args , **kwargs):
     #     self.slug = slugify(self.name)
     #     super(Sub_Category , self).save(*args , **kwargs)
     
     def __str__(self):
-        return self.name
+        return self.name +'(' + self.slug + ')'
     
     
     

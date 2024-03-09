@@ -9,7 +9,7 @@
     </div>
 </div>  
 <div class="mt-5 categroies-div">      
-    <center><h2>Subcategories: <a href="#">Best PC Components</a> | <a href="{% url "gaming-peripherals-buying-guide" %}">Best Gaming Peripherals</a> | <a href="#">Best Gaming Laptops</a></h2></center>
+    <center><h2>Subcategories: <a href="{% url "pc-components-buying-guide" %}">Best PC Components</a> | <a href="{% url "gaming-peripherals-buying-guide" %}">Best Gaming Peripherals</a> | <a href="{% url "gaming-laptops-buying-guide" %}">Best Gaming Laptops</a></h2></center>
     <br><br><br><br>
     <div class="row">
         {% for guide in all_guides %}
@@ -17,8 +17,8 @@
             <div>
                 <a href="{% url guide.slug %}" onmouseover="zoomImage(this)" onmouseout="unzoomImage(this)"><img style="border-radius: 5px;" class="card-img-top" src="{{guide.image.url}}" alt="..." /></a>
                 <div class="card-body">
-                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url guide.sub_category.slug %}">{{guide.sub_category|upper}}</a>
-                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url guide.main_category.slug %}">{{guide.main_category|upper}}</a><br>
+                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url guide.sub_category.slug %}">{{guide.sub_category.name|upper}}</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url guide.main_category.slug %}">{{guide.main_category.name|upper}}</a><br>
                     <div style="margin-bottom:7px"></div>
                     <a href="{% url guide.slug %}" style="font-size:20px;" class="card-title h4 review-link">{{guide.topic}}</a>
                     <div class="small text-muted"><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="15" height="15" style="margin-bottom: 3px; margin-right: 5px;"> {{guide.date_created|time_ago_format}}</div>

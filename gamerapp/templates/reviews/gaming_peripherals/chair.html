@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block homebody %}
+<div style="position: relative; display: inline-block;width:100%;margin-bottom:-40px;">
+    <img class="card-img-top" src="{% static 'images/buying_guide/buying_guide.jpg' %}" alt="..." />
+    <div style="position: absolute; top: 5px; left: -10px; width: 100%; text-align: center;">
+        <p class="pc-builds-header" style="font-size:35px;">Gaming Chairs Reviews</p>
+    </div>
+</div>  
+<div class="mt-5 categroies-div">      
+    {% comment %} <center><h2>Sub-subcategories: <a href="#">Keyboards</a> | <a href="#">Mouse</a> | <a href="#">Monitors</a> | <a href="#">Headsets</a> | <a href="#">Mouse Pads</a> | <a href="#">Gaming Chairs</a></h2></center> {% endcomment %}
+    <br><br>
+    <div class="row">
+        {% for review in gaming_chairs_reviews %}
+        <div style="padding-bottom:30px;" class="col-lg-3">
+            <div>
+                <a href="{% url review.slug %}" onmouseover="zoomImage(this)" onmouseout="unzoomImage(this)"><img style="border-radius: 5px;" class="card-img-top" src="{{review.image.url}}" alt="..." /></a>
+                <div class="card-body">
+                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url review.sub_category.slug %}">{{review.sub_category.name|upper}}</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url review.main_category.slug %}">{{review.main_category.name|upper}}</a><br>
+                    <div style="margin-bottom:7px"></div>
+                    <a href="{% url review.slug %}" style="font-size:20px;" class="card-title h4 review-link">{{review.topic}}</a>
+                    <div class="small text-muted"><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="15" height="15" style="margin-bottom: 3px; margin-right: 5px;"> {{review.date_created|time_ago_format}}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock homebody %}
