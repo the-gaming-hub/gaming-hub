@@ -17,8 +17,8 @@
             <div>
                 <a href="{% url build.slug %}" onmouseover="zoomImage(this)" onmouseout="unzoomImage(this)"><img style="border-radius: 5px;" class="card-img-top" src="{{build.image.url}}" alt="..." /></a>
                 <div class="card-body">
-                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url build.sub_category.slug %}">{{build.sub_category|upper}}</a>
-                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url build.main_category.slug %}">{{build.main_category|upper}}</a><br>
+                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url build.sub_category.slug %}">{{build.sub_category.name|upper}}</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" style="font-size:10px" href="{% url build.main_category.slug %}">{{build.main_category.name|upper}}</a><br>
                     <div style="margin-bottom:7px"></div>
                     <a href="{% url build.slug %}" style="font-size:20px;" class="card-title h4 review-link">{{build.topic}}</a>
                     <div class="small text-muted"><img src="{% static 'images/calendar.png' %}" alt="Calendar Icon" width="15" height="15" style="margin-bottom: 3px; margin-right: 5px;"> {{build.date_created|time_ago_format}}</div>

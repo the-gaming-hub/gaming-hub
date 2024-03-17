@@ -1,13 +1,13 @@
 from .models import *
 from django.shortcuts import render, get_object_or_404
 
-
 def global_variables(request):
     # ---------------gaming peripherals sub categories--------------------
     # Gpsub_categories = Sub_Category.objects.filter(main_category__name = "Gaming Peripherals")
     
     homebody_paths = [
         '/',
+        '/privacy-policy/',
         '/pc-builds/',
         '/reviews/',
         '/buying-guide/',
@@ -54,6 +54,7 @@ def global_variables(request):
         '/buying-guide/gaming-peripherals-buying-guides/monitors-buying-guides/',
         '/buying-guide/gaming-peripherals-buying-guides/gaming-chairs-buying-guides/'
     ]
+        
     
     #get the latest reviews------------------
     latest_reviews = Review.objects.order_by('-date_created')[:8]
@@ -86,4 +87,12 @@ def global_variables(request):
     except:
         sub_sub_main_page = None
         
-    return{'latest_reviews' : latest_reviews , 'you_may_like' : you_may_like , 'review' : review ,'pc_builds_related' : pc_builds_related , 'main_page' : main_page , 'sub_main_page' : sub_main_page , 'homebody_paths' : homebody_paths , 'sub_sub_main_page' : sub_sub_main_page}
+    return{'latest_reviews' : latest_reviews ,
+           'you_may_like' : you_may_like ,
+           'review' : review ,
+           'pc_builds_related' : pc_builds_related ,
+           'main_page' : main_page ,
+           'sub_main_page' : sub_main_page ,
+           'homebody_paths' : homebody_paths ,
+           'sub_sub_main_page' : sub_sub_main_page,
+           }

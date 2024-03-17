@@ -3,22 +3,22 @@ from django.utils.text import slugify
 
 # Create your models here.
 
-class AffiliateProduct(models.Model):
-    name = models.CharField(max_length=128)
-    model = models.CharField(max_length=64)
-    category = models.ForeignKey('Category' , on_delete=models.SET_NULL, null = True)
-    image = models.ImageField(upload_to='images/')
-    review = models.CharField(max_length=2048)
-    main_link = models.URLField(max_length=128 , null = True, blank=True)
-    amazon_link = models.URLField(max_length=128 , null = True, blank=True)
-    slug = models.SlugField(blank = True , null = True)
+# class AffiliateProduct(models.Model):
+#     name = models.CharField(max_length=128)
+#     model = models.CharField(max_length=64)
+#     category = models.ForeignKey('Category' , on_delete=models.SET_NULL, null = True)
+#     image = models.ImageField(upload_to='images/')
+#     review = models.CharField(max_length=2048)
+#     main_link = models.URLField(max_length=128 , null = True, blank=True)
+#     amazon_link = models.URLField(max_length=128 , null = True, blank=True)
+#     slug = models.SlugField(blank = True , null = True)
     
-    def save(self , *args , **kwargs):
-        self.slug = slugify(self.name)
-        super(AffiliateProduct , self).save(*args , **kwargs)
+#     def save(self , *args , **kwargs):
+#         self.slug = slugify(self.name)
+#         super(AffiliateProduct , self).save(*args , **kwargs)
     
-    def __str__(self):
-        return str(self.name)+'-'+str(self.model)
+#     def __str__(self):
+#         return str(self.name)+'-'+str(self.model)
     
     
 class Type(models.Model):
@@ -90,3 +90,12 @@ class Review(models.Model):
     
     def __str__(self):
         return self.topic
+    
+class NewsletterSubscription(models.Model):
+    email = models.EmailField(unique=True)
+    confirmed = models.BooleanField(default=False)
+    active = models.BooleanField(default=False) 
+    subscribed_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email

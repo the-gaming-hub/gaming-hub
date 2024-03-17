@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 # from django.db.models.functions import Random
 from random import sample
@@ -9,8 +9,80 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.shortcuts import render, get_object_or_404
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.core.mail import EmailMessage
+from .tokens import account_activation_token
+from django.http import Http404
+from django.conf import settings
+import base64
+
 
 # Create your views here.
+
+def get_referer(request):
+    referer = request.META.get('HTTP_REFERER')
+    if not referer:
+        return None
+    return referer
+
+
+def newsletter_subscriptions(request , email):
+    try:
+        try:
+            new_subscriber = NewsletterSubscription.objects.create(email = email)
+        except:
+            new_subscriber = NewsletterSubscription.objects.get(email = email,active = False)
+        subject = 'Email Confirmation'
+        
+        with open('static/images/thegaminghub-logo.png', 'rb') as image_file:
+            encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
+
+        email_confirmation_template = render_to_string('subscription_confirmation/email_confirmation.html',{
+            'domain' : get_current_site(request).domain,
+            'uid' : urlsafe_base64_encode(force_bytes(new_subscriber.pk)),
+            'token' : account_activation_token.make_token(new_subscriber    ),
+            'protocol' : 'https' if request.is_secure() else 'http',
+            'thegaminghub_logo': encoded_image
+            })
+        email_confirmation = EmailMessage(
+            subject, # mail subject
+            email_confirmation_template, # mail content
+            settings.EMAIL_HOST_USER,
+            [email] # sending to
+        )
+        email_confirmation.content_subtype = 'html'
+        # email_confirmation.send()
+        email_confirmation.send()
+        response_data = {'success': True}
+    except Exception as e:
+        print(e)  # Print the exception for debugging
+        response_data = {'error': True}
+    return JsonResponse(response_data)
+
+def activate(request, uidb64, token):
+    try:
+        # Decode the UID and retrieve the email from your email model
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        email_instance = NewsletterSubscription.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, NewsletterSubscription.DoesNotExist):
+        email_instance = None
+
+    if email_instance is not None and account_activation_token.check_token(email_instance, token):
+        # If the token is valid, set the email as confirmed
+        email_instance.confirmed = True
+        email_instance.active = True
+        email_instance.save()
+        return redirect('subscription-confirmed')  # Redirect to your homepage
+    else:
+        raise Http404
+
+def subscription_confirmed(request):
+    
+    context={}
+    return render(request, 'subscription_confirmation/subscription_confirmed.html' , context)
+
 
 def home(request):    
     total_reviews = Review.objects.count()
@@ -80,6 +152,21 @@ def coming_soon(request):
     
     context = {}
     return render(request, 'coming_soon.html', context)
+
+def contact(request):
+    
+    context = {}
+    return render(request, 'contact.html', context)
+
+def privacy_policy(request):
+    
+    context = {}
+    return render(request, 'privacy_policy.html', context)
+
+def about(request):
+    
+    context = {}
+    return render(request, 'about.html', context)
 
 
 

@@ -95,3 +95,4 @@ function unzoomImage(card) {
     var img = card.querySelector('.card-img-top');
     img.style.transform = 'scale(1)';
 }
+

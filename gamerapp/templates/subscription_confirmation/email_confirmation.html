@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Confirmation</title>
+    <style>
+        h1 {
+            padding-top:30px;
+            font-size:50px;
+            padding-bottom:65px;
+        }
+
+        a {
+            text-align:center;
+            padding:18px;
+            font-size:25px;
+            text-decoration: none;
+            font-weight:bolder;
+        }
+
+        @media (max-width: 767px) {
+            h1 {
+                padding-top:30px;
+                font-size:25px;
+                padding-bottom:65px;
+            }
+    
+            a {
+                padding:10px;
+                font-size:15px;
+            }
+        }
+    </style>
+</head>
+<body style="background-color:#a00000;height:500px;width:1000px;text-align:center;">
+    <center><img src="data:image/png;base64,{{ thegaminghub_logo }}" width="240" height="40" alt="Logo"></center>
+    {% autoescape off %}
+    <h1 style="color:whitesmoke;">Please Confirm Your Subscription To TheGamingHub Newsletter</h1>
+    <a style="color:#a00000;background-color:whitesmoke;border-radius: 5px;" href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Subscribe to the newsletter</a>
+    {% endautoescape %}
+</body>
+</html>

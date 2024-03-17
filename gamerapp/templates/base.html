@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Gaming Hub</title>
+        <title>The Gaming Hub</title>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -18,12 +18,22 @@
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <link href="{% static 'css/stars_background.css' %}" rel="stylesheet" />
         <link rel="stylesheet" href="{% static 'css/light-theme.css' %}">
+        {% comment %} ---------fonts-------- {% endcomment %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
         {% comment %} ----nav bar---- {% endcomment %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"><!--Navbar/Slider-->
+        {% comment %} the google analytics {% endcomment %}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNHQYD3D95"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-        
-
+          gtag('config', 'G-QNHQYD3D95');
+        </script>
     </head>
     <nav id = "navbar">
       <div class="wrapper">
@@ -32,6 +42,7 @@
         <input type="radio" name="slider" id="close-btn">
         <ul class="nav-links">
           <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+          {% comment %} <li id="emailIcon" href="#"><a class="fas fa-envelope" style="font-size: 22px;margin-top:15px;"></a></li> {% endcomment %}
           <li>
             <a href="{% url "buying-guide" %}" class="desktop-item">Buying Guide  <span style="font-size: 9px;position: relative; top: -3px;left:3px;">▼</span></a>
             <input type="checkbox" id="showMega-buying-guide">
@@ -204,9 +215,53 @@
           </li>
           <li><a href="{% url "coming-soon" %}">Prebuilts</a></li>
           <li><a href="{% url "coming-soon" %}">News</a></li>
+          <li class id="newsletterIcon" href="#"><a class="fas fa-envelope" style="font-size: 20px;margin-top:15px;"></a></li>
+          <div id="overlay"></div>
+          <div id="newsletterModal" class="newsletterModal">
+            <span id="closeSubscriptionlBtn" class="closeModalBtn">&times;</span>
+            <div class="newsletter-content">
+              <center><h1 style="padding-bottom:30px;font-size:45px;font-family: Playfair Display SC;font-weight:200;">Weekly Newsletter</h1></center>
+              <h4 style="float:left">Why Subscribe? (It's Free!)</h4><br>
+                <div class="letter-list">
+                  <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Get weekly updates on the latest gaming news</h6>
+                  <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Stay ahead with up-to-date reviews delivered to your inbox every week</h6>
+                  <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Learn new tips and tricks with weekly tutorials on PC hardware</h6>
+                  <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Receive weekly updates on the top-performing PC builds</h6>
+                </div>
+              <form method="POST" action="#">
+                {% csrf_token %}
+                
+                  {% comment %} <span>
+                    • most recent news, reviews, and tutorials about PC hardware<br>
+                    • updates on the best PC builds
+                  </span> {% endcomment %}
+                <div class="newsletter-row">
+                  {% comment %} <label for="email">Email:</label> {% endcomment %}
+                  <input type="email" id="subEmail" name="email" placeholder="Enter Your Email...." required>
+                  <button id = "subBtn" type="submit">
+                    <span id="subscribeText">Subscribe</span>
+                    <span id="loadingIndicator" style="display: none;">
+                        <img src="{% static "images/loading-indicator.gif" %}" alt="Loading..." width="50px">
+                    </span>
+                  </button> 
+                </div>
+                <center><span id="emailError" style="display:none;padding:0;margin-top:-30px;color:red;">Email already subscribed!</span> 
+              </form>
+              <div class="privacy-policy">
+                <a>By subscribing, you agree to our <a href="{% url "privacy-policy" %}" style="color:#a00000;text-decoration: underline;">Privacy Policy</a></a>
+              </div>
+            </div>
+          </div>
+          <div id="newsletterModalSuccess" class="newsletterModal" style="display:none">
+            <span id="closeSubscriptionSuccessBtn" class="closeModalBtn">&times;</span>
+            <div class="newsletter-content">
+              <h1 style="padding-bottom:30px;"><center>Newsletter Confirmation</center></h1>
+              <h3>An email confirmation is send to your email, please check your email</h3>
+            </div>
+          </div>
           <li>
             <!-- Search icon -->
-            <a id="searchIcon" href="#"><i class="fas fa-search"></i></a>
+            <a id="searchIcon" href="#" style="font-size: 20px;"><i class="fas fa-search"></i></a>
             <!-- Search input (dropdown) -->
             <div id="searchDropdown" class="input-group" style="display: none; position: absolute; top: 60px; right: 0;width:300px;">
                 <form id="searchForm">
@@ -214,7 +269,6 @@
                 </form>
             </div>
           </li>
-          {% comment %} <a id="emailIcon" href="#"><i class="fas fa-envelope"></i></a> {% endcomment %}
         </ul>
         <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
       </div>
@@ -270,7 +324,7 @@
             <a href="#" title="twitter"> 
               <i class="fab fa-twitter-square" aria-hidden="true"></i>
             </a>
-            <a href="#" title="instagram">  
+            <a href="https://www.instagram.com/thegaminghub.blog?igsh=MWhlMzd1a2luZjY3dQ==" target="_blank" title="instagram">  
               <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
             <a href="#" title="youtube">
@@ -279,14 +333,20 @@
             <a href="#" title="linkedin">
               <i class="fab fa-linkedin-square" aria-hidden="true"></i>
             </a>
-            {% comment %} <a href="#" title="pinterest">
+            <a href="#" title="pinterest" style="margin-left:-25px;">
               <i class="fab fa-pinterest-p" aria-hidden="true"></i>
             </a>
-            <a href="#" title="camera">
+            {% comment %}<a href="#" title="camera">
               <i class="fab fa-camera-retro" aria-hidden="true"></i>
             </a> {% endcomment %}
           </div>
-          <p style="font-size: 12px; position: absolute; bottom: 10px; left: 0; right: 0;" class="m-0 text-center text-white">Copyright &copy; TheGamingHub 2024</p>
+          <div class="footer-buttons">
+            <a class="footer-home" href="{% url "home" %}">Home</a>
+            <a class="footer-btn" href="{% url "contact" %}">Contact</a>
+            <a class="footer-btn" href="{% url "privacy-policy" %}">Privacy Policy</a>
+            <a class="footer-btn" href="{% url "about" %}">About</a>
+          </div>
+          <p style="font-size: 12px; position: absolute; bottom: 20px; left: 20px; right: 0;" class="m-0 text-center text-white">Copyright &copy; 2024 TheGamingHub - All Rights Reserved.</p>
       </footer>
     </body>
 </html>
@@ -352,6 +412,129 @@
           if (!searchIcon.contains(event.target) && !searchBar.contains(event.target)) {
               searchBar.style.display = "none";
           }
+      });
+  });
+</script>
+<script>
+const overlay = document.getElementById('overlay');
+const newsletterModal = document.getElementById('newsletterModal');
+const newsletterModalSuccess = document.getElementById('newsletterModalSuccess');
+const closeNewsLetterBtn = document.getElementById('closeSubscriptionlBtn');
+const closeNewsLetterSuccessBtn = document.getElementById('closeSubscriptionSuccessBtn');
+const emailInput = document.getElementById('subEmail');
+const errorEl = document.getElementById('emailError')
+const privacyPolicyLine = document.querySelector('.privacy-policy')
+
+
+// Function to show the modal
+function showModal() {
+    document.body.classList.add('modal-open'); // Disable scrolling
+    overlay.style.display = 'block';
+    newsletterModal.style.display = 'block';
+}
+
+// Function to hide the modal
+function hideModal() {
+    document.body.classList.remove('modal-open'); // Enable scrolling
+    overlay.style.display = 'none';
+    newsletterModal.style.display = 'none';
+    newsletterModalSuccess.style.display = 'none';
+    emailInput.value = ""
+    errorEl.style.display = "none"
+    privacyPolicyLine.style.marginTop = "0px"
+}
+
+// Event listener for opening the modal
+newsletterIcon.addEventListener('click', showModal);
+
+// Event listener for closing the modal when clicking on the 'X' icon
+closeNewsLetterBtn.addEventListener('click', hideModal);
+closeNewsLetterSuccessBtn.addEventListener('click', hideModal);
+
+// Event listener for closing the modal when clicking outside of it
+overlay.addEventListener('click', hideModal);
+</script>
+
+{% comment %} the news letter subscription {% endcomment %}
+{% comment %} <script>
+  // Get a reference to the sub button
+  const subButton = document.getElementById('subBtn');
+  // Attach an event listener to the sub button
+  subButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default behavior of the button click 
+    email = document.getElementById('subEmail').value;
+    const newsletterModal = document.getElementById('newsletterModal');
+    const newsletterModalSuccess = document.getElementById('newsletterModalSuccess');
+    const url = `/newsletter-subscription/${email}`;
+    
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}' // Include the CSRF token
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response data
+        // For example, display a success message or update the cart UI
+        if (data.success) {
+          newsletterModal.style.display = 'none'
+          newsletterModalSuccess.style.display = "block"
+        } else if (data.error) {
+          throw new Error('Error Occured Couldn\'t Subscribe');
+        }
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the request
+        console.error(error);
+      });
+  });
+</script> {% endcomment %}
+<script>
+  // Get a reference to the sub button
+  const subButton = document.getElementById('subBtn');
+  // Attach an event listener to the sub button
+  subButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default behavior of the button click 
+    email = document.getElementById('subEmail').value;
+    const newsletterModal = document.getElementById('newsletterModal');
+    const newsletterModalSuccess = document.getElementById('newsletterModalSuccess');
+    const errorEl = document.getElementById('emailError')
+    const privacyPolicyLine = document.querySelector('.privacy-policy')
+    const url = `/newsletter-subscription/${email}`;
+    
+    // Show loading indicator
+    document.getElementById('subscribeText').style.display = 'none';
+    document.getElementById('loadingIndicator').style.display = 'inline';
+
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}' // Include the CSRF token
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response data
+        // For example, display a success message or update the cart UI
+        if (data.success) {
+          newsletterModal.style.display = 'none';
+          newsletterModalSuccess.style.display = "block";
+        } else if (data.error) {
+          errorEl.style.display = "block";
+          privacyPolicyLine.style.marginTop = "-40px";
+        }
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the request
+        console.error(error);
+      })
+      .finally(() => {
+        // Revert back to the subscribe text
+        document.getElementById('subscribeText').style.display = 'inline';
+        document.getElementById('loadingIndicator').style.display = 'none';
       });
   });
 </script>

@@ -6,6 +6,13 @@ urlpatterns = [
     path('search/<str:search>/', views.search, name='search'),
     path('coming-soon/', views.coming_soon, name='coming-soon'),
     
+    path('contact/', views.contact, name='contact'),
+    path('privacy-policy/', views.privacy_policy, name='privacy-policy'),
+    path('about/', views.about, name='about'),
+    path('newsletter-subscription/<str:email>/', views.newsletter_subscriptions, name='newsletter-subscription'),
+    path('activate/<uidb64>/<token>', views.activate, name='activate'),
+    path('subscription-confirmed/', views.subscription_confirmed , name='subscription-confirmed'),
+    
     
     
     path('reviews/', views.reviews , name="reviews"),
