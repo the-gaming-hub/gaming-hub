@@ -1,27 +1,63 @@
+{% load static %}
 <html>
 <head>
     <title>Subscription Confirmed</title>
     <style>
         a {
-            font-size:50px;
+            font-size:23px;
             font-weight:bolder;
-            background-color:whitesmoke;
+            background-color:#a00000;
             text-decoration: none;
-            color:#a00000;
-            padding:20px;
+            color:whitesmoke;
+            padding:18px;
             border-radius: 5px;
             font-family:sans-serif;
         }            
     
         a:hover {
-            background-color:#a00000;
+            background-color:black;
             color:whitesmoke;
+        }
+
+        .centered-div {
+            width: 750px;
+            height: 500px;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: auto; /* This will center the div horizontally */
+            position: fixed; /* Center the div vertically on the screen */
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .centered-div h1 {
+            
+            position: absolute;
+            top: 20px; /* Adjust the top spacing as needed */
+            left: 20px; /* Adjust the left spacing as needed */
+            color: whitesmoke;
+            font-size: 40px; /* Adjust the font size as needed */
+            font-family: sans-serif;
+            margin: 0;
         }
     </style>
 </head>
 <body style="background-color:#a00000;">
-    <center><h1 style="color:whitesmoke;font-size:45px;padding-top:80px; font-family:sans-serif;">Congratulation your subscription to the newsletter is confirmed !</h1><center>
-    <br><br><br><br><br><br> 
-    <a href="{% url "home" %}">Home</a>
+    <div style="text-align: center;padding-top:20px;padding-right:320px;">
+        <img src="{% static 'images/thegaminghub-logo.png' %}" width="420" height="70" alt="Logo">
+    </div>
+    <div class="centered-div">
+        <center><h1 style="color: black;">Subscription Confirmed!</h1><center>
+        <h2 style="color: black;font-size:25px;margin-top:-100px;">Congratulation you are now officialy subscribed to our newsletter!</h2>
+        <br><br><br><br><br><br> 
+        <a href="{% url "home" %}">Home</a>
+    </div>
 </body>
 </html>

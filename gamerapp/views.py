@@ -17,6 +17,10 @@ from .tokens import account_activation_token
 from django.http import Http404
 from django.conf import settings
 import base64
+import re
+from django.contrib.auth.decorators import login_required
+from io import BytesIO
+from PIL import Image
 
 
 # Create your views here.
@@ -27,38 +31,51 @@ def get_referer(request):
         return None
     return referer
 
+def validate_email(email):
+    # Regular expression pattern for validating email addresses
+    pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+    return re.match(pattern, email) is not None
 
 def newsletter_subscriptions(request , email):
-    try:
+    if  validate_email(email):
         try:
-            new_subscriber = NewsletterSubscription.objects.create(email = email)
-        except:
-            new_subscriber = NewsletterSubscription.objects.get(email = email,active = False)
-        subject = 'Email Confirmation'
-        
-        with open('static/images/thegaminghub-logo.png', 'rb') as image_file:
-            encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
-
-        email_confirmation_template = render_to_string('subscription_confirmation/email_confirmation.html',{
-            'domain' : get_current_site(request).domain,
-            'uid' : urlsafe_base64_encode(force_bytes(new_subscriber.pk)),
-            'token' : account_activation_token.make_token(new_subscriber    ),
-            'protocol' : 'https' if request.is_secure() else 'http',
-            'thegaminghub_logo': encoded_image
-            })
-        email_confirmation = EmailMessage(
-            subject, # mail subject
-            email_confirmation_template, # mail content
-            settings.EMAIL_HOST_USER,
-            [email] # sending to
-        )
-        email_confirmation.content_subtype = 'html'
-        # email_confirmation.send()
-        email_confirmation.send()
-        response_data = {'success': True}
-    except Exception as e:
-        print(e)  # Print the exception for debugging
-        response_data = {'error': True}
+            try:
+                new_subscriber = NewsletterSubscription.objects.create(email = email)
+            except:
+                new_subscriber = NewsletterSubscription.objects.get(email = email,active = False)
+            subject = 'Email Confirmation'
+            
+            with open('static/images/thegaminghub-logo.png', 'rb') as image_file:
+                image_data = image_file.read()
+            
+            # Create a BytesIO object to hold the image data
+            encoded_image = base64.b64encode(image_data).decode('utf-8')
+            
+            email_confirmation_template = render_to_string('subscription_confirmation/email_confirmation.html',{
+                'domain' : get_current_site(request).domain,
+                'uid' : urlsafe_base64_encode(force_bytes(new_subscriber.pk)),
+                'token' : account_activation_token.make_token(new_subscriber    ),
+                'protocol' : 'https' if request.is_secure() else 'http',
+                'thegaminghub_logo': encoded_image
+                })
+            print(email_confirmation_template)
+            email_confirmation = EmailMessage(
+                subject, # mail subject
+                email_confirmation_template, # mail content
+                settings.EMAIL_HOST_USER,
+                [email] # sending to
+            )
+            
+            email_confirmation.content_subtype = 'html'
+            
+            # email_confirmation.send()
+            email_confirmation.send()
+            response_data = {'success': True}
+        except Exception as e:
+            print(e)
+            response_data = {'error': True , 'emailSubscribed' : True}
+    else:
+        response_data = {'error': True , 'wrongEmail' : True}
     return JsonResponse(response_data)
 
 def activate(request, uidb64, token):

@@ -7,7 +7,7 @@
             <h1 style="text-align:center;margin:0px;color:#a00000;padding-left:110px;font-size:40px;padding-bottom:100px;font-family: 'Arial', sans-serif;font-weight: bold;">Search Results for: "{{search}}"</h1>
             {% for result in results %} 
                 <div style="right:-75px;" class="card mb-4">
-                    <a href="{% url result.slug %}" onmouseover="zoomImage(this)" onmouseout="unzoomImage(this)"><img style="border-radius: 5px;" class="card-img-top" src="{{result.image.url}}" alt="..." /></a>
+                    <a href="{% url result.slug %}"><img style="border-radius: 5px;" class="card-img-top" src="{{result.image.url}}" alt="..." /></a>
                     <div class="card-body">
                         <a class="badge bg-secondary text-decoration-none link-light" style="font-size:12px;text-decoration: none;color:#a00000;margin-left: 1.5px;" href="{% url result.sub_category.slug %}">{{result.sub_category.name|upper}}</a>
                         <a class="badge bg-secondary text-decoration-none link-light" style="font-size:12px;text-decoration: none;color:#a00000;margin-left: 1.5px;" href="{% url result.main_category.slug %}">{{result.main_category.name|upper}}</a><br>  {% comment %}January 1, 2023 {% endcomment %}

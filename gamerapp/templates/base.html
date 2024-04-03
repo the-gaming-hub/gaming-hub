@@ -22,6 +22,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        {% comment %} <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet"> {% endcomment %}
         {% comment %} ----nav bar---- {% endcomment %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"><!--Navbar/Slider-->
@@ -67,7 +68,7 @@
                 </div>
                 <div class="row">
                   <a href="{% url "gaming-peripherals-buying-guides" %}"><header class="menu-header">Best Gaming Peripherals</header></a>
-                  <ul class="mega-links  margin-top-100">
+                  <ul class="mega-links margin-top-100" style="margin-bottom:20px;">
                     <li><a href="{% url "keyboards-buying-guides" %}">Keyboards</a></li>
                     <li><a href="{% url "mouse-buying-guides" %}">Mouse</a></li>
                     <li><a href="{% url "monitors-buying-guides" %}">Monitors</a></li>
@@ -78,7 +79,7 @@
                 </div>
                 <div class="row">
                   <a href="{% url "gaming-laptops-buying-guides" %}"><header class="menu-header">Best Gaming Laptops</header></a>
-                  <ul class="mega-links"  style="margin-top:-180px;">
+                  <ul class="mega-links margin-top-180" style="margin-bottom:20px;">
                     <li><a href="{% url "coming-soon" %}"></a></li>
 
                   </ul>
@@ -97,7 +98,7 @@
                 </div> {% endcomment %}
                 <div class="row">
                   <a href="{% url "pc-knowledge" %}"><header class="menu-header">PC Knowledge</header></a>
-                  <ul class="mega-links">
+                  <ul class="mega-links" style="margin-bottom:20px;">
                     <li><a href="{% url "prebuilt-vs-custom-pc" %}">Prebuilt vs Custom PC</a></li>
                     <li><a href="{% url "coming-soon" %}">#######</a></li>
                     <li><a href="{% url "coming-soon" %}">#######</a></li>
@@ -105,7 +106,7 @@
                 </div>
                 <div class="row">
                   <a href="{% url "pc-building-tips" %}"><header class="menu-header">PC Building Tips</header></a>
-                  <ul class="mega-links" style="min-width: 350px;">
+                  <ul class="mega-links" style="min-width: 350px;margin-bottom:20px;">
                     <li><a href="{% url "top-15-mistakes-every-new-pc-builder-makes" %}">Top Mistakes New PC Builders Make</a></li>
                     <li><a href="{% url "common-asked-questions-about-pc-building" %}">Common PC Building Questions</a></li>
                     <li><a href="{% url "the-12-best-custom-pc-builder-websites" %}">Custom PC Builder Websites</a></li>
@@ -113,9 +114,10 @@
                 </div>
                 <div class="row">
                   <a href="{% url "gaming-knowledge" %}"><header class="menu-header">Gaming Knowledge</header></a>
-                  <ul class="mega-links">
-                    <li><a href="{% url "coming-soon" %}"></a></li>
-
+                  <ul class="mega-links" style="margin-bottom:20px;">
+                    <li><a href="{% url "coming-soon" %}">What is a good gaming FPS</a></li>
+                    <li><a href="{% url "coming-soon" %}">#######</a></li>
+                    <li><a href="{% url "coming-soon" %}">#######</a></li>
                   </ul>
                 </div>
               </div>
@@ -145,7 +147,7 @@
                 </div>
                 <div class="row">
                   <a href="{% url "gaming-peripherals-reviews" %}"><header class="menu-header">Gaming Peripherals</header></a>
-                  <ul class="mega-links margin-top-100">
+                  <ul class="mega-links margin-top-100" style="margin-bottom:20px;">
                     <li><a href="{% url "keyboards-reviews" %}">Keyboards</a></li>
                     <li><a href="{% url "mouse-reviews" %}">Mouse</a></li>
                     <li><a href="{% url "monitors-reviews" %}">Monitors</a></li>
@@ -156,7 +158,7 @@
                 </div>
                 <div class="row">
                   <a href="{% url "gaming-laptops-reviews" %}"><header class="menu-header">Gaming Laptops</header></a>
-                  <ul class="mega-links margin-top-180">
+                  <ul class="mega-links margin-top-180" style="margin-bottom:20px;">
                     {% comment %} <li><a href="{% url "coming-soon" %}">###########</a></li> {% endcomment %}
                   </ul>
                 </div>
@@ -183,7 +185,7 @@
                 </div>
                 <div class="row">
                   <a href="{% url "mid-range-pc-builds" %}"><header class="menu-header">Mid-Range PC Builds</header></a>
-                  <ul class="mega-links margin-top-50">
+                  <ul class="mega-links margin-top-50"style="margin-bottom:20px;">
                     <li><a href="{% url "best-gaming-pc-under-700-usd-in-2024" %}">$700</a></li>
                     <li><a href="{% url "best-gaming-pc-under-800-usd-in-2024" %}">$800</a></li>
                     <li><a href="{% url "best-gaming-pc-under-1000-usd-in-2024" %}">$1000</a></li>
@@ -192,7 +194,7 @@
                 </div>
                 <div class="row">
                   <a href="{% url "high-end-pc-builds" %}"><header class="menu-header">High-End PC Builds</header></a>
-                  <ul class="mega-links" style="margin-bottom:10px;">
+                  <ul class="mega-links" style="margin-bottom:20px;">
                     <li><a href="{% url "best-gaming-pc-under-1500-usd-in-2024" %}">$1500</a></li>
                     <li><a href="{% url "best-gaming-pc-under-2000-usd-in-2024" %}">$2000</a></li>
                     <li><a href="{% url "best-gaming-pc-under-3000-usd-in-2024" %}">$3000</a></li>
@@ -202,7 +204,7 @@
                 </div>
                 <div class="row">
                   <a href="{% url "pc-building-tips" %}"><header class="menu-header">PC Building Tips</header></a>
-                  <ul class="mega-links" style="margin-bottom:10px;">
+                  <ul class="mega-links" style="margin-bottom:20px;">
                     <li><a href="{% url "prebuilt-vs-custom-pc" %}">Prebuilt vs Custom PC</a></li>
                     <li><a href="{% url "the-12-best-custom-pc-builder-websites" %}">Custom PC Builder Websites</a></li>
                     <li><a href="{% url "coming-soon" %}">CPU Hierarchy</a></li>
@@ -213,9 +215,9 @@
               </div>
             </div>
           </li>
-          <li><a href="{% url "coming-soon" %}">Prebuilts</a></li>
-          <li><a href="{% url "coming-soon" %}">News</a></li>
-          <li class id="newsletterIcon" href="#"><a class="fas fa-envelope" style="font-size: 20px;margin-top:15px;"></a></li>
+          <li><a class="desktop-item" href="{% url "coming-soon" %}">Prebuilts</a></li>
+          <li><a class="desktop-item" href="{% url "coming-soon" %}">News</a></li>
+          <li id="newsletterIcon" href="#"><a class="fas fa-envelope desktop-item" style="font-size: 20px;margin-top:15px;"></a></li>
           <div id="overlay"></div>
           <div id="newsletterModal" class="newsletterModal">
             <span id="closeSubscriptionlBtn" class="closeModalBtn">&times;</span>
@@ -224,7 +226,7 @@
               <h4 style="float:left">Why Subscribe? (It's Free!)</h4><br>
                 <div class="letter-list">
                   <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Get weekly updates on the latest gaming news</h6>
-                  <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Stay ahead with up-to-date reviews delivered to your inbox every week</h6>
+                  <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Stay ahead with up-to-date reviews & guides delivered to your inbox every week</h6>
                   <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Learn new tips and tricks with weekly tutorials on PC hardware</h6>
                   <h6 style="color:lightgrey;">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; Receive weekly updates on the top-performing PC builds</h6>
                 </div>
@@ -241,7 +243,7 @@
                   <button id = "subBtn" type="submit">
                     <span id="subscribeText">Subscribe</span>
                     <span id="loadingIndicator" style="display: none;">
-                        <img src="{% static "images/loading-indicator.gif" %}" alt="Loading..." width="50px">
+                        <img src="{% static "images/loading-indicator.gif" %}" alt="Loading..." width="60px">
                     </span>
                   </button> 
                 </div>
@@ -255,13 +257,13 @@
           <div id="newsletterModalSuccess" class="newsletterModal" style="display:none">
             <span id="closeSubscriptionSuccessBtn" class="closeModalBtn">&times;</span>
             <div class="newsletter-content">
-              <h1 style="padding-bottom:30px;"><center>Newsletter Confirmation</center></h1>
-              <h3>An email confirmation is send to your email, please check your email</h3>
+              <center><h1 style="padding-bottom:30px;font-size:35px;font-family: Playfair Display SC;font-weight:200;">Newsletter Confirmation</h1></center>
+              <h3 style=" padding: 100px 20px;font-size:21px;">Just one more step! Please check your email for a confirmation button. Once confirmed, you'll be subscribed!💌</h3>
             </div>
           </div>
           <li>
             <!-- Search icon -->
-            <a id="searchIcon" href="#" style="font-size: 20px;"><i class="fas fa-search"></i></a>
+            <a class="desktop-item" id="searchIcon" href="#" style="font-size: 20px;"><i class="fas fa-search"></i></a>
             <!-- Search input (dropdown) -->
             <div id="searchDropdown" class="input-group" style="display: none; position: absolute; top: 60px; right: 0;width:300px;">
                 <form id="searchForm">
@@ -313,7 +315,7 @@
         {% comment %} <button id="mode-toggle">Toggle Dark Mode</button> {% endcomment %}
 
         <!-- Footer-->
-        <footer class="py-5 bg-dark custom-footer" style="position: relative;">
+        <footer id="footer" class="py-5 bg-dark custom-footer">
           <div class="footer-logo text-center">
               <img src="{% static 'images/thegaminghub-logo.png' %}" width="240" height="40" alt="Logo">
           </div>
@@ -346,12 +348,15 @@
             <a class="footer-btn" href="{% url "privacy-policy" %}">Privacy Policy</a>
             <a class="footer-btn" href="{% url "about" %}">About</a>
           </div>
-          <p style="font-size: 12px; position: absolute; bottom: 20px; left: 20px; right: 0;" class="m-0 text-center text-white">Copyright &copy; 2024 TheGamingHub - All Rights Reserved.</p>
+          <p style="font-size: 12px; right: 0; padding-left:40px;padding-top:20px;" class="m-0 text-center text-white">Copyright &copy; 2024 TheGamingHub - All Rights Reserved.</p>
       </footer>
     </body>
 </html>
 
 <script>
+  
+    footerForNonPosts();
+
     document.addEventListener('DOMContentLoaded', function() {
         var searchInput = document.getElementById('searchInput');
         var searchForm = document.getElementById('searchForm');
@@ -455,53 +460,23 @@ closeNewsLetterSuccessBtn.addEventListener('click', hideModal);
 overlay.addEventListener('click', hideModal);
 </script>
 
-{% comment %} the news letter subscription {% endcomment %}
-{% comment %} <script>
-  // Get a reference to the sub button
-  const subButton = document.getElementById('subBtn');
-  // Attach an event listener to the sub button
-  subButton.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent the default behavior of the button click 
-    email = document.getElementById('subEmail').value;
-    const newsletterModal = document.getElementById('newsletterModal');
-    const newsletterModalSuccess = document.getElementById('newsletterModalSuccess');
-    const url = `/newsletter-subscription/${email}`;
-    
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': '{{ csrf_token }}' // Include the CSRF token
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Handle the response data
-        // For example, display a success message or update the cart UI
-        if (data.success) {
-          newsletterModal.style.display = 'none'
-          newsletterModalSuccess.style.display = "block"
-        } else if (data.error) {
-          throw new Error('Error Occured Couldn\'t Subscribe');
-        }
-      })
-      .catch(error => {
-        // Handle any errors that occurred during the request
-        console.error(error);
-      });
-  });
-</script> {% endcomment %}
 <script>
   // Get a reference to the sub button
   const subButton = document.getElementById('subBtn');
   // Attach an event listener to the sub button
   subButton.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent the default behavior of the button click 
-    email = document.getElementById('subEmail').value;
+    
     const newsletterModal = document.getElementById('newsletterModal');
     const newsletterModalSuccess = document.getElementById('newsletterModalSuccess');
     const errorEl = document.getElementById('emailError')
     const privacyPolicyLine = document.querySelector('.privacy-policy')
+    email = document.getElementById('subEmail').value;
+    if (email === ""){
+      errorEl.textContent = "No Email Entered!"
+      errorEl.style.display = "block";
+      privacyPolicyLine.style.marginTop = "-40px";
+    }
     const url = `/newsletter-subscription/${email}`;
     
     // Show loading indicator
@@ -522,7 +497,16 @@ overlay.addEventListener('click', hideModal);
         if (data.success) {
           newsletterModal.style.display = 'none';
           newsletterModalSuccess.style.display = "block";
-        } else if (data.error) {
+        } else if (data.error && data.emailSubscribed) {
+          errorEl.textContent = "Email already subscribed!"
+          errorEl.style.display = "block";
+          privacyPolicyLine.style.marginTop = "-40px";
+        } else if (data.error && data.wrongEmail) {
+          errorEl.textContent = "Wrong Email!"
+          errorEl.style.display = "block";
+          privacyPolicyLine.style.marginTop = "-40px";
+        } else if (data.error && data.noEmail) {
+          errorEl.textContent = "Enter your Email!"
           errorEl.style.display = "block";
           privacyPolicyLine.style.marginTop = "-40px";
         }
@@ -538,3 +522,39 @@ overlay.addEventListener('click', hideModal);
       });
   });
 </script>
+<script>
+  // Function to show the hidden div after 20 seconds
+  function showDiv() {
+    const overlay = document.getElementById('overlay');
+    const newsletterModal = document.getElementById('newsletterModal');
+    document.body.classList.add('modal-open');
+    overlay.style.display = 'block';
+    newsletterModal.style.display = 'block';
+  }
+
+  // Check if the flag indicating whether the div has been shown before exists in local storage
+  var hasDivBeenShown = localStorage.getItem('divShown');
+  var divShownTimestamp = localStorage.getItem('divShownTimestamp');
+  {% comment %} localStorage.setItem('divShown', 'false'); {% endcomment %}
+  // If the flag does not exist or is false, show the div and set the flag in local storage to true
+  if (!hasDivBeenShown || hasDivBeenShown === 'false') {
+    setTimeout(function() {
+      showDiv();
+      localStorage.setItem('divShown', 'true');
+      localStorage.setItem('divShownTimestamp', Date.now());
+    }, 20000);
+      
+  }else {
+    elapsedTime = (new Date(Date.now() * 1000) - new Date(divShownTimestamp * 1000)) / 1000;
+    console.log(elapsedTime);
+    if (elapsedTime > 2700000){
+      setTimeout(function() {
+        showDiv();
+        localStorage.setItem('divShownTimestamp', Date.now());
+      }, 20000);
+  }
+}
+{% comment %} timestamp = localStorage.getItem('divShownTimestamp')
+console.log(new Date(Date.now())); {% endcomment %}
+</script>
+
