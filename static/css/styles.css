@@ -10882,7 +10882,7 @@ textarea.form-control-lg {
 }
 
 #navbar {
-  background-color: #333;
+  background-color: #28282B;
   color: white;
   padding: 10px;
   position: fixed;
@@ -11665,6 +11665,7 @@ a {
   margin-right:-110px;
   margin-left:-112px;
   height: 250px;
+  /* background-color: #28282B; */
   /* position: relative; */
 }
 @media (max-width: 767px) {
